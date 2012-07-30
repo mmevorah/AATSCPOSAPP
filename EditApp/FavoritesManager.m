@@ -15,7 +15,6 @@
 
 -(id)init
 {
-    NSLog(@"THIS SHOULD NOT RUN!!!!!!!!!!!!!!!");
     if(self = [super init])
     {
         NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];

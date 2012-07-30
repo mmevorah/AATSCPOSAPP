@@ -14,6 +14,7 @@
 #import "IDManager.h"
 #import "AppDelegate.h"
 #import "FavoritesManager.h"
+#import "FavoriteList.h"
 
 @implementation EditManager
 
@@ -146,6 +147,42 @@
     return [adiPure sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
 }
 
+-(NSNumber *)numberOfActiveFavorites
+{
+    int count = 0;
+    if([self contentsOfArray:self.favoriteManager.favList0.list] == TRUE)
+    {
+        count++;
+    }
+    if([self contentsOfArray:self.favoriteManager.favList1.list] == TRUE)
+    {
+        count++;
+    }
+    if([self contentsOfArray:self.favoriteManager.favList2.list] == TRUE)
+    {
+        count++;
+    }
+    if([self contentsOfArray:self.favoriteManager.favList3.list] == TRUE)
+    {
+        count++;
+    }
+    if([self contentsOfArray:self.favoriteManager.favList4.list] == TRUE)
+    {
+        count++;
+    }
+    return [NSNumber numberWithInt:count];
+}
 
+-(bool)contentsOfArray:(NSArray*)array
+{
+    for(int i = 0; i < 25; i++)
+    {
+        if([[array objectAtIndex:i] intValue] != -1)
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
 
 @end

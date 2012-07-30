@@ -194,5 +194,16 @@
     STAssertTrue([[[[editManager getProductList] objectAtIndex:2] name] isEqualToString:@"Zebra"], @"Zebra should be third");
 }
 
+-(void)testCanRetrieveActiveFavorites
+{
+    [editManager addProductToFavoritesWithID:product.iD toFavoritesList:0 atPosition:[NSNumber numberWithInt:5]];
+    [editManager addProductToFavoritesWithID:product.iD toFavoritesList:1 atPosition:[NSNumber numberWithInt:9]];
+    [editManager addProductToFavoritesWithID:product.iD toFavoritesList:2 atPosition:[NSNumber numberWithInt:23]];
+    
+    NSNumber *amtOfFavorites = [editManager numberOfActiveFavorites];
+    
+    STAssertTrue([amtOfFavorites intValue] == 3, @"edit manager should be able to return the amount of active favorites");
+}
+
 
 @end

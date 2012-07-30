@@ -7,18 +7,34 @@
 //
 
 #import "AppDelegate.h"
+#import "GroundEditViewController.h"
+#import "EditManager.h"
+#import "IDManager.h"
+#import "FavoritesManager.h"
+
 
 @implementation AppDelegate
-
 @synthesize window = _window;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+@synthesize groundViewController = _groundViewController;
+@synthesize editManager = _editManager;
+@synthesize idManager = _idManager;
+@synthesize favoritesManger = _favoritesManger;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
 
+    self.groundViewController = (GroundEditViewController*)self.window.rootViewController;
+    
+    self.idManager = [[IDManager alloc] init];
+    self.editManager = [[EditManager alloc] initWithManagedObjectContext:self.managedObjectContext andIDManager:self.idManager];
+    self.favoritesManger = [[FavoritesManager alloc] init];
+    self.editManager.favoriteManager = self.favoritesManger;
+    self.groundViewController.editManager = self.editManager;
+    
     return YES;
 }
 							

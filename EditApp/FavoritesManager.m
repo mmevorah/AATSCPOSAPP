@@ -21,7 +21,7 @@
         NSString *plistPath = [docDir stringByAppendingPathComponent:@"favoriteProducts.plist"];
         if([[NSFileManager defaultManager] fileExistsAtPath:plistPath])
         {
-            NSLog(@"[FOUND PLIST]");
+            NSLog(@"[FOUND PLIST For Favorites Manager]");
             source = [NSMutableArray arrayWithContentsOfFile:plistPath];
             favList0 = [source objectAtIndex:0];
             favList1 = [source objectAtIndex:1];
@@ -30,7 +30,7 @@
             favList4 = [source objectAtIndex:4];
         }else 
         {
-            NSLog(@"[COULD NO FIND PLIST] CREATING A NEW ONE");
+            NSLog(@"[COULD NO FIND PLIST For Favorites Manager] CREATING A NEW ONE");
             source = [[NSMutableArray alloc] init];
             favList0 = [[FavoriteList alloc] init];
             favList1 = [[FavoriteList alloc] init];

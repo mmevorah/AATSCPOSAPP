@@ -13,6 +13,7 @@
 #import "Product.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ModifyViewController.h"
+#import "IDManager.h"
 @interface GroundEditViewController ()
 
 @end
@@ -39,7 +40,9 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
-    [editManager createProductWithAName:@"Shirt" anImage:nil andAPrice:[NSNumber numberWithDouble:4.5]];
+    
+   // [editManager createProductWithAName:@"Shirt" anImage:nil andAPrice:[NSNumber numberWithDouble:4.5]];
+    NSLog(@"Array: %@", [editManager getProductList]);
     
     libraryView.layer.cornerRadius = 3;
     libraryView.layer.masksToBounds = YES;
@@ -56,6 +59,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark preparingSegmentedController
 
 -(NSArray*)packageSegmentedControllerArray
 {
@@ -79,6 +83,8 @@
     [self setLibraryView:nil];
     [super viewDidUnload];
 }
+
+#pragma mark preparingLibraryView
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -126,13 +132,27 @@
     return cell;
 }
 
+-(void)theSaveButtonHasBeenHit
+{
+    [productTableView reloadData];
+}
+
+#pragma mark preparingForCreateProductView
+
 - (IBAction)addButton:(UIBarButtonItem *)sender
 {
     ModifyViewController *modifyViewController = [[ModifyViewController alloc] init];
+    
+    modifyViewController.editManager = self.editManager;
+
     modifyViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     modifyViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentModalViewController:modifyViewController animated:YES];
-    modifyViewController.view.superview.frame = CGRectMake(0, 0, 100, 100);
+    modifyViewController.view.superview.frame = CGRectMake(0, 0, 500, 250);
     modifyViewController.view.superview.center = self.view.center;
+    
+    modifyViewController.titleBarTitle.text = @"Create Item";
+    modifyViewController.saveButton.enabled = NO;
+    modifyViewController.delegate = self;
 }
 @end

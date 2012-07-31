@@ -19,8 +19,6 @@
 		ED0A004315BF038F00731E13 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3A64C315B47D1A00E6EA04 /* AppDelegate.m */; };
 		ED0B69E915C728D3003B2806 /* emptyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0B69E815C728D3003B2806 /* emptyImage.png */; };
 		ED0B69EA15C728D3003B2806 /* emptyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0B69E815C728D3003B2806 /* emptyImage.png */; };
-		ED0B69F715C738DC003B2806 /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0B69F515C738DC003B2806 /* ModifyViewController.m */; };
-		ED0B69F815C738DC003B2806 /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0B69F515C738DC003B2806 /* ModifyViewController.m */; };
 		ED3A64B215B47D1A00E6EA04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B115B47D1A00E6EA04 /* UIKit.framework */; };
 		ED3A64B415B47D1A00E6EA04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B315B47D1A00E6EA04 /* Foundation.framework */; };
 		ED3A64B615B47D1A00E6EA04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B515B47D1A00E6EA04 /* CoreGraphics.framework */; };
@@ -52,6 +50,14 @@
 		EDAE634115B5E35A008D4164 /* EditManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE634015B5E35A008D4164 /* EditManagerTests.m */; };
 		EDAE634415B5E36E008D4164 /* VariationFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE634315B5E36E008D4164 /* VariationFactoryTests.m */; };
 		EDAF5F7115C711C10033CBB7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDAF5F7015C711C10033CBB7 /* QuartzCore.framework */; };
+		EDC442E815C81C9000DE8770 /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC442E615C81C9000DE8770 /* ModifyViewController.m */; };
+		EDC442E915C81C9000DE8770 /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC442E615C81C9000DE8770 /* ModifyViewController.m */; };
+		EDC442EA15C81C9000DE8770 /* ModifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC442E715C81C9000DE8770 /* ModifyViewController.xib */; };
+		EDC442EB15C81C9000DE8770 /* ModifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC442E715C81C9000DE8770 /* ModifyViewController.xib */; };
+		EDC442F315C845EA00DE8770 /* VariationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC442F115C845EA00DE8770 /* VariationViewController.m */; };
+		EDC442F415C845EA00DE8770 /* VariationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC442F115C845EA00DE8770 /* VariationViewController.m */; };
+		EDC442F515C845EA00DE8770 /* VariationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC442F215C845EA00DE8770 /* VariationViewController.xib */; };
+		EDC442F615C845EA00DE8770 /* VariationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC442F215C845EA00DE8770 /* VariationViewController.xib */; };
 		EDED9B1C15C1ACB100E2B47D /* SearchBarDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDED9B1B15C1ACB100E2B47D /* SearchBarDelegateTests.m */; };
 		EDF8D10D15B4918E00765DA9 /* CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8D10C15B4918E00765DA9 /* CoreDataTests.m */; };
 		EDF8D11915B4A73D00765DA9 /* ProductFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8D11815B4A73D00765DA9 /* ProductFactoryTests.m */; };
@@ -81,8 +87,6 @@
 		ED039D7515BDBACD0015D8D7 /* MockFavoritesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockFavoritesManager.h; sourceTree = "<group>"; };
 		ED039D7615BDBACD0015D8D7 /* MockFavoritesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockFavoritesManager.m; sourceTree = "<group>"; };
 		ED0B69E815C728D3003B2806 /* emptyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = emptyImage.png; path = EditApp/emptyImage.png; sourceTree = SOURCE_ROOT; };
-		ED0B69F415C738DC003B2806 /* ModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyViewController.h; sourceTree = "<group>"; };
-		ED0B69F515C738DC003B2806 /* ModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyViewController.m; sourceTree = "<group>"; };
 		ED3A64AD15B47D1A00E6EA04 /* EditApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EditApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3A64B115B47D1A00E6EA04 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ED3A64B315B47D1A00E6EA04 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -123,6 +127,12 @@
 		EDAE634215B5E36E008D4164 /* VariationFactoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationFactoryTests.h; sourceTree = "<group>"; };
 		EDAE634315B5E36E008D4164 /* VariationFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationFactoryTests.m; sourceTree = "<group>"; };
 		EDAF5F7015C711C10033CBB7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EDC442E515C81C9000DE8770 /* ModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyViewController.h; sourceTree = "<group>"; };
+		EDC442E615C81C9000DE8770 /* ModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyViewController.m; sourceTree = "<group>"; };
+		EDC442E715C81C9000DE8770 /* ModifyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyViewController.xib; sourceTree = "<group>"; };
+		EDC442F015C845EA00DE8770 /* VariationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationViewController.h; sourceTree = "<group>"; };
+		EDC442F115C845EA00DE8770 /* VariationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationViewController.m; sourceTree = "<group>"; };
+		EDC442F215C845EA00DE8770 /* VariationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariationViewController.xib; sourceTree = "<group>"; };
 		EDED9B1A15C1ACB000E2B47D /* SearchBarDelegateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBarDelegateTests.h; sourceTree = "<group>"; };
 		EDED9B1B15C1ACB100E2B47D /* SearchBarDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBarDelegateTests.m; sourceTree = "<group>"; };
 		EDF8D10B15B4918E00765DA9 /* CoreDataTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTests.h; sourceTree = "<group>"; };
@@ -220,8 +230,12 @@
 				ED3A64C515B47D1A00E6EA04 /* MainStoryboard.storyboard */,
 				ED97F8F715C6DE8A00C8A70A /* GroundEditViewController.h */,
 				ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */,
-				ED0B69F415C738DC003B2806 /* ModifyViewController.h */,
-				ED0B69F515C738DC003B2806 /* ModifyViewController.m */,
+				EDC442E515C81C9000DE8770 /* ModifyViewController.h */,
+				EDC442E615C81C9000DE8770 /* ModifyViewController.m */,
+				EDC442E715C81C9000DE8770 /* ModifyViewController.xib */,
+				EDC442F015C845EA00DE8770 /* VariationViewController.h */,
+				EDC442F115C845EA00DE8770 /* VariationViewController.m */,
+				EDC442F215C845EA00DE8770 /* VariationViewController.xib */,
 				ED3A64EF15B47DF800E6EA04 /* Model */,
 				ED3A64BA15B47D1A00E6EA04 /* Supporting Files */,
 				EDAE633B15B5E25B008D4164 /* EditManager.h */,
@@ -405,6 +419,8 @@
 				ED3A64BE15B47D1A00E6EA04 /* InfoPlist.strings in Resources */,
 				ED3A64C715B47D1A00E6EA04 /* MainStoryboard.storyboard in Resources */,
 				ED0B69E915C728D3003B2806 /* emptyImage.png in Resources */,
+				EDC442EA15C81C9000DE8770 /* ModifyViewController.xib in Resources */,
+				EDC442F515C845EA00DE8770 /* VariationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +430,8 @@
 			files = (
 				ED3A64E315B47D1A00E6EA04 /* InfoPlist.strings in Resources */,
 				ED0B69EA15C728D3003B2806 /* emptyImage.png in Resources */,
+				EDC442EB15C81C9000DE8770 /* ModifyViewController.xib in Resources */,
+				EDC442F615C845EA00DE8770 /* VariationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +471,8 @@
 				ED039D7715BDBACD0015D8D7 /* MockFavoritesManager.m in Sources */,
 				ED75F6B415BDC3C200693890 /* FavoriteList.m in Sources */,
 				ED97F8F915C6DE8A00C8A70A /* GroundEditViewController.m in Sources */,
-				ED0B69F715C738DC003B2806 /* ModifyViewController.m in Sources */,
+				EDC442E815C81C9000DE8770 /* ModifyViewController.m in Sources */,
+				EDC442F315C845EA00DE8770 /* VariationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +501,8 @@
 				EDED9B1C15C1ACB100E2B47D /* SearchBarDelegateTests.m in Sources */,
 				ED97F8FA15C6DE8A00C8A70A /* GroundEditViewController.m in Sources */,
 				ED97F8FE15C6E09D00C8A70A /* GroundViewControllerTests.m in Sources */,
-				ED0B69F815C738DC003B2806 /* ModifyViewController.m in Sources */,
+				EDC442E915C81C9000DE8770 /* ModifyViewController.m in Sources */,
+				EDC442F415C845EA00DE8770 /* VariationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

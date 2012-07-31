@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "EditManager.h"
+#import "ModifyViewController.h"
 @class EditManager;
-@class LibraryViewController;
-@interface GroundEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@class ModifyViewController;
+
+@interface GroundEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ModifyViewControllerDelegate>
 
 @property (strong, nonatomic)EditManager *editManager;
 @property (strong, nonatomic)UISegmentedControl *segmentedControl;

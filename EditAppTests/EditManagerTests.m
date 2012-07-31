@@ -35,7 +35,6 @@
     editManager.favoriteManager = mockFavoritesManager;
     
     product = [editManager createProductWithAName: @"Shirt" anImage: nil andAPrice: [NSNumber numberWithDouble:3.50]];
-    
 }
 
 -(void)tearDown
@@ -203,6 +202,19 @@
     NSNumber *amtOfFavorites = [editManager numberOfActiveFavorites];
     
     STAssertTrue([amtOfFavorites intValue] == 3, @"edit manager should be able to return the amount of active favorites");
+}
+
+-(void)testRetreiveMasterVariation
+{
+    Variation *variation = [editManager getMasterVariationFromProduct:product];
+    [editManager addVariationToProduct:product withName:@"blah" andPrice:[NSNumber numberWithDouble: 3.4]];
+    STAssertTrue([variation.master intValue] == 1, @"Should be able to retreive master variation");
+}
+
+-(void)testCanChangeMasterVariationsPrice
+{
+    [editManager changeProduct:product masterPriceTo:[NSNumber numberWithDouble:5.6]];
+    STAssertTrue([[[editManager getMasterVariationFromProduct:product] price] doubleValue] == 5.6, @"Should be able to set the master price of a product");
 }
 
 

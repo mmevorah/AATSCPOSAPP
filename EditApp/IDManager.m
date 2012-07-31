@@ -24,13 +24,13 @@
         NSString *plistPath = [docDir stringByAppendingPathComponent:@"productID.plist"];
         if([[NSFileManager defaultManager] fileExistsAtPath:plistPath])
         {
-            NSLog(@"[FOUND PLIST]");
+            NSLog(@"[FOUND PLIST For ID Manager]");
             source = [NSMutableArray arrayWithContentsOfFile:plistPath];
             productIDCount = [source objectAtIndex:0];
             variantIDCount = [source objectAtIndex:1];
         }else 
         {
-            NSLog(@"[COULD NO FIND PLIST] CREATING A NEW ONE");
+            NSLog(@"[COULD NO FIND PLIST For ID Manager] CREATING A NEW ONE");
             source = [[NSMutableArray alloc] init];
             productIDCount = [[NSNumber alloc] initWithInt:0];
             variantIDCount = [[NSNumber alloc] initWithInt:0];

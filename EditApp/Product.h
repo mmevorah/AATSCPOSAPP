@@ -19,7 +19,6 @@
 @property (nonatomic, retain) NSSet *variation;
 
 -(NSNumber *)masterPrice;
-
 @end
 
 @interface Product (CoreDataGeneratedAccessors)

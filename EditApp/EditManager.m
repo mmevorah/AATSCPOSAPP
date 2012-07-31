@@ -99,6 +99,12 @@
     product.image = image;
 }
 
+-(void)changeProduct:(Product *)product masterPriceTo:(NSNumber *)price
+{
+    Variation *variation = [self getMasterVariationFromProduct:product];
+    [self changeVariation:variation priceTo:price];
+}
+
 -(void)changeVariation:(Variation *)variation nameTo:(NSString *)name
 {
     variation.name = name;
@@ -144,6 +150,7 @@
     NSArray *adiPure = [context executeFetchRequest:request error:&error];
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    
     return [adiPure sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
 }
 
@@ -171,6 +178,21 @@
         count++;
     }
     return [NSNumber numberWithInt:count];
+}
+
+-(Variation*)getMasterVariationFromProduct:(Product *)product
+{
+    NSArray *variations = [NSArray arrayWithArray: product.variation.allObjects];
+    for(int i = 0; i < product.variation.count ; i++)
+    {
+        if([[[variations objectAtIndex:i] master] boolValue] == YES)
+        {
+            return [variations objectAtIndex:i];
+        }
+    }
+    UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could'nt Find Master Variation" delegate:nil cancelButtonTitle:@"Darn!"otherButtonTitles:nil, nil];
+    [error show];
+    return nil;
 }
 
 -(bool)contentsOfArray:(NSArray*)array

@@ -40,10 +40,6 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
-    
-   // [editManager createProductWithAName:@"Shirt" anImage:nil andAPrice:[NSNumber numberWithDouble:4.5]];
-    NSLog(@"Array: %@", [editManager getProductList]);
-    
     libraryView.layer.cornerRadius = 3;
     libraryView.layer.masksToBounds = YES;
     
@@ -134,6 +130,7 @@
 
 -(void)theSaveButtonHasBeenHit
 {
+    NSLog(@"So After saving the product list is: %@", [editManager getProductList]);
     [productTableView reloadData];
 }
 

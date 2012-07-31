@@ -29,9 +29,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    variationCount = 2;
+    variationCount = 1; // change to 2
     addRemoveOutlet.value = variationCount;
-    addRemoveOutlet.minimumValue = 2;
+    addRemoveOutlet.minimumValue = 1; //change to 2
     addRemoveOutlet.stepValue = 1;
 }
 
@@ -67,6 +67,11 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
+    UIView *cellView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 438, 44)];
+    cell.accessoryView = cellView;
+    UIView *columnView = [[UIView alloc] initWithFrame:CGRectMake(cellView.frame.size.width/2, 0, 1, cellView.frame.size.height)];
+    columnView.backgroundColor = [UIColor grayColor];
+    [cellView addSubview:columnView];
     return cell;
 }
 

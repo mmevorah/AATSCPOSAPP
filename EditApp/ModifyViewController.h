@@ -45,4 +45,7 @@
 - (IBAction)cancelButton:(UIBarButtonItem *)sender;
 - (IBAction)disclosureButtonAction:(UIButton *)sender;
 
+//For setting product details
+
+
 @end

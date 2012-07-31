@@ -65,6 +65,10 @@
     variantIDCount = [NSNumber numberWithInt:([variantIDCount intValue] + [tempVariantIDCount intValue])];
     tempProductIDCount = [NSNumber numberWithInt:0];
     tempVariantIDCount = [NSNumber numberWithInt:0];
+    
+    NSLog(@"source contains: %@", source);
+    [source replaceObjectAtIndex:0 withObject:productIDCount];
+    [source replaceObjectAtIndex:1 withObject:variantIDCount];
     [source writeToFile:plistPath atomically:YES];
 }
 

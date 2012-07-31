@@ -58,4 +58,6 @@
     STAssertTrue(groundViewController.segmentedControl.numberOfSegments == 3, @"for an program with no favorites, the segmented controller should start off with two segments");
 }
 
+
+
 @end

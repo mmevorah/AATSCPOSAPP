@@ -10,6 +10,9 @@
 #import "EditManager.h"
 #import "FavoritesManager.h"
 #import "FavoriteList.h"
+#import "Product.h"
+#import <QuartzCore/QuartzCore.h>
+#import "ModifyViewController.h"
 @interface GroundEditViewController ()
 
 @end
@@ -18,6 +21,9 @@
 
 @synthesize editManager;
 @synthesize segmentedControl;
+@synthesize libraryView;
+@synthesize productTableView;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,12 +37,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view.
+    [editManager createProductWithAName:@"Shirt" anImage:nil andAPrice:[NSNumber numberWithDouble:4.5]];
+    
+    libraryView.layer.cornerRadius = 3;
+    libraryView.layer.masksToBounds = YES;
+    
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:[self packageSegmentedControllerArray]];
-    CGPoint segmentedControlLocation = CGPointMake(self.view.center.x, self.view.frame.size.height - 100);
+    CGPoint segmentedControlLocation = CGPointMake(self.view.center.x, self.view.frame.size.height - 75);
     self.segmentedControl.center = segmentedControlLocation;
     [self.view addSubview:self.segmentedControl];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,4 +75,64 @@
     return array;
 }
 
+- (void)viewDidUnload {
+    [self setLibraryView:nil];
+    [super viewDidUnload];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [[editManager getProductList]count];
+}
+
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"SegueCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    }
+    
+    UIFont *font = [UIFont fontWithName:@"Didot" size:25];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    //name
+    cell.textLabel.font = font;
+    cell.textLabel.text = [[[editManager getProductList] objectAtIndex:[indexPath row]] name];
+    
+    //price
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    cell.detailTextLabel.textColor = [UIColor blackColor];
+    cell.detailTextLabel.font = font;
+    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[[[editManager getProductList]objectAtIndex:[indexPath row]]masterPrice]];
+    
+    //image
+    if([[[editManager getProductList]objectAtIndex:[indexPath row]]image] == nil)
+    {
+        cell.imageView.image = [UIImage imageNamed:@"emptyImage.png"];
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    }else
+    {
+        cell.imageView.image = [[[editManager getProductList] objectAtIndex:[indexPath row]]image];
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    
+    return cell;
+}
+
+- (IBAction)addButton:(UIBarButtonItem *)sender
+{
+    ModifyViewController *modifyViewController = [[ModifyViewController alloc] init];
+    modifyViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    modifyViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentModalViewController:modifyViewController animated:YES];
+    modifyViewController.view.superview.frame = CGRectMake(0, 0, 100, 100);
+    modifyViewController.view.superview.center = self.view.center;
+}
 @end

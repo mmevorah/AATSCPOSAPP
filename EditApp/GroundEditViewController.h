@@ -9,9 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @class EditManager;
-
-@interface GroundEditViewController : UIViewController
+@class LibraryViewController;
+@interface GroundEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic)EditManager *editManager;
 @property (strong, nonatomic)UISegmentedControl *segmentedControl;
+@property (strong, nonatomic) IBOutlet UIView *libraryView;
+
+//Library View
+@property (strong, nonatomic) IBOutlet UITableView *productTableView;
+- (IBAction)addButton:(UIBarButtonItem *)sender;
+
 @end

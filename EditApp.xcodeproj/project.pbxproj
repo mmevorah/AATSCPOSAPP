@@ -16,10 +16,11 @@
 		ED039D7015BDB7F80015D8D7 /* FavoritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED039D6E15BDB7F80015D8D7 /* FavoritesManager.m */; };
 		ED039D7715BDBACD0015D8D7 /* MockFavoritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED039D7615BDBACD0015D8D7 /* MockFavoritesManager.m */; };
 		ED039D7815BDBACD0015D8D7 /* MockFavoritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED039D7615BDBACD0015D8D7 /* MockFavoritesManager.m */; };
-		ED0A002C15BEEDAF00731E13 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A002B15BEEDAF00731E13 /* EditViewController.m */; };
-		ED0A002D15BEEDAF00731E13 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A002B15BEEDAF00731E13 /* EditViewController.m */; };
-		ED0A003015BEEF5500731E13 /* EditViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A002F15BEEF5500731E13 /* EditViewControllerTests.m */; };
 		ED0A004315BF038F00731E13 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3A64C315B47D1A00E6EA04 /* AppDelegate.m */; };
+		ED0B69E915C728D3003B2806 /* emptyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0B69E815C728D3003B2806 /* emptyImage.png */; };
+		ED0B69EA15C728D3003B2806 /* emptyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0B69E815C728D3003B2806 /* emptyImage.png */; };
+		ED0B69F715C738DC003B2806 /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0B69F515C738DC003B2806 /* ModifyViewController.m */; };
+		ED0B69F815C738DC003B2806 /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0B69F515C738DC003B2806 /* ModifyViewController.m */; };
 		ED3A64B215B47D1A00E6EA04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B115B47D1A00E6EA04 /* UIKit.framework */; };
 		ED3A64B415B47D1A00E6EA04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B315B47D1A00E6EA04 /* Foundation.framework */; };
 		ED3A64B615B47D1A00E6EA04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B515B47D1A00E6EA04 /* CoreGraphics.framework */; };
@@ -41,20 +42,16 @@
 		ED75F6B415BDC3C200693890 /* FavoriteList.m in Sources */ = {isa = PBXBuildFile; fileRef = ED75F6B315BDC3C200693890 /* FavoriteList.m */; };
 		ED75F6B515BDC3C200693890 /* FavoriteList.m in Sources */ = {isa = PBXBuildFile; fileRef = ED75F6B315BDC3C200693890 /* FavoriteList.m */; };
 		ED75F6BC15BDC4E100693890 /* FavoriteListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED75F6BB15BDC4E100693890 /* FavoriteListTests.m */; };
-		ED76E4FA15C0313D00AC992F /* ProductTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76E4F915C0313D00AC992F /* ProductTableDataSource.m */; };
-		ED76E4FB15C0313D00AC992F /* ProductTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76E4F915C0313D00AC992F /* ProductTableDataSource.m */; };
-		ED76E4FF15C0316000AC992F /* ProductTableDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76E4FE15C0316000AC992F /* ProductTableDataSourceTests.m */; };
 		ED97F8F915C6DE8A00C8A70A /* GroundEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */; };
 		ED97F8FA15C6DE8A00C8A70A /* GroundEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */; };
 		ED97F8FE15C6E09D00C8A70A /* GroundViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED97F8FD15C6E09D00C8A70A /* GroundViewControllerTests.m */; };
-		EDA6216815BF2FC60083FE89 /* ProductTableDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA6216715BF2FC60083FE89 /* ProductTableDelegateTests.m */; };
 		EDAE633815B5E214008D4164 /* VariationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE633715B5E214008D4164 /* VariationFactory.m */; };
 		EDAE633915B5E214008D4164 /* VariationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE633715B5E214008D4164 /* VariationFactory.m */; };
 		EDAE633D15B5E25B008D4164 /* EditManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE633C15B5E25B008D4164 /* EditManager.m */; };
 		EDAE633E15B5E25B008D4164 /* EditManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE633C15B5E25B008D4164 /* EditManager.m */; };
 		EDAE634115B5E35A008D4164 /* EditManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE634015B5E35A008D4164 /* EditManagerTests.m */; };
 		EDAE634415B5E36E008D4164 /* VariationFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE634315B5E36E008D4164 /* VariationFactoryTests.m */; };
-		EDAF5F6E15C709150033CBB7 /* LibraryViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAF5F6D15C709150033CBB7 /* LibraryViewControllerTests.m */; };
+		EDAF5F7115C711C10033CBB7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDAF5F7015C711C10033CBB7 /* QuartzCore.framework */; };
 		EDED9B1C15C1ACB100E2B47D /* SearchBarDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDED9B1B15C1ACB100E2B47D /* SearchBarDelegateTests.m */; };
 		EDF8D10D15B4918E00765DA9 /* CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8D10C15B4918E00765DA9 /* CoreDataTests.m */; };
 		EDF8D11915B4A73D00765DA9 /* ProductFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8D11815B4A73D00765DA9 /* ProductFactoryTests.m */; };
@@ -83,10 +80,9 @@
 		ED039D6E15BDB7F80015D8D7 /* FavoritesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesManager.m; sourceTree = "<group>"; };
 		ED039D7515BDBACD0015D8D7 /* MockFavoritesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockFavoritesManager.h; sourceTree = "<group>"; };
 		ED039D7615BDBACD0015D8D7 /* MockFavoritesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockFavoritesManager.m; sourceTree = "<group>"; };
-		ED0A002A15BEEDAF00731E13 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
-		ED0A002B15BEEDAF00731E13 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
-		ED0A002E15BEEF5500731E13 /* EditViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewControllerTests.h; sourceTree = "<group>"; };
-		ED0A002F15BEEF5500731E13 /* EditViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewControllerTests.m; sourceTree = "<group>"; };
+		ED0B69E815C728D3003B2806 /* emptyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = emptyImage.png; path = EditApp/emptyImage.png; sourceTree = SOURCE_ROOT; };
+		ED0B69F415C738DC003B2806 /* ModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyViewController.h; sourceTree = "<group>"; };
+		ED0B69F515C738DC003B2806 /* ModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyViewController.m; sourceTree = "<group>"; };
 		ED3A64AD15B47D1A00E6EA04 /* EditApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EditApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3A64B115B47D1A00E6EA04 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ED3A64B315B47D1A00E6EA04 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -114,16 +110,10 @@
 		ED75F6B315BDC3C200693890 /* FavoriteList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteList.m; sourceTree = "<group>"; };
 		ED75F6BA15BDC4E100693890 /* FavoriteListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteListTests.h; sourceTree = "<group>"; };
 		ED75F6BB15BDC4E100693890 /* FavoriteListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteListTests.m; sourceTree = "<group>"; };
-		ED76E4F815C0313D00AC992F /* ProductTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductTableDataSource.h; path = EditAppTests/ProductTableDataSource.h; sourceTree = SOURCE_ROOT; };
-		ED76E4F915C0313D00AC992F /* ProductTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductTableDataSource.m; path = EditAppTests/ProductTableDataSource.m; sourceTree = SOURCE_ROOT; };
-		ED76E4FD15C0316000AC992F /* ProductTableDataSourceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableDataSourceTests.h; sourceTree = "<group>"; };
-		ED76E4FE15C0316000AC992F /* ProductTableDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableDataSourceTests.m; sourceTree = "<group>"; };
 		ED97F8F715C6DE8A00C8A70A /* GroundEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroundEditViewController.h; sourceTree = "<group>"; };
 		ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroundEditViewController.m; sourceTree = "<group>"; };
 		ED97F8FC15C6E09D00C8A70A /* GroundViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroundViewControllerTests.h; sourceTree = "<group>"; };
 		ED97F8FD15C6E09D00C8A70A /* GroundViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroundViewControllerTests.m; sourceTree = "<group>"; };
-		EDA6216615BF2FC60083FE89 /* ProductTableDelegateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableDelegateTests.h; sourceTree = "<group>"; };
-		EDA6216715BF2FC60083FE89 /* ProductTableDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableDelegateTests.m; sourceTree = "<group>"; };
 		EDAE633615B5E214008D4164 /* VariationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationFactory.h; sourceTree = "<group>"; };
 		EDAE633715B5E214008D4164 /* VariationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationFactory.m; sourceTree = "<group>"; };
 		EDAE633B15B5E25B008D4164 /* EditManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditManager.h; sourceTree = "<group>"; };
@@ -132,8 +122,7 @@
 		EDAE634015B5E35A008D4164 /* EditManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditManagerTests.m; sourceTree = "<group>"; };
 		EDAE634215B5E36E008D4164 /* VariationFactoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationFactoryTests.h; sourceTree = "<group>"; };
 		EDAE634315B5E36E008D4164 /* VariationFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationFactoryTests.m; sourceTree = "<group>"; };
-		EDAF5F6C15C709150033CBB7 /* LibraryViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryViewControllerTests.h; sourceTree = "<group>"; };
-		EDAF5F6D15C709150033CBB7 /* LibraryViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewControllerTests.m; sourceTree = "<group>"; };
+		EDAF5F7015C711C10033CBB7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EDED9B1A15C1ACB000E2B47D /* SearchBarDelegateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBarDelegateTests.h; sourceTree = "<group>"; };
 		EDED9B1B15C1ACB100E2B47D /* SearchBarDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBarDelegateTests.m; sourceTree = "<group>"; };
 		EDF8D10B15B4918E00765DA9 /* CoreDataTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTests.h; sourceTree = "<group>"; };
@@ -149,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDAF5F7115C711C10033CBB7 /* QuartzCore.framework in Frameworks */,
 				ED3A64B215B47D1A00E6EA04 /* UIKit.framework in Frameworks */,
 				ED3A64B415B47D1A00E6EA04 /* Foundation.framework in Frameworks */,
 				ED3A64B615B47D1A00E6EA04 /* CoreGraphics.framework in Frameworks */,
@@ -212,6 +202,7 @@
 		ED3A64B015B47D1A00E6EA04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EDAF5F7015C711C10033CBB7 /* QuartzCore.framework */,
 				ED3A64B115B47D1A00E6EA04 /* UIKit.framework */,
 				ED3A64B315B47D1A00E6EA04 /* Foundation.framework */,
 				ED3A64B515B47D1A00E6EA04 /* CoreGraphics.framework */,
@@ -229,10 +220,8 @@
 				ED3A64C515B47D1A00E6EA04 /* MainStoryboard.storyboard */,
 				ED97F8F715C6DE8A00C8A70A /* GroundEditViewController.h */,
 				ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */,
-				ED0A002A15BEEDAF00731E13 /* EditViewController.h */,
-				ED0A002B15BEEDAF00731E13 /* EditViewController.m */,
-				ED76E4F815C0313D00AC992F /* ProductTableDataSource.h */,
-				ED76E4F915C0313D00AC992F /* ProductTableDataSource.m */,
+				ED0B69F415C738DC003B2806 /* ModifyViewController.h */,
+				ED0B69F515C738DC003B2806 /* ModifyViewController.m */,
 				ED3A64EF15B47DF800E6EA04 /* Model */,
 				ED3A64BA15B47D1A00E6EA04 /* Supporting Files */,
 				EDAE633B15B5E25B008D4164 /* EditManager.h */,
@@ -274,6 +263,7 @@
 		ED3A64DF15B47D1A00E6EA04 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ED0B69E815C728D3003B2806 /* emptyImage.png */,
 				ED3A64E015B47D1A00E6EA04 /* EditAppTests-Info.plist */,
 				ED3A64E115B47D1A00E6EA04 /* InfoPlist.strings */,
 			);
@@ -299,10 +289,6 @@
 			children = (
 				ED97F8FC15C6E09D00C8A70A /* GroundViewControllerTests.h */,
 				ED97F8FD15C6E09D00C8A70A /* GroundViewControllerTests.m */,
-				ED0A002E15BEEF5500731E13 /* EditViewControllerTests.h */,
-				ED0A002F15BEEF5500731E13 /* EditViewControllerTests.m */,
-				EDAF5F6C15C709150033CBB7 /* LibraryViewControllerTests.h */,
-				EDAF5F6D15C709150033CBB7 /* LibraryViewControllerTests.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -310,10 +296,6 @@
 		ED97F90015C6E73600C8A70A /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				EDA6216615BF2FC60083FE89 /* ProductTableDelegateTests.h */,
-				EDA6216715BF2FC60083FE89 /* ProductTableDelegateTests.m */,
-				ED76E4FD15C0316000AC992F /* ProductTableDataSourceTests.h */,
-				ED76E4FE15C0316000AC992F /* ProductTableDataSourceTests.m */,
 				EDED9B1A15C1ACB000E2B47D /* SearchBarDelegateTests.h */,
 				EDED9B1B15C1ACB100E2B47D /* SearchBarDelegateTests.m */,
 			);
@@ -422,6 +404,7 @@
 			files = (
 				ED3A64BE15B47D1A00E6EA04 /* InfoPlist.strings in Resources */,
 				ED3A64C715B47D1A00E6EA04 /* MainStoryboard.storyboard in Resources */,
+				ED0B69E915C728D3003B2806 /* emptyImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED3A64E315B47D1A00E6EA04 /* InfoPlist.strings in Resources */,
+				ED0B69EA15C728D3003B2806 /* emptyImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,9 +452,8 @@
 				ED039D6F15BDB7F80015D8D7 /* FavoritesManager.m in Sources */,
 				ED039D7715BDBACD0015D8D7 /* MockFavoritesManager.m in Sources */,
 				ED75F6B415BDC3C200693890 /* FavoriteList.m in Sources */,
-				ED0A002C15BEEDAF00731E13 /* EditViewController.m in Sources */,
-				ED76E4FA15C0313D00AC992F /* ProductTableDataSource.m in Sources */,
 				ED97F8F915C6DE8A00C8A70A /* GroundEditViewController.m in Sources */,
+				ED0B69F715C738DC003B2806 /* ModifyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,15 +479,10 @@
 				ED039D7815BDBACD0015D8D7 /* MockFavoritesManager.m in Sources */,
 				ED75F6B515BDC3C200693890 /* FavoriteList.m in Sources */,
 				ED75F6BC15BDC4E100693890 /* FavoriteListTests.m in Sources */,
-				ED0A002D15BEEDAF00731E13 /* EditViewController.m in Sources */,
-				ED0A003015BEEF5500731E13 /* EditViewControllerTests.m in Sources */,
-				EDA6216815BF2FC60083FE89 /* ProductTableDelegateTests.m in Sources */,
-				ED76E4FB15C0313D00AC992F /* ProductTableDataSource.m in Sources */,
-				ED76E4FF15C0316000AC992F /* ProductTableDataSourceTests.m in Sources */,
 				EDED9B1C15C1ACB100E2B47D /* SearchBarDelegateTests.m in Sources */,
 				ED97F8FA15C6DE8A00C8A70A /* GroundEditViewController.m in Sources */,
 				ED97F8FE15C6E09D00C8A70A /* GroundViewControllerTests.m in Sources */,
-				EDAF5F6E15C709150033CBB7 /* LibraryViewControllerTests.m in Sources */,
+				ED0B69F815C738DC003B2806 /* ModifyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

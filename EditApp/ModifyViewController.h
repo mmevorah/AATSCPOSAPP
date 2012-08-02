@@ -22,16 +22,17 @@
 
 @interface ModifyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
-    Product *product;
+    NSString *lcuw;
     NSString *nameInField;
     NSNumber *priceInField;
+    
 }
 
 @property (strong, nonatomic) id<ModifyViewControllerDelegate> delegate;
-@property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) VariationViewController *variationViewController;
 
 @property (strong, nonatomic)EditManager *editManager;
+@property (strong, nonatomic)Product *product;
 
 @property (strong, nonatomic) IBOutlet UILabel *titleBarTitle;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
@@ -39,13 +40,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *textFieldTable;
 @property (strong, nonatomic) IBOutlet UIButton *disclosureButton;
 
-
-- (IBAction)saveButton:(UIBarButtonItem *)sender;
-
-- (IBAction)cancelButton:(UIBarButtonItem *)sender;
-- (IBAction)disclosureButtonAction:(UIButton *)sender;
-
-//For setting product details
-
+- (IBAction) saveButton:(UIBarButtonItem *)sender;
+- (IBAction) cancelButton:(UIBarButtonItem *)sender;
+- (IBAction) disclosureButtonAction:(UIButton *)sender;
 
 @end

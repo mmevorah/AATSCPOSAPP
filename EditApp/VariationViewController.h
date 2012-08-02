@@ -8,16 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class EditManager;
+@class Product;
 @interface VariationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     NSInteger variationCount;
 }
 
+@property (strong, nonatomic) EditManager *editManager;
+@property (strong, nonatomic) Product *product;
 @property (strong, nonatomic) IBOutlet UITableView *variationTableView;
-@property (strong, nonatomic) IBOutlet UIStepper *addRemoveOutlet;
 
 - (IBAction)itemBackButton:(UIBarButtonItem *)sender;
-- (IBAction)addRemoveVariations:(UIStepper *)sender;
+- (IBAction)addVariation:(UIBarButtonItem *)sender;
 
 
 @end

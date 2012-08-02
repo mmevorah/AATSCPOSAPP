@@ -16,9 +16,9 @@
 
 @property (strong, nonatomic)EditManager *editManager;
 @property (strong, nonatomic)UISegmentedControl *segmentedControl;
-@property (strong, nonatomic) IBOutlet UIView *libraryView;
 
 //Library View
+@property (strong, nonatomic) IBOutlet UIView *libraryView;
 @property (strong, nonatomic) IBOutlet UITableView *productTableView;
 - (IBAction)addButton:(UIBarButtonItem *)sender;
 

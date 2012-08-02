@@ -17,6 +17,7 @@
                             theImage:(UIImage *)image 
 {
     Product *newProduct = [NSEntityDescription insertNewObjectForEntityForName:@"Product" inManagedObjectContext: context];    
+    /*
     @try {
         if([name length] == 0)
         {
@@ -26,7 +27,7 @@
     @catch (NSString *exception) {
         return nil;
     }
-    
+    */
     newProduct.name = name;
     newProduct.image = image;
     return newProduct;

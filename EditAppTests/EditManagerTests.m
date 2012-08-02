@@ -217,5 +217,19 @@
     STAssertTrue([[[editManager getMasterVariationFromProduct:product] price] doubleValue] == 5.6, @"Should be able to set the master price of a product");
 }
 
+-(void)testCanGetVariationArrayFromProduct
+{
+    [editManager addVariationToProduct:product withName:@"Small" andPrice:[NSNumber numberWithDouble:3.4]];
+    STAssertTrue([[editManager getVariationListFromProduct:product] count] == 2, @"Should be able to retrieve a list of variations from a product");
+}
+
+-(void)testVariationArrayIsSortedByIdNumber
+{
+    [editManager addVariationToProduct:product withName:@"Small" andPrice:[NSNumber numberWithDouble:4.5]];
+    [editManager addVariationToProduct:product withName:@"Large" andPrice:[NSNumber numberWithDouble:2.3]];
+    STAssertEqualObjects([[[editManager getVariationListFromProduct:product] objectAtIndex:0] name], @"Regular", @"Regular was the first variation created and should be the first one listed");
+    STAssertEqualObjects([[[editManager getVariationListFromProduct:product] objectAtIndex:1] name], @"Small", @"Small was the second variation created and should be the second one listed");
+    STAssertEqualObjects([[[editManager getVariationListFromProduct:product] objectAtIndex:2] name], @"Large", @"Large was the third variation created and should be the third one listed");
+}
 
 @end

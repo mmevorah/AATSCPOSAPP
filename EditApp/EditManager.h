@@ -53,7 +53,12 @@
 -(void)saveContext;
 -(void)cancelContext;
 
+//Accessing
 -(NSArray*)getProductList;
+-(NSArray*)getVariationListFromProduct:(Product*)product;
+
+//Utility
+-(NSNumber*)convertCurrencyToNumber:(NSString*)string;
 
 -(void)addProductToFavoritesWithID:(NSNumber*)productID toFavoritesList:(int)favList atPosition:(NSNumber*)pos;
 -(void)removeProductFromFavoritesList:(int)favList position:(NSNumber*)pos;

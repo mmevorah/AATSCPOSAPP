@@ -131,6 +131,7 @@
 -(void)theSaveButtonHasBeenHit
 {
     NSLog(@"So After saving the product list is: %@", [editManager getProductList]);
+    NSLog(@"With the variation list looking like: %@", [editManager getVariationListFromProduct:[[editManager getProductList] objectAtIndex:0]] );
     [productTableView reloadData];
 }
 
@@ -139,7 +140,6 @@
 - (IBAction)addButton:(UIBarButtonItem *)sender
 {
     ModifyViewController *modifyViewController = [[ModifyViewController alloc] init];
-    
     modifyViewController.editManager = self.editManager;
 
     modifyViewController.modalPresentationStyle = UIModalPresentationFormSheet;

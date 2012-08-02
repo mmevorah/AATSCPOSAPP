@@ -16,7 +16,6 @@
 
 @property(strong, nonatomic) NSManagedObjectContext *context;
 
--(Product *)createProductWithTheName:(NSString *)name 
-                            theImage:(UIImage *)image;
+-(Product *)createProductwith bla;
 
 @end

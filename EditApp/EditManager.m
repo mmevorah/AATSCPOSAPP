@@ -101,8 +101,7 @@
 
 -(void)changeProduct:(Product *)product masterPriceTo:(NSNumber *)price
 {
-    Variation *variation = [self getMasterVariationFromProduct:product];
-    [self changeVariation:variation priceTo:price];
+    [self changeVariation:[self getMasterVariationFromProduct:product] priceTo:price];
 }
 
 -(void)changeVariation:(Variation *)variation nameTo:(NSString *)name
@@ -127,6 +126,11 @@
     [favoriteManager saveFavorites];
 }
 
+-(NSNumber*)convertCurrencyToNumber:(NSString *)string
+{
+    NSString *stringWithoutCurrencySymbol = [string stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    return [NSNumber numberWithDouble: [[stringWithoutCurrencySymbol stringByReplacingOccurrencesOfString:@"," withString:@""] doubleValue]];
+}
 
 -(void)saveContext
 {
@@ -152,6 +156,13 @@
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     
     return [adiPure sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+}
+
+-(NSArray*)getVariationListFromProduct:(Product *)product
+{
+    NSArray *array = [[product variation] allObjects];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"iD" ascending:YES];
+    return [array sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sort, nil]];
 }
 
 -(NSNumber *)numberOfActiveFavorites

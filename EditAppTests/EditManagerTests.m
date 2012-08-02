@@ -34,7 +34,9 @@
     editManager = [[EditManager alloc] initWithManagedObjectContext:context andIDManager:idManager];
     editManager.favoriteManager = mockFavoritesManager;
     
-    product = [editManager createProductWithAName: @"Shirt" anImage: nil andAPrice: [NSNumber numberWithDouble:3.50]];
+    product = [editManager createProductShell];
+    [editManager changeProduct:product nameTo:@"Shirt"];
+    [editManager changeProduct:product masterPriceTo:[NSNumber numberWithDouble:3.5]];
 }
 
 -(void)tearDown
@@ -179,14 +181,16 @@
 
 -(void)testCanReturnArrayOfProducts
 {
-    [editManager createProductWithAName:@"Pants" anImage:nil andAPrice:[NSNumber numberWithDouble: 4.5]];
+    [editManager createProductShell];
     STAssertTrue([[editManager getProductList] count] == 2, @"edit manager should be able to return a list of products in the current context");
 }
 
 -(void)testReturnedArrayIsSortedByName
 {
-    [editManager createProductWithAName:@"Apple" anImage:nil andAPrice:[NSNumber numberWithDouble:3.50]];
-    [editManager createProductWithAName:@"Zebra" anImage:nil andAPrice:[NSNumber numberWithDouble:4.60]];
+    Product *p1 = [editManager createProductShell];
+    [editManager changeProduct:p1 nameTo:@"Apple"];
+    Product *p2 = [editManager createProductShell];
+    [editManager changeProduct:p2 nameTo:@"Zebra"];
     NSLog(@"list looks like: %@", [editManager getProductList]);
     STAssertTrue([[[[editManager getProductList] objectAtIndex:0] name] isEqualToString:@"Apple"], @"Apple should be first");
     STAssertTrue([[[[editManager getProductList] objectAtIndex:1] name] isEqualToString:@"Shirt"], @"Shirt should be second");
@@ -231,5 +235,17 @@
     STAssertEqualObjects([[[editManager getVariationListFromProduct:product] objectAtIndex:1] name], @"Small", @"Small was the second variation created and should be the second one listed");
     STAssertEqualObjects([[[editManager getVariationListFromProduct:product] objectAtIndex:2] name], @"Large", @"Large was the third variation created and should be the third one listed");
 }
+
+/*
+-(void)testCanCleanUpVariationList
+{
+    [editManager addVariationToProduct:product withName:@"Small" andPrice:[NSNumber numberWithDouble:4.6]];
+    [editManager addVariationToProduct:product withName:nil andPrice:[NSNumber numberWithDouble:2.3]];
+    [editManager addVariationToProduct:product withName:@"Med" andPrice:nil];
+    [editManager addVariationToProduct:product withName:nil andPrice:nil];
+    [editManager cleanUpVariationListForProduct:product];
+    STAssertTrue([[editManager getVariationListFromProduct:product] count] == 3, @"Cleaning the variation list should eliminate all variations withut names");
+}
+*/
 
 @end

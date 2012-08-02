@@ -39,16 +39,13 @@
     return self;    
 }
 
--(Product*)createProductWithAName:(NSString *)name anImage:(UIImage*)image andAPrice:(NSNumber *)price
+-(Product*)createProductShell
 {
-    Product *newProduct = [productFactory createProductWithTheName:name theImage:image];
-    Variation *newVariation = [variationFactory createVariationWithTheName:@"Regular" thePrice:price andIsItTheMaster:YES];
-    
+    Product *newProduct = [productFactory createProductShell];
+    Variation *newVariation = [variationFactory createVariationWithTheName:@"Regular" thePrice:[NSNumber numberWithDouble:-3.111] andIsItTheMaster:YES];
     newProduct.iD = [idManager nextAvailableProductID];
     newVariation.iD = [idManager nextAvailableVariantID];
-    
     [newProduct addVariationObject:newVariation];
-    
     return newProduct;
 }
 
@@ -130,6 +127,23 @@
 {
     NSString *stringWithoutCurrencySymbol = [string stringByReplacingOccurrencesOfString:@"$" withString:@""];
     return [NSNumber numberWithDouble: [[stringWithoutCurrencySymbol stringByReplacingOccurrencesOfString:@"," withString:@""] doubleValue]];
+}
+
+
+-(void)cleanUpVariationListForProduct:(Product *)product
+{
+    /*
+    int i = 0;
+    while(i < [[self getVariationListFromProduct:product] count])
+    {
+        NSString *name = [[[self getVariationListFromProduct:product] objectAtIndex:i] name];
+        if([name isEqualToString:@""] || (name == nil))
+        {
+            [self deleteVariation:[[self getVariationListFromProduct:product] objectAtIndex:i] inProduct: product];
+            i--;
+        }
+        i++;
+    }*/
 }
 
 -(void)saveContext

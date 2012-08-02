@@ -41,18 +41,17 @@
 {
     [super viewDidLoad];
     
-    
-    lcuw = @"floccinaucinihilipilification";
-    self.product = [self.editManager createProductWithAName:lcuw anImage:nil andAPrice:[NSNumber numberWithDouble:0.0]];
+    self.product = [self.editManager createProductShell];
     
     [textFieldTable setBackgroundView:nil];
     disclosureButton.hidden = YES;
 
     self.variationViewController = [[VariationViewController alloc] initWithNibName:@"VariationViewController" bundle:nil];
     self.variationViewController.editManager = self.editManager;
-    self.variationViewController.product = product;
+    self.variationViewController.product = self.product;
     self.variationViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     self.variationViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    self.variationViewController.delegate = self;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -93,41 +92,27 @@
         nameField.placeholder = @"Item Name";
         cell.accessoryView = nameField;
         
-        if(![product.name isEqualToString:lcuw])
+        if(![product.name isEqualToString:nil] && ![product.name isEqualToString:@""])
         {
             nameField.text = self.product.name;
         }
         
         [nameField addTarget:self action:@selector(enableSave:) forControlEvents:UIControlEventEditingDidEnd];
-        [nameField addTarget:self action:@selector(setName:) forControlEvents:UIControlEventAllEditingEvents];
-    }else if(indexPath.row == 1)
+    }
+    else if(indexPath.row == 1)
     {
         UITextField* priceField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 245, 25)];
         priceField.font = font;
         priceField.placeholder = @"$0.00";
         cell.accessoryView = priceField;
         
-        if(![product.name isEqualToString:lcuw])
+        if([product.masterPrice doubleValue] != -3.111)
         {
             priceField.text = [[self.product masterPrice] stringValue];
         }
-        
         [priceField addTarget:self action:@selector(enableVariationView:) forControlEvents:UIControlEventEditingDidEnd];
-        [priceField addTarget:self action:@selector(setPrice:) forControlEvents:UIControlEventAllEditingEvents];
     }
-
-    
     return cell;
-}
-
--(void)setName:(UITextField*)sender
-{
-    [editManager changeProduct:product nameTo:sender.text];
-}
-
--(void)setPrice:(UITextField*)sender
-{
-    [editManager changeProduct:product masterPriceTo: [NSNumber numberWithDouble:[sender.text doubleValue]]];
 }
 
 -(void)enableSave:(UITextField*)sender
@@ -151,7 +136,23 @@
     }
 }
 
+-(void)saveNameandPrice
+{
+    UITableViewCell *nameCell = [textFieldTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    NSString *name = [[nameCell.accessoryView.subviews objectAtIndex:0] text];
+    [editManager changeProduct:product nameTo:name];
+    UITableViewCell *priceCell = [textFieldTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    NSNumber *price = [NSNumber numberWithDouble:[[[priceCell.accessoryView.subviews objectAtIndex:0] text] doubleValue]];
+    [editManager changeProduct:product masterPriceTo:price];
+}
+
+- (IBAction)disclosureButtonAction:(UIButton *)sender {
+    [self saveNameandPrice];
+    [self presentModalViewController:self.variationViewController animated:YES];
+}
+
 - (IBAction)saveButton:(UIBarButtonItem *)sender {
+    [self saveNameandPrice];
     [delegate theSaveButtonHasBeenHit];
     [editManager saveContext];
     [self dismissModalViewControllerAnimated:YES];
@@ -162,10 +163,12 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-- (IBAction)disclosureButtonAction:(UIButton *)sender {
-    [self presentModalViewController:self.variationViewController animated:YES];
-}
 
+-(void)backButtonWasHit:(VariationViewController *)controller
+{
+    NSLog(@"delegate used whent he back button was pressed");
+    [variationViewController dismissModalViewControllerAnimated:YES];
+}
 
 - (void)viewDidUnload {
     [self setSaveButton:nil];

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VariationViewController.h"
 
 @class EditManager;
 @class IDManager;
@@ -15,14 +16,11 @@
 @class ModifyViewController;
 
 @protocol ModifyViewControllerDelegate <NSObject>
-
 -(void)theSaveButtonHasBeenHit;
-
 @end
 
-@interface ModifyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ModifyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,VariationViewControllerDelegate>
 {
-    NSString *lcuw;
     NSString *nameInField;
     NSNumber *priceInField;
     

@@ -16,6 +16,6 @@
 
 @property(strong, nonatomic) NSManagedObjectContext *context;
 
--(Product *)createProductwith bla;
+-(Product *)createProductShell;
 
 @end

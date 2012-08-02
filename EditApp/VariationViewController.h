@@ -8,13 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@class VariationViewController;
 @class EditManager;
 @class Product;
+
+@protocol VariationViewControllerDelegate <NSObject>
+
+-(void)backButtonWasHit:(VariationViewController*)controller;
+
+@end
+
 @interface VariationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     NSInteger variationCount;
 }
 
+@property (strong, nonatomic) id<VariationViewControllerDelegate>delegate;
 @property (strong, nonatomic) EditManager *editManager;
 @property (strong, nonatomic) Product *product;
 @property (strong, nonatomic) IBOutlet UITableView *variationTableView;

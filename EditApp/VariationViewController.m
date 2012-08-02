@@ -19,6 +19,7 @@
 @synthesize variationTableView;
 @synthesize editManager;
 @synthesize product;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,66 +41,13 @@
 }
 
 - (IBAction)itemBackButton:(UIBarButtonItem *)sender {
-    NSLog(@"A");
-    int variantArrayIterator = 0;
-    NSArray *array = [editManager getVariationListFromProduct:product];
-    NSLog(@"B");
-    for(int i = 0; i <= (variationTableView.indexPathsForVisibleRows.count-1); i++)
-    {
-        NSLog(@"C");
-        UITableViewCell *cell = [variationTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        NSString *name = [[cell.accessoryView.subviews objectAtIndex:1] text];
-        NSNumber *price = [editManager convertCurrencyToNumber:[[cell.accessoryView.subviews objectAtIndex:2] text]];
-        NSLog(@"D");
-
-        if(![name isEqualToString:@""] && (name != NULL))
-        {
-            NSLog(@"E and : %@", name);
-
-            if(variantArrayIterator >= array.count)
-            {
-                NSLog(@"F");
-
-                [editManager addVariationToProduct:product withName:name andPrice:price];
-                NSLog(@"G");
-
-            }else
-            {
-                NSLog(@"H");
-
-                [editManager changeVariation:[array objectAtIndex:variantArrayIterator] nameTo:name];
-                [editManager changeVariation:[array objectAtIndex:variantArrayIterator] priceTo:price];
-                NSLog(@"I");
-
-            }
-            NSLog(@"J");
-
-            variantArrayIterator++;
-            NSLog(@"K");
-
-        }
-    }
-    NSLog(@"L");
-
-    if(variantArrayIterator < array.count)
-    {
-        NSLog(@"M");
-
-        for(int j = variantArrayIterator; j < array.count; j++)
-        {
-
-            [editManager deleteVariation:[array objectAtIndex:j] inProduct:product];
-            NSLog(@"N");
-
-        }
-    }
-    NSLog(@"O");
-
-    [self dismissModalViewControllerAnimated:YES];
+    //[editManager cleanUpVariationListForProduct:product];
+    [delegate backButtonWasHit:self];
 }
 
 
 #pragma mark variationTableSetUp
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -136,25 +84,59 @@
     priceField.placeholder = @"$0.00";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    if((product.variation.count -1) == [indexPath row])
+    if((product.variation.count -1) >= [indexPath row])
     {
-        NSLog(@"GO!");
+        NSLog(@"Variations: %@", [editManager getVariationListFromProduct:product]);
         nameField.text = [[[editManager getVariationListFromProduct:product] objectAtIndex:[indexPath row]] name];
         priceField.text =  [numberFormatter stringFromNumber:[[[editManager getVariationListFromProduct:product] objectAtIndex:[indexPath row]] price]];
     }
-        
+    
+    [nameField addTarget:self action:@selector(saveName:) forControlEvents:UIControlEventEditingDidEnd];
+    [priceField addTarget:self action:@selector(savePrice:) forControlEvents:UIControlEventEditingDidEnd];
+    
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([indexPath row] != 0)
+    {
+        if(editingStyle == UITableViewCellEditingStyleDelete)
+        {
+            [editManager deleteVariation:[[editManager getVariationListFromProduct:product] objectAtIndex:[indexPath row] ] inProduct:product];
+            variationCount--;
+            [self.variationTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        }
+    }
+
+}
+-(void)saveName:(UITextField*)sender
+{
+    UITableViewCell *cell = (UITableViewCell*)sender.superview.superview;
+    NSIndexPath *path = [variationTableView indexPathForCell:cell];
+    NSUInteger row = path.row;
+    [editManager changeVariation:[[editManager getVariationListFromProduct:product] objectAtIndex:row] nameTo:sender.text];
+}
+
+-(void)savePrice:(UITextField*)sender
+{
+    UITableViewCell *cell = (UITableViewCell*)sender.superview.superview;
+    NSIndexPath *path = [variationTableView indexPathForCell:cell];
+    NSUInteger row = path.row;
+    NSNumber *price = [editManager convertCurrencyToNumber:sender.text];
+    [editManager changeVariation:[[editManager getVariationListFromProduct:product] objectAtIndex:row] priceTo:price];
+}
 
 - (IBAction)addVariation:(UIBarButtonItem *)sender
 {
     variationCount++;
+    [editManager addVariationToProduct:product withName:nil andPrice:nil];
     [variationTableView reloadData];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    variationCount = [[product variation] count];
     [variationTableView reloadData];
 }
 

@@ -117,7 +117,8 @@
     //image
     if([[[editManager getProductList]objectAtIndex:[indexPath row]]image] == nil)
     {
-        cell.imageView.image = [UIImage imageNamed:@"emptyImage.png"];
+        UIImage *image = [UIImage imageNamed:@"emptyImage.png"];
+        cell.imageView.image = image;
         cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     }else
     {
@@ -139,7 +140,7 @@
 
 - (IBAction)addButton:(UIBarButtonItem *)sender
 {
-    ModifyViewController *modifyViewController = [[ModifyViewController alloc] init];
+    ModifyViewController *modifyViewController = [[ModifyViewController alloc] initWithNibName:@"ModifyViewController" bundle:nil];
     modifyViewController.editManager = self.editManager;
 
     modifyViewController.modalPresentationStyle = UIModalPresentationFormSheet;

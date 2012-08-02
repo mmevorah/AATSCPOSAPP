@@ -33,7 +33,7 @@
 -(id)initWithManagedObjectContext:(NSManagedObjectContext*)setContext andIDManager:(IDManager *)setIDManager;
 
 //product and variation creation
--(Product*)createProductWithAName:(NSString *)name anImage:(UIImage*)image andAPrice:(NSNumber *)price;
+-(Product*)createProductShell;
 -(void)addVariationToProduct:(Product *)product withName:(NSString *)name andPrice:(NSNumber *)price;
 
 -(Variation*)getMasterVariationFromProduct:(Product*)product;
@@ -59,6 +59,7 @@
 
 //Utility
 -(NSNumber*)convertCurrencyToNumber:(NSString*)string;
+-(void)cleanUpVariationListForProduct:(Product*)product;
 
 -(void)addProductToFavoritesWithID:(NSNumber*)productID toFavoritesList:(int)favList atPosition:(NSNumber*)pos;
 -(void)removeProductFromFavoritesList:(int)favList position:(NSNumber*)pos;

@@ -13,23 +13,9 @@
 @implementation ProductFactory
 @synthesize context;
 
--(Product *)createProductWithTheName:(NSString *)name 
-                            theImage:(UIImage *)image 
+-(Product *)createProductShell
 {
     Product *newProduct = [NSEntityDescription insertNewObjectForEntityForName:@"Product" inManagedObjectContext: context];    
-    /*
-    @try {
-        if([name length] == 0)
-        {
-            @throw (NSString *)@"Hundred Dollah Bills ;)";
-        }
-    }
-    @catch (NSString *exception) {
-        return nil;
-    }
-    */
-    newProduct.name = name;
-    newProduct.image = image;
     return newProduct;
 }
 

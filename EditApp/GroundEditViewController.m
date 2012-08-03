@@ -129,6 +129,36 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ModifyViewController *modifyViewController = [[ModifyViewController alloc] initWithNibName:@"ModifyViewController" bundle:nil];
+    
+    modifyViewController.editManager = self.editManager;
+    NSLog(@"The product sent is: %@", [[editManager getProductList] objectAtIndex:[indexPath row]]);
+    modifyViewController.product = [[editManager getProductList] objectAtIndex:[indexPath row]];
+    
+    modifyViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    modifyViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentModalViewController:modifyViewController animated:YES];
+    modifyViewController.view.superview.frame = CGRectMake(0, 0, 500, 250);
+    modifyViewController.view.superview.center = self.view.center;
+    
+    modifyViewController.titleBarTitle.text = @"Edit Item";
+    modifyViewController.saveButton.enabled = YES;
+    modifyViewController.disclosureButton.hidden = NO;
+    modifyViewController.delegate = self;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [editManager deleteProduct:[[editManager getProductList] objectAtIndex:[indexPath row]]];
+        [self.productTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        [editManager saveContext];
+    }
+}
+
 -(void)theSaveButtonHasBeenHit
 {
     NSLog(@"So After saving the product list is: %@", [editManager getProductList]);

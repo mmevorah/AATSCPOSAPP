@@ -12,7 +12,7 @@
 
 @interface PhotoViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property BOOL album;
-@property BOOL camera;
+@property (strong, nonatomic) UINavigationController *navigationController;
+@property (strong, nonatomic)UIPopoverController *popOverController;
 
 @end

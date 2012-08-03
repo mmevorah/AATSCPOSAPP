@@ -221,6 +221,7 @@
 				ED3A64AE15B47D1A00E6EA04 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		ED3A64AE15B47D1A00E6EA04 /* Products */ = {
 			isa = PBXGroup;
@@ -635,6 +636,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EditApp/EditApp-Prefix.pch";
 				INFOPLIST_FILE = "EditApp/EditApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -646,6 +648,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EditApp/EditApp-Prefix.pch";
 				INFOPLIST_FILE = "EditApp/EditApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

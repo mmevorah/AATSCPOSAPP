@@ -14,8 +14,8 @@
 
 @implementation PhotoViewController
 
-@synthesize album;
-@synthesize camera;
+@synthesize navigationController;
+@synthesize popOverController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,6 +23,7 @@
     if (self) {
         // Custom initialization
     }
+    
     return self;
 }
 
@@ -30,63 +31,22 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    if(album == TRUE)
-    {
-        
-    }else if(camera == TRUE)
-    {
-        if([self doesCameraSupportTakingPhotos])
-        {
-            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-            imagePicker.delegate = self;
-            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-            imagePicker.mediaTypes = [NSArray arrayWithObjects:(NSString *) kUTTypeImage, nil];
-            imagePicker.allowsEditing = NO;
-            imagePicker.navigationBarHidden = TRUE;
-            [self presentModalViewController:imagePicker animated:YES];
-        }else
-        {
-            NSLog(@"Camera is not supported");
-        }
-    }
-}
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
+    UIImagePickerController *controller = [[UIImagePickerController alloc] initWithRootViewController:self];
+    controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    controller.mediaTypes = [NSArray arrayWithObject:(NSString*)kUTTypeImage];
+    
+    [self.view addSubview:controller.view];
+    popOverController = [[UIPopoverController alloc] initWithContentViewController:controller];
+    
+    
+    self.navigationController.navigationBarHidden = NO;
+    controller.delegate = self;
+    
+    [self.popOverController presentPopoverFromRect:CGRectMake(0, 0, 200, 200) inView:self.view.superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     
 }
 
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    
-}
-
--(BOOL)cameraSupportsMedia:(NSString*)paramMediaType sourceType:(UIImagePickerControllerSourceType)paramSourceType
-{
-    __block BOOL result = NO;
-    
-    if([paramMediaType length] == 0)
-    {
-        return NO;
-    }
-    
-    NSArray *availableMediaTypes = [UIImagePickerController availableMediaTypesForSourceType:paramSourceType];
-    [availableMediaTypes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSString *mediaType = (NSString *)obj;
-        if([mediaType isEqualToString:paramMediaType])
-        {
-            result = YES;
-            *stop = YES;
-        }
-    } ];
-    return result;
-}
-
--(BOOL)doesCameraSupportTakingPhotos
-{
-    return [self cameraSupportsMedia:(__bridge NSString *)kUTTypeMovie
-                          sourceType:UIImagePickerControllerSourceTypeCamera];
-}
 
 
 - (void)didReceiveMemoryWarning

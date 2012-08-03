@@ -16,7 +16,6 @@
 @class Product;
 @class ModifyViewController;
 @class CameraOptionsViewController;
-@class PhotoViewController;
 
 @protocol ModifyViewControllerDelegate <NSObject>
 -(void)theSaveButtonHasBeenHit;
@@ -31,11 +30,7 @@
 
 @property (strong, nonatomic) id<ModifyViewControllerDelegate> delegate;
 @property (strong, nonatomic) VariationViewController *variationViewController;
-
-@property (strong, nonatomic) UINavigationController *navigationController;
-
 @property (strong, nonatomic)CameraOptionsViewController *cameraOptionsViewController;
-@property (strong, nonatomic) PhotoViewController *photoViewController;
 @property (strong, nonatomic)UIPopoverController *popOverController;
 
 @property (strong, nonatomic)EditManager *editManager;

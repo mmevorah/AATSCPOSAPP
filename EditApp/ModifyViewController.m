@@ -32,8 +32,6 @@
 @synthesize delegate;
 @synthesize popOverController;
 @synthesize cameraOptionsViewController;
-@synthesize photoViewController;
-@synthesize navigationController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,12 +51,16 @@
     self.navigationController
     */
     
-    if(product.image != nil)
+    if(product.image)
     {
-        imageButton.imageView.image = product.image;
+        [imageButton setImage:product.image forState:UIControlStateNormal];
+        [imageButton setImage:product.image forState:UIControlStateSelected];
     }
      
-    self.product = [self.editManager createProductShell];
+    if(product == nil)
+    {
+        self.product = [self.editManager createProductShell];
+    }
     
     [textFieldTable setBackgroundView:nil];
     disclosureButton.hidden = YES;
@@ -71,11 +73,6 @@
     self.variationViewController.delegate = self;
     
     self.cameraOptionsViewController = [[CameraOptionsViewController alloc] initWithNibName:@"CameraOptionsViewController" bundle:nil];
-    
-    self.photoViewController = [[PhotoViewController alloc] initWithNibName:@"PhotoViewController" bundle:nil];
-    self.photoViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-    self.photoViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -130,6 +127,7 @@
         UITextField* priceField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 245, 25)];
         priceField.font = font;
         priceField.placeholder = @"$0.00";
+        priceField.keyboardType = UIKeyboardTypeNumberPad;
         cell.accessoryView = priceField;
         
         if([product.masterPrice doubleValue] != -3.111)
@@ -205,14 +203,15 @@
 
 -(void)photoFromAlbumSelected
 {
+    PhotoViewController *photoViewController = [[PhotoViewController alloc] initWithNibName:@"PhotoViewController" bundle:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:photoViewController];
+    navController.navigationBarHidden = YES;
+    navController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    [self presentModalViewController:navController animated:YES];
     [popOverController dismissPopoverAnimated:YES];
-    
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.delegate = self;
-    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    imagePicker.mediaTypes = [NSArray arrayWithObjects:(NSString*)kUTTypeImage, nil];
-    
-    [self.navigationController presentModalViewController:imagePicker animated:YES];
+    navController.view.superview.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    navController.view.superview.center = self.view.center;
+    photoViewController.navigationController = navController;
 }
 
 -(void)photoFromCameraSelected

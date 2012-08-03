@@ -32,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"Product variaitons: %i", [[product variation] count]);
     variationCount = [[product variation] count];
 }
 
@@ -108,7 +109,6 @@
             [self.variationTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
         }
     }
-
 }
 -(void)saveName:(UITextField*)sender
 {

@@ -48,31 +48,40 @@
 {
     [super viewDidLoad];
     
+    /*
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self];
+    self.navigationController
+    */
+    
     if(product.image != nil)
     {
         imageButton.imageView.image = product.image;
     }
-    [textFieldTable setBackgroundView:nil];
-    disclosureButton.hidden = YES;
      
     self.product = [self.editManager createProductShell];
     
-    /*
+    [textFieldTable setBackgroundView:nil];
+    disclosureButton.hidden = YES;
+
     self.variationViewController = [[VariationViewController alloc] initWithNibName:@"VariationViewController" bundle:nil];
     self.variationViewController.editManager = self.editManager;
     self.variationViewController.product = self.product;
+    self.variationViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    self.variationViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     self.variationViewController.delegate = self;
-    self.variationViewController.navigationController = navigationController;
-    */
-     
+    
     self.cameraOptionsViewController = [[CameraOptionsViewController alloc] initWithNibName:@"CameraOptionsViewController" bundle:nil];
+    
     self.photoViewController = [[PhotoViewController alloc] initWithNibName:@"PhotoViewController" bundle:nil];
     self.photoViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
     self.photoViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    NSLog(@"called!");
+
     [textFieldTable reloadData];
 }
 
@@ -165,9 +174,7 @@
 
 - (IBAction)disclosureButtonAction:(UIButton *)sender {
     [self saveNameandPrice];
-    [self.navigationController pushViewController:self.variationViewController animated:YES];
-    self.variationViewController.editManager = self.editManager;
-    self.variationViewController.product = self.product;
+    [self presentModalViewController:self.variationViewController animated:YES];
 }
 
 - (IBAction)saveButton:(UIBarButtonItem *)sender {

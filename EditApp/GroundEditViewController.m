@@ -141,14 +141,14 @@
 - (IBAction)addButton:(UIBarButtonItem *)sender
 {
     ModifyViewController *modifyViewController = [[ModifyViewController alloc] initWithNibName:@"ModifyViewController" bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:modifyViewController];
-    navController.navigationBarHidden = YES;
-    navController.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self presentModalViewController:navController animated:YES];
-    navController.view.superview.frame = CGRectMake(self.view.center.x-250, self.view.center.y-125, 500, 250);
-    
-    modifyViewController.navigationController = navController;
     modifyViewController.editManager = self.editManager;
+
+    modifyViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    modifyViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentModalViewController:modifyViewController animated:YES];
+    modifyViewController.view.superview.frame = CGRectMake(0, 0, 500, 250);
+    modifyViewController.view.superview.center = self.view.center;
+    
     modifyViewController.titleBarTitle.text = @"Create Item";
     modifyViewController.saveButton.enabled = NO;
     modifyViewController.delegate = self;

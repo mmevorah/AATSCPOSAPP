@@ -20,6 +20,7 @@
 @synthesize editManager;
 @synthesize product;
 @synthesize delegate;
+@synthesize navigationController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,7 +43,8 @@
 
 - (IBAction)itemBackButton:(UIBarButtonItem *)sender {
     //[editManager cleanUpVariationListForProduct:product];
-    [delegate backButtonWasHit:self];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+   // [delegate backButtonWasHit:self];
 }
 
 

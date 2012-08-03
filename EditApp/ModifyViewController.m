@@ -11,6 +11,9 @@
 #import "VariationViewController.h"
 #import "Variation.h"
 #import "Product.h"
+#import "CameraOptionsViewController.h"
+#import "PhotoViewController.h"
+
 
 @interface ModifyViewController ()
 
@@ -27,6 +30,10 @@
 @synthesize variationViewController;
 @synthesize product;
 @synthesize delegate;
+@synthesize popOverController;
+@synthesize cameraOptionsViewController;
+@synthesize photoViewController;
+@synthesize navigationController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,17 +48,27 @@
 {
     [super viewDidLoad];
     
-    self.product = [self.editManager createProductShell];
-    
+    if(product.image != nil)
+    {
+        imageButton.imageView.image = product.image;
+    }
     [textFieldTable setBackgroundView:nil];
     disclosureButton.hidden = YES;
-
+     
+    self.product = [self.editManager createProductShell];
+    
+    /*
     self.variationViewController = [[VariationViewController alloc] initWithNibName:@"VariationViewController" bundle:nil];
     self.variationViewController.editManager = self.editManager;
     self.variationViewController.product = self.product;
-    self.variationViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-    self.variationViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     self.variationViewController.delegate = self;
+    self.variationViewController.navigationController = navigationController;
+    */
+     
+    self.cameraOptionsViewController = [[CameraOptionsViewController alloc] initWithNibName:@"CameraOptionsViewController" bundle:nil];
+    self.photoViewController = [[PhotoViewController alloc] initWithNibName:@"PhotoViewController" bundle:nil];
+    self.photoViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    self.photoViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -148,7 +165,9 @@
 
 - (IBAction)disclosureButtonAction:(UIButton *)sender {
     [self saveNameandPrice];
-    [self presentModalViewController:self.variationViewController animated:YES];
+    [self.navigationController pushViewController:self.variationViewController animated:YES];
+    self.variationViewController.editManager = self.editManager;
+    self.variationViewController.product = self.product;
 }
 
 - (IBAction)saveButton:(UIBarButtonItem *)sender {
@@ -163,11 +182,59 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-
 -(void)backButtonWasHit:(VariationViewController *)controller
 {
     NSLog(@"delegate used whent he back button was pressed");
     [variationViewController dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)cameraButton:(UIButton *)sender {
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:cameraOptionsViewController];
+    [navController setNavigationBarHidden:YES];
+    self.popOverController = [[UIPopoverController alloc] initWithContentViewController:navController];
+    cameraOptionsViewController.delegate = self;
+    [self.popOverController presentPopoverFromRect:CGRectMake(0, 0, sender.frame.size.width, sender.frame.size.height - 30) inView:sender.imageView permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+}
+
+-(void)photoFromAlbumSelected
+{
+    [popOverController dismissPopoverAnimated:YES];
+    
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.mediaTypes = [NSArray arrayWithObjects:(NSString*)kUTTypeImage, nil];
+    
+    [self.navigationController presentModalViewController:imagePicker animated:YES];
+}
+
+-(void)photoFromCameraSelected
+{
+    [popOverController dismissPopoverAnimated:YES];
+    
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePicker.mediaTypes = [NSArray arrayWithObjects:(NSString *) kUTTypeImage, nil];
+        imagePicker.allowsEditing = NO;
+        imagePicker.navigationBarHidden = TRUE;
+        [self presentModalViewController:imagePicker animated:YES];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissModalViewControllerAnimated:YES];
+     self.view.superview.frame = CGRectMake(self.view.superview.superview.center.x - 250, self.view.superview.superview.center.y - 125, 500, 250);
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [editManager changeProduct:product imageTo:image];
+    [imageButton setImage:image forState: UIControlStateNormal];
+    [imageButton setImage:image forState:UIControlStateSelected];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissModalViewControllerAnimated:YES];
+    self.view.superview.frame = CGRectMake(self.view.superview.superview.center.x - 250, self.view.superview.superview.center.y - 125, 500, 250);
 }
 
 - (void)viewDidUnload {

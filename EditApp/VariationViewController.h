@@ -27,6 +27,7 @@
 @property (strong, nonatomic) EditManager *editManager;
 @property (strong, nonatomic) Product *product;
 @property (strong, nonatomic) IBOutlet UITableView *variationTableView;
+@property (strong, nonatomic) UINavigationController *navigationController;
 
 - (IBAction)itemBackButton:(UIBarButtonItem *)sender;
 - (IBAction)addVariation:(UIBarButtonItem *)sender;

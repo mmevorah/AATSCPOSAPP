@@ -40,6 +40,12 @@
 		ED75F6B415BDC3C200693890 /* FavoriteList.m in Sources */ = {isa = PBXBuildFile; fileRef = ED75F6B315BDC3C200693890 /* FavoriteList.m */; };
 		ED75F6B515BDC3C200693890 /* FavoriteList.m in Sources */ = {isa = PBXBuildFile; fileRef = ED75F6B315BDC3C200693890 /* FavoriteList.m */; };
 		ED75F6BC15BDC4E100693890 /* FavoriteListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED75F6BB15BDC4E100693890 /* FavoriteListTests.m */; };
+		ED7601D715CC19AD00B87E38 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7601D515CC19AD00B87E38 /* PhotoViewController.m */; };
+		ED7601D815CC19AD00B87E38 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7601D515CC19AD00B87E38 /* PhotoViewController.m */; };
+		ED7601D915CC19AD00B87E38 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED7601D615CC19AD00B87E38 /* PhotoViewController.xib */; };
+		ED7601DA15CC19AD00B87E38 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED7601D615CC19AD00B87E38 /* PhotoViewController.xib */; };
+		ED7601DD15CC235300B87E38 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7601DC15CC235300B87E38 /* AssetsLibrary.framework */; };
+		ED7601E215CC451200B87E38 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD3556515CB096400D3FF8B /* MobileCoreServices.framework */; };
 		ED97F8F915C6DE8A00C8A70A /* GroundEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */; };
 		ED97F8FA15C6DE8A00C8A70A /* GroundEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */; };
 		ED97F8FE15C6E09D00C8A70A /* GroundViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED97F8FD15C6E09D00C8A70A /* GroundViewControllerTests.m */; };
@@ -58,6 +64,11 @@
 		EDC442F415C845EA00DE8770 /* VariationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC442F115C845EA00DE8770 /* VariationViewController.m */; };
 		EDC442F515C845EA00DE8770 /* VariationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC442F215C845EA00DE8770 /* VariationViewController.xib */; };
 		EDC442F615C845EA00DE8770 /* VariationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC442F215C845EA00DE8770 /* VariationViewController.xib */; };
+		EDD3556615CB096400D3FF8B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD3556515CB096400D3FF8B /* MobileCoreServices.framework */; };
+		EDD3557615CB14F300D3FF8B /* CameraOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD3557415CB14F300D3FF8B /* CameraOptionsViewController.m */; };
+		EDD3557715CB14F300D3FF8B /* CameraOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD3557415CB14F300D3FF8B /* CameraOptionsViewController.m */; };
+		EDD3557815CB14F300D3FF8B /* CameraOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD3557515CB14F300D3FF8B /* CameraOptionsViewController.xib */; };
+		EDD3557915CB14F300D3FF8B /* CameraOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD3557515CB14F300D3FF8B /* CameraOptionsViewController.xib */; };
 		EDED9B1C15C1ACB100E2B47D /* SearchBarDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDED9B1B15C1ACB100E2B47D /* SearchBarDelegateTests.m */; };
 		EDF8D10D15B4918E00765DA9 /* CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8D10C15B4918E00765DA9 /* CoreDataTests.m */; };
 		EDF8D11915B4A73D00765DA9 /* ProductFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8D11815B4A73D00765DA9 /* ProductFactoryTests.m */; };
@@ -114,6 +125,10 @@
 		ED75F6B315BDC3C200693890 /* FavoriteList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteList.m; sourceTree = "<group>"; };
 		ED75F6BA15BDC4E100693890 /* FavoriteListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteListTests.h; sourceTree = "<group>"; };
 		ED75F6BB15BDC4E100693890 /* FavoriteListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteListTests.m; sourceTree = "<group>"; };
+		ED7601D415CC19AD00B87E38 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		ED7601D515CC19AD00B87E38 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		ED7601D615CC19AD00B87E38 /* PhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
+		ED7601DC15CC235300B87E38 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		ED97F8F715C6DE8A00C8A70A /* GroundEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroundEditViewController.h; sourceTree = "<group>"; };
 		ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroundEditViewController.m; sourceTree = "<group>"; };
 		ED97F8FC15C6E09D00C8A70A /* GroundViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroundViewControllerTests.h; sourceTree = "<group>"; };
@@ -133,6 +148,10 @@
 		EDC442F015C845EA00DE8770 /* VariationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationViewController.h; sourceTree = "<group>"; };
 		EDC442F115C845EA00DE8770 /* VariationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationViewController.m; sourceTree = "<group>"; };
 		EDC442F215C845EA00DE8770 /* VariationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariationViewController.xib; sourceTree = "<group>"; };
+		EDD3556515CB096400D3FF8B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		EDD3557315CB14F300D3FF8B /* CameraOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraOptionsViewController.h; sourceTree = "<group>"; };
+		EDD3557415CB14F300D3FF8B /* CameraOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraOptionsViewController.m; sourceTree = "<group>"; };
+		EDD3557515CB14F300D3FF8B /* CameraOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOptionsViewController.xib; sourceTree = "<group>"; };
 		EDED9B1A15C1ACB000E2B47D /* SearchBarDelegateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBarDelegateTests.h; sourceTree = "<group>"; };
 		EDED9B1B15C1ACB100E2B47D /* SearchBarDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBarDelegateTests.m; sourceTree = "<group>"; };
 		EDF8D10B15B4918E00765DA9 /* CoreDataTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTests.h; sourceTree = "<group>"; };
@@ -148,6 +167,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED7601DD15CC235300B87E38 /* AssetsLibrary.framework in Frameworks */,
+				EDD3556615CB096400D3FF8B /* MobileCoreServices.framework in Frameworks */,
 				EDAF5F7115C711C10033CBB7 /* QuartzCore.framework in Frameworks */,
 				ED3A64B215B47D1A00E6EA04 /* UIKit.framework in Frameworks */,
 				ED3A64B415B47D1A00E6EA04 /* Foundation.framework in Frameworks */,
@@ -160,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED7601E215CC451200B87E38 /* MobileCoreServices.framework in Frameworks */,
 				ED3A64D815B47D1A00E6EA04 /* SenTestingKit.framework in Frameworks */,
 				ED3A64D915B47D1A00E6EA04 /* UIKit.framework in Frameworks */,
 				ED3A64DA15B47D1A00E6EA04 /* Foundation.framework in Frameworks */,
@@ -212,6 +234,8 @@
 		ED3A64B015B47D1A00E6EA04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED7601DC15CC235300B87E38 /* AssetsLibrary.framework */,
+				EDD3556515CB096400D3FF8B /* MobileCoreServices.framework */,
 				EDAF5F7015C711C10033CBB7 /* QuartzCore.framework */,
 				ED3A64B115B47D1A00E6EA04 /* UIKit.framework */,
 				ED3A64B315B47D1A00E6EA04 /* Foundation.framework */,
@@ -236,6 +260,12 @@
 				EDC442F015C845EA00DE8770 /* VariationViewController.h */,
 				EDC442F115C845EA00DE8770 /* VariationViewController.m */,
 				EDC442F215C845EA00DE8770 /* VariationViewController.xib */,
+				EDD3557315CB14F300D3FF8B /* CameraOptionsViewController.h */,
+				EDD3557415CB14F300D3FF8B /* CameraOptionsViewController.m */,
+				EDD3557515CB14F300D3FF8B /* CameraOptionsViewController.xib */,
+				ED7601D415CC19AD00B87E38 /* PhotoViewController.h */,
+				ED7601D515CC19AD00B87E38 /* PhotoViewController.m */,
+				ED7601D615CC19AD00B87E38 /* PhotoViewController.xib */,
 				ED3A64EF15B47DF800E6EA04 /* Model */,
 				ED3A64BA15B47D1A00E6EA04 /* Supporting Files */,
 				EDAE633B15B5E25B008D4164 /* EditManager.h */,
@@ -421,6 +451,8 @@
 				ED0B69E915C728D3003B2806 /* emptyImage.png in Resources */,
 				EDC442EA15C81C9000DE8770 /* ModifyViewController.xib in Resources */,
 				EDC442F515C845EA00DE8770 /* VariationViewController.xib in Resources */,
+				EDD3557815CB14F300D3FF8B /* CameraOptionsViewController.xib in Resources */,
+				ED7601D915CC19AD00B87E38 /* PhotoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +464,8 @@
 				ED0B69EA15C728D3003B2806 /* emptyImage.png in Resources */,
 				EDC442EB15C81C9000DE8770 /* ModifyViewController.xib in Resources */,
 				EDC442F615C845EA00DE8770 /* VariationViewController.xib in Resources */,
+				EDD3557915CB14F300D3FF8B /* CameraOptionsViewController.xib in Resources */,
+				ED7601DA15CC19AD00B87E38 /* PhotoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +507,8 @@
 				ED97F8F915C6DE8A00C8A70A /* GroundEditViewController.m in Sources */,
 				EDC442E815C81C9000DE8770 /* ModifyViewController.m in Sources */,
 				EDC442F315C845EA00DE8770 /* VariationViewController.m in Sources */,
+				EDD3557615CB14F300D3FF8B /* CameraOptionsViewController.m in Sources */,
+				ED7601D715CC19AD00B87E38 /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +539,8 @@
 				ED97F8FE15C6E09D00C8A70A /* GroundViewControllerTests.m in Sources */,
 				EDC442E915C81C9000DE8770 /* ModifyViewController.m in Sources */,
 				EDC442F415C845EA00DE8770 /* VariationViewController.m in Sources */,
+				EDD3557715CB14F300D3FF8B /* CameraOptionsViewController.m in Sources */,
+				ED7601D815CC19AD00B87E38 /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

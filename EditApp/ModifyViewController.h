@@ -8,18 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "VariationViewController.h"
+#import "CameraOptionsViewController.h"
 
 @class EditManager;
 @class IDManager;
 @class VariationViewController;
 @class Product;
 @class ModifyViewController;
+@class CameraOptionsViewController;
+@class PhotoViewController;
 
 @protocol ModifyViewControllerDelegate <NSObject>
 -(void)theSaveButtonHasBeenHit;
 @end
 
-@interface ModifyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,VariationViewControllerDelegate>
+@interface ModifyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,VariationViewControllerDelegate, CameraOptionsDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     NSString *nameInField;
     NSNumber *priceInField;
@@ -28,6 +31,12 @@
 
 @property (strong, nonatomic) id<ModifyViewControllerDelegate> delegate;
 @property (strong, nonatomic) VariationViewController *variationViewController;
+
+@property (strong, nonatomic) UINavigationController *navigationController;
+
+@property (strong, nonatomic)CameraOptionsViewController *cameraOptionsViewController;
+@property (strong, nonatomic) PhotoViewController *photoViewController;
+@property (strong, nonatomic)UIPopoverController *popOverController;
 
 @property (strong, nonatomic)EditManager *editManager;
 @property (strong, nonatomic)Product *product;

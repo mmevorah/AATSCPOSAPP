@@ -56,11 +56,13 @@
 //Accessing
 -(NSArray*)getProductList;
 -(NSArray*)getVariationListFromProduct:(Product*)product;
+-(Product*)productFromID:(NSNumber*)productID;
 
 //Utility
 -(NSNumber*)convertCurrencyToNumber:(NSString*)string;
 -(void)cleanUpVariationListForProduct:(Product*)product;
 
+//Favorites
 -(void)addProductToFavoritesWithID:(NSNumber*)productID toFavoritesList:(int)favList atPosition:(NSNumber*)pos;
 -(void)removeProductFromFavoritesList:(int)favList position:(NSNumber*)pos;
 -(NSNumber *)numberOfActiveFavorites;

@@ -10,6 +10,7 @@
 #import "EditManager.h"
 #import "FavoritesManager.h"
 #import "FavoriteList.h"
+#import "FavoritesView.h"
 #import "Product.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ModifyViewController.h"
@@ -19,12 +20,16 @@
 @end
 
 @implementation GroundEditViewController
+@synthesize favoritesView0;
+@synthesize favoritesView1;
+@synthesize favoritesView2;
+@synthesize favoritesView3;
+@synthesize favoritesView4;
 
 @synthesize editManager;
 @synthesize segmentedControl;
 @synthesize libraryView;
 @synthesize productTableView;
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,13 +45,35 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
-    libraryView.layer.cornerRadius = 3;
+    libraryView.layer.cornerRadius = 5;
     libraryView.layer.masksToBounds = YES;
+    libraryView.hidden = FALSE;
+    
+    favoritesView0.editManager = self.editManager;
+    favoritesView0.favoritesListNumber = 0;
+    favoritesView0.hidden = TRUE;
+    
+    favoritesView1.editManager = self.editManager;
+    favoritesView1.favoritesListNumber = 1;
+    favoritesView1.hidden = TRUE;
+    
+    favoritesView2.editManager = self.editManager;
+    favoritesView2.favoritesListNumber = 2;
+    favoritesView2.hidden = TRUE;
+    
+    favoritesView3.editManager = self.editManager;
+    favoritesView3.favoritesListNumber = 3;
+    favoritesView3.hidden = TRUE;
+    
+    favoritesView4.editManager = self.editManager;
+    favoritesView4.favoritesListNumber = 4;
+    favoritesView4.hidden = TRUE;
     
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:[self packageSegmentedControllerArray]];
     CGPoint segmentedControlLocation = CGPointMake(self.view.center.x, self.view.frame.size.height - 75);
     self.segmentedControl.center = segmentedControlLocation;
     [self.view addSubview:self.segmentedControl];
+    [self.segmentedControl addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,8 +102,70 @@
     return array;
 }
 
+-(void)segmentChanged:(UISegmentedControl*)sender
+{
+    if([sender isEqual:self.segmentedControl])
+    {
+        NSInteger selectedSegmentIndex = [sender selectedSegmentIndex];
+        if(selectedSegmentIndex == 0)
+        {
+            libraryView.hidden = FALSE;
+            favoritesView0.hidden = TRUE;
+            favoritesView1.hidden = TRUE;
+            favoritesView2.hidden = TRUE;
+            favoritesView3.hidden = TRUE;
+            favoritesView4.hidden = TRUE;
+        }else if(selectedSegmentIndex == 1)
+        {
+            libraryView.hidden = TRUE;
+            favoritesView0.hidden = FALSE;
+            favoritesView1.hidden = TRUE;
+            favoritesView2.hidden = TRUE;
+            favoritesView3.hidden = TRUE;
+            favoritesView4.hidden = TRUE;
+        }else if(selectedSegmentIndex == 2)
+        {
+            libraryView.hidden = TRUE;
+            favoritesView0.hidden = TRUE;
+            favoritesView1.hidden = FALSE;
+            favoritesView2.hidden = TRUE;
+            favoritesView3.hidden = TRUE;
+            favoritesView4.hidden = TRUE;
+        }else if(selectedSegmentIndex == 3)
+        {
+            libraryView.hidden = TRUE;
+            favoritesView0.hidden = TRUE;
+            favoritesView1.hidden = TRUE;
+            favoritesView2.hidden = FALSE;
+            favoritesView3.hidden = TRUE;
+            favoritesView4.hidden = TRUE;
+        }else if(selectedSegmentIndex == 4)
+        {
+            libraryView.hidden = TRUE;
+            favoritesView0.hidden = TRUE;
+            favoritesView1.hidden = TRUE;
+            favoritesView2.hidden = TRUE;
+            favoritesView3.hidden = FALSE;
+            favoritesView4.hidden = TRUE;
+        }else if(selectedSegmentIndex == 5)
+        {
+            libraryView.hidden = TRUE;
+            favoritesView0.hidden = TRUE;
+            favoritesView1.hidden = TRUE;
+            favoritesView2.hidden = TRUE;
+            favoritesView3.hidden = TRUE;
+            favoritesView4.hidden = FALSE;
+        }
+    }
+}
+
 - (void)viewDidUnload {
     [self setLibraryView:nil];
+    [self setFavoritesView0:nil];
+    [self setFavoritesView1:nil];
+    [self setFavoritesView2:nil];
+    [self setFavoritesView3:nil];
+    [self setFavoritesView4:nil];
     [super viewDidUnload];
 }
 
@@ -159,13 +248,6 @@
     }
 }
 
--(void)theSaveButtonHasBeenHit
-{
-    NSLog(@"So After saving the product list is: %@", [editManager getProductList]);
-    NSLog(@"With the variation list looking like: %@", [editManager getVariationListFromProduct:[[editManager getProductList] objectAtIndex:0]] );
-    [productTableView reloadData];
-}
-
 #pragma mark preparingForCreateProductView
 
 - (IBAction)addButton:(UIBarButtonItem *)sender
@@ -182,5 +264,12 @@
     modifyViewController.titleBarTitle.text = @"Create Item";
     modifyViewController.saveButton.enabled = NO;
     modifyViewController.delegate = self;
+}
+
+-(void)theSaveButtonHasBeenHit
+{
+    NSLog(@"So After saving the product list is: %@", [editManager getProductList]);
+    NSLog(@"With the variation list looking like: %@", [editManager getVariationListFromProduct:[[editManager getProductList] objectAtIndex:0]] );
+    [productTableView reloadData];
 }
 @end

@@ -11,6 +11,7 @@
 #import "ModifyViewController.h"
 @class EditManager;
 @class ModifyViewController;
+@class FavoritesView;
 
 @interface GroundEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ModifyViewControllerDelegate>
 
@@ -21,5 +22,12 @@
 @property (strong, nonatomic) IBOutlet UIView *libraryView;
 @property (strong, nonatomic) IBOutlet UITableView *productTableView;
 - (IBAction)addButton:(UIBarButtonItem *)sender;
+
+//Favorites View
+@property (strong, nonatomic) IBOutlet FavoritesView *favoritesView0;
+@property (strong, nonatomic) IBOutlet FavoritesView *favoritesView1;
+@property (strong, nonatomic) IBOutlet FavoritesView *favoritesView2;
+@property (strong, nonatomic) IBOutlet FavoritesView *favoritesView3;
+@property (strong, nonatomic) IBOutlet FavoritesView *favoritesView4;
 
 @end

@@ -236,6 +236,15 @@
     STAssertEqualObjects([[[editManager getVariationListFromProduct:product] objectAtIndex:2] name], @"Large", @"Large was the third variation created and should be the third one listed");
 }
 
+-(void)testProductFromProductID
+{
+    Product *p1 = [editManager createProductShell];
+    [editManager changeProduct:p1 nameTo:@"Apple"];
+    NSLog(@"product: %@", p1.iD);
+    STAssertEqualObjects([editManager productFromID:[NSNumber numberWithInt:9]], p1, @"Should be able to get a product from its id");
+    
+}
+
 /*
 -(void)testCanCleanUpVariationList
 {

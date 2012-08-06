@@ -179,6 +179,27 @@
     return [array sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sort, nil]];
 }
 
+-(Product*)productFromID:(NSNumber *)productID
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"iD = %@", productID];
+    [fetchRequest setPredicate:predicate];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Product"  inManagedObjectContext:context];
+    [fetchRequest setEntity:entityDescription];
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
+    
+    NSLog(@"the array looks like: %@", results);
+    
+    if(results.count > 0)
+    {
+        return [results objectAtIndex:0];
+    }else
+    {
+        return nil;
+    }
+}
+
 -(NSNumber *)numberOfActiveFavorites
 {
     int count = 0;

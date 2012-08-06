@@ -33,6 +33,10 @@
 		ED3A64DA15B47D1A00E6EA04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B315B47D1A00E6EA04 /* Foundation.framework */; };
 		ED3A64DB15B47D1A00E6EA04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B715B47D1A00E6EA04 /* CoreData.framework */; };
 		ED3A64E315B47D1A00E6EA04 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3A64E115B47D1A00E6EA04 /* InfoPlist.strings */; };
+		ED54778E15D016020061AADD /* FavoritesView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54778D15D016020061AADD /* FavoritesView.m */; };
+		ED54778F15D016020061AADD /* FavoritesView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54778D15D016020061AADD /* FavoritesView.m */; };
+		ED54779215D01BBD0061AADD /* IndiFavorite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54779115D01BBD0061AADD /* IndiFavorite.m */; };
+		ED54779315D01BBD0061AADD /* IndiFavorite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54779115D01BBD0061AADD /* IndiFavorite.m */; };
 		ED700A3815B6060000973B64 /* IDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED700A3715B6060000973B64 /* IDManager.m */; };
 		ED700A3915B6060000973B64 /* IDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED700A3715B6060000973B64 /* IDManager.m */; };
 		ED700A3D15B6062300973B64 /* MockIDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED700A3C15B6062300973B64 /* MockIDManager.m */; };
@@ -115,6 +119,10 @@
 		ED3A64D715B47D1A00E6EA04 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		ED3A64E015B47D1A00E6EA04 /* EditAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EditAppTests-Info.plist"; sourceTree = "<group>"; };
 		ED3A64E215B47D1A00E6EA04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED54778C15D016020061AADD /* FavoritesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesView.h; sourceTree = "<group>"; };
+		ED54778D15D016020061AADD /* FavoritesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesView.m; sourceTree = "<group>"; };
+		ED54779015D01BBD0061AADD /* IndiFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndiFavorite.h; sourceTree = "<group>"; };
+		ED54779115D01BBD0061AADD /* IndiFavorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndiFavorite.m; sourceTree = "<group>"; };
 		ED700A3615B6060000973B64 /* IDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDManager.h; sourceTree = "<group>"; };
 		ED700A3715B6060000973B64 /* IDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDManager.m; sourceTree = "<group>"; };
 		ED700A3B15B6062300973B64 /* MockIDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockIDManager.h; sourceTree = "<group>"; };
@@ -255,6 +263,10 @@
 				ED3A64C515B47D1A00E6EA04 /* MainStoryboard.storyboard */,
 				ED97F8F715C6DE8A00C8A70A /* GroundEditViewController.h */,
 				ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */,
+				ED54778C15D016020061AADD /* FavoritesView.h */,
+				ED54778D15D016020061AADD /* FavoritesView.m */,
+				ED54779015D01BBD0061AADD /* IndiFavorite.h */,
+				ED54779115D01BBD0061AADD /* IndiFavorite.m */,
 				EDC442E515C81C9000DE8770 /* ModifyViewController.h */,
 				EDC442E615C81C9000DE8770 /* ModifyViewController.m */,
 				EDC442E715C81C9000DE8770 /* ModifyViewController.xib */,
@@ -510,6 +522,8 @@
 				EDC442F315C845EA00DE8770 /* VariationViewController.m in Sources */,
 				EDD3557615CB14F300D3FF8B /* CameraOptionsViewController.m in Sources */,
 				ED7601D715CC19AD00B87E38 /* PhotoViewController.m in Sources */,
+				ED54778E15D016020061AADD /* FavoritesView.m in Sources */,
+				ED54779215D01BBD0061AADD /* IndiFavorite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +556,8 @@
 				EDC442F415C845EA00DE8770 /* VariationViewController.m in Sources */,
 				EDD3557715CB14F300D3FF8B /* CameraOptionsViewController.m in Sources */,
 				ED7601D815CC19AD00B87E38 /* PhotoViewController.m in Sources */,
+				ED54778F15D016020061AADD /* FavoritesView.m in Sources */,
+				ED54779315D01BBD0061AADD /* IndiFavorite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

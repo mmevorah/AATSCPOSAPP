@@ -12,9 +12,12 @@
 @class EditManager;
 @class ModifyViewController;
 @class FavoritesView;
+@class DragableView;
 
 @interface GroundEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ModifyViewControllerDelegate>
-
+{
+    DragableView *dragableView;
+}
 @property (strong, nonatomic)EditManager *editManager;
 @property (strong, nonatomic)UISegmentedControl *segmentedControl;
 

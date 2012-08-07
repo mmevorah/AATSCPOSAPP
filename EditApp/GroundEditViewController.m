@@ -15,6 +15,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ModifyViewController.h"
 #import "IDManager.h"
+#import "DragableView.h"
 @interface GroundEditViewController ()
 
 @end
@@ -96,6 +97,9 @@
     if([[editManager numberOfActiveFavorites] intValue] == 0)
     {
         [array addObject:@"Favorite"];
+        [array addObject:@"Favorite"];
+    }else if([[editManager numberOfActiveFavorites] intValue] == 1)
+    {
         [array addObject:@"Favorite"];
     }
     
@@ -215,8 +219,43 @@
         cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     
+    UILongPressGestureRecognizer *timedSelect = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleSelection:)];
+    timedSelect.minimumPressDuration = 1;
+    [cell addGestureRecognizer:timedSelect];
+    
     return cell;
 }
+
+-(void)handleSelection:(UIGestureRecognizer*)sender
+{
+    if(sender.state == UIGestureRecognizerStateBegan)
+    {
+        CGPoint pressPoint = [sender locationInView:productTableView];
+        NSIndexPath *indexPath = [productTableView indexPathForRowAtPoint:pressPoint];
+        dragableView = [[DragableView alloc] initWithFrame:CGRectMake(productTableView.frame.origin.x+ pressPoint.x,productTableView.frame.origin.y+ pressPoint.y + 100, 102, 122)];
+        Product *adiPure = [[editManager getProductList] objectAtIndex:[indexPath row]];
+        dragableView.imageView.image = adiPure.image;
+        dragableView.label.text = adiPure.name;
+        [self.view addSubview:dragableView];
+    }
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint location = [touch locationInView:touch.view];
+    dragableView.center = location;
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	[self touchesBegan:touches withEvent:event];
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [dragableView removeFromSuperview];
+}
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -247,6 +286,7 @@
         [editManager saveContext];
     }
 }
+
 
 #pragma mark preparingForCreateProductView
 

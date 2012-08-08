@@ -166,31 +166,36 @@
     NSString *name = [[nameCell.accessoryView.subviews objectAtIndex:0] text];
     [editManager changeProduct:product nameTo:name];
     UITableViewCell *priceCell = [textFieldTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    NSNumber *price = [NSNumber numberWithDouble:[[[priceCell.accessoryView.subviews objectAtIndex:0] text] doubleValue]];
-    [editManager changeProduct:product masterPriceTo:price];
+    @try {
+        NSNumber *price = [NSNumber numberWithDouble:[[[priceCell.accessoryView.subviews objectAtIndex:0] text] doubleValue]];
+        [editManager changeProduct:product masterPriceTo:price];
+    }
+    @catch (NSException *exception) {
+        NSNumber *price = [NSNumber numberWithDouble:[[[priceCell.accessoryView.subviews objectAtIndex:1] text] doubleValue]];
+        [editManager changeProduct:product masterPriceTo:price];
+    }
 }
 
 - (IBAction)disclosureButtonAction:(UIButton *)sender {
     [self saveNameandPrice];
-    [self presentModalViewController:self.variationViewController animated:YES];
+    [self presentViewController:self.variationViewController animated:YES completion:NULL];
 }
 
 - (IBAction)saveButton:(UIBarButtonItem *)sender {
     [self saveNameandPrice];
-    [delegate theSaveButtonHasBeenHit];
+    [delegate theSaveButtonHasBeenHit:self];
     [editManager saveContext];
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)cancelButton:(UIBarButtonItem *)sender {
     [editManager cancelContext];
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 -(void)backButtonWasHit:(VariationViewController *)controller
 {
-    NSLog(@"delegate used whent he back button was pressed");
-    [variationViewController dismissModalViewControllerAnimated:YES];
+    [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)cameraButton:(UIButton *)sender {
@@ -207,7 +212,7 @@
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:photoViewController];
     navController.navigationBarHidden = YES;
     navController.modalPresentationStyle = UIModalPresentationCurrentContext;
-    [self presentModalViewController:navController animated:YES];
+    [self presentViewController:navController animated:YES completion:NULL];
     [popOverController dismissPopoverAnimated:YES];
     navController.view.superview.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     navController.view.superview.center = self.view.center;
@@ -224,12 +229,12 @@
         imagePicker.mediaTypes = [NSArray arrayWithObjects:(NSString *) kUTTypeImage, nil];
         imagePicker.allowsEditing = NO;
         imagePicker.navigationBarHidden = TRUE;
-        [self presentModalViewController:imagePicker animated:YES];
+        [self presentViewController:imagePicker animated:YES completion:NULL];
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    [picker dismissModalViewControllerAnimated:YES];
+    [picker dismissViewControllerAnimated:YES completion:NULL];
      self.view.superview.frame = CGRectMake(self.view.superview.superview.center.x - 250, self.view.superview.superview.center.y - 125, 500, 250);
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [editManager changeProduct:product imageTo:image];
@@ -239,7 +244,7 @@
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [picker dismissModalViewControllerAnimated:YES];
+    [picker dismissViewControllerAnimated:YES completion:NULL];
     self.view.superview.frame = CGRectMake(self.view.superview.superview.center.x - 250, self.view.superview.superview.center.y - 125, 500, 250);
 }
 

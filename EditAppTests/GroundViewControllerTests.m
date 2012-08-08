@@ -55,7 +55,7 @@
 -(void)testSegmentedControllerInitializedProperly
 {
     [groundViewController viewDidLoad];
-    STAssertTrue(groundViewController.segmentedControl.numberOfSegments == 3, @"for an program with no favorites, the segmented controller should start off with two segments");
+    STAssertTrue(groundViewController.segmentedControl.numberOfSegments == 6, @"for an program with no favorites, the segmented controller should start off with two segments");
 }
 
 

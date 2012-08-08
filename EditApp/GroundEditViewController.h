@@ -17,8 +17,11 @@
 @interface GroundEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ModifyViewControllerDelegate>
 {
     DragableView *dragableView;
+    CGPoint initialDragableViewLocation;
 }
 @property (strong, nonatomic)EditManager *editManager;
+
+//Segment Control
 @property (strong, nonatomic)UISegmentedControl *segmentedControl;
 
 //Library View
@@ -32,5 +35,6 @@
 @property (strong, nonatomic) IBOutlet FavoritesView *favoritesView2;
 @property (strong, nonatomic) IBOutlet FavoritesView *favoritesView3;
 @property (strong, nonatomic) IBOutlet FavoritesView *favoritesView4;
+
 
 @end

@@ -12,6 +12,7 @@
 
 @synthesize imageView;
 @synthesize label;
+@synthesize product;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -30,7 +31,7 @@
         self.label = [[UILabel alloc] init];
         self.label.frame = CGRectMake(5, 98, 90, 15);
         self.label.text = @"Product Name";
-        self.label.textAlignment = UITextAlignmentCenter;
+        self.label.textAlignment = NSTextAlignmentCenter;
         [mainView addSubview:self.label];
         [mainView addSubview:self.imageView];
     }

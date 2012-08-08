@@ -90,19 +90,10 @@
     NSMutableArray *array = [[NSMutableArray alloc] init];
     [array addObject:@"Library"];
     
-    for(int i = 0; i < [[editManager numberOfActiveFavorites] intValue]; i++)
+    for(int i = 0; i < 5; i++)
     {
         [array addObject:@"Favorite"];
     }
-    if([[editManager numberOfActiveFavorites] intValue] == 0)
-    {
-        [array addObject:@"Favorite"];
-        [array addObject:@"Favorite"];
-    }else if([[editManager numberOfActiveFavorites] intValue] == 1)
-    {
-        [array addObject:@"Favorite"];
-    }
-    
     return array;
 }
 
@@ -119,6 +110,9 @@
             favoritesView2.hidden = TRUE;
             favoritesView3.hidden = TRUE;
             favoritesView4.hidden = TRUE;
+            
+            [dragableView removeFromSuperview];
+            dragableView = nil;
         }else if(selectedSegmentIndex == 1)
         {
             libraryView.hidden = TRUE;
@@ -127,6 +121,10 @@
             favoritesView2.hidden = TRUE;
             favoritesView3.hidden = TRUE;
             favoritesView4.hidden = TRUE;
+            
+            [dragableView removeFromSuperview];
+            dragableView = nil;
+
         }else if(selectedSegmentIndex == 2)
         {
             libraryView.hidden = TRUE;
@@ -135,6 +133,10 @@
             favoritesView2.hidden = TRUE;
             favoritesView3.hidden = TRUE;
             favoritesView4.hidden = TRUE;
+            
+            [dragableView removeFromSuperview];
+            dragableView = nil;
+
         }else if(selectedSegmentIndex == 3)
         {
             libraryView.hidden = TRUE;
@@ -143,6 +145,10 @@
             favoritesView2.hidden = FALSE;
             favoritesView3.hidden = TRUE;
             favoritesView4.hidden = TRUE;
+            
+            [dragableView removeFromSuperview];
+            dragableView = nil;
+
         }else if(selectedSegmentIndex == 4)
         {
             libraryView.hidden = TRUE;
@@ -151,6 +157,10 @@
             favoritesView2.hidden = TRUE;
             favoritesView3.hidden = FALSE;
             favoritesView4.hidden = TRUE;
+            
+            [dragableView removeFromSuperview];
+            dragableView = nil;
+
         }else if(selectedSegmentIndex == 5)
         {
             libraryView.hidden = TRUE;
@@ -159,6 +169,10 @@
             favoritesView2.hidden = TRUE;
             favoritesView3.hidden = TRUE;
             favoritesView4.hidden = FALSE;
+            
+            [dragableView removeFromSuperview];
+            dragableView = nil;
+
         }
     }
 }
@@ -230,30 +244,80 @@
 {
     if(sender.state == UIGestureRecognizerStateBegan)
     {
+        NSLog(@"Long cell selection");
         CGPoint pressPoint = [sender locationInView:productTableView];
         NSIndexPath *indexPath = [productTableView indexPathForRowAtPoint:pressPoint];
-        dragableView = [[DragableView alloc] initWithFrame:CGRectMake(productTableView.frame.origin.x+ pressPoint.x,productTableView.frame.origin.y+ pressPoint.y + 100, 102, 122)];
-        Product *adiPure = [[editManager getProductList] objectAtIndex:[indexPath row]];
-        dragableView.imageView.image = adiPure.image;
-        dragableView.label.text = adiPure.name;
-        [self.view addSubview:dragableView];
+        
+        if(dragableView == nil)
+        {
+            dragableView = [[DragableView alloc] initWithFrame:CGRectMake(productTableView.frame.origin.x+ pressPoint.x,productTableView.frame.origin.y+ pressPoint.y + 100, 102, 122)];
+            initialDragableViewLocation = CGPointMake(productTableView.frame.origin.x+ pressPoint.x + 51, productTableView.frame.origin.y+ pressPoint.y + 100 + 61);
+            Product *adiPure = [[editManager getProductList] objectAtIndex:[indexPath row]];
+            dragableView.imageView.image = adiPure.image;
+            dragableView.label.text = adiPure.name;
+            dragableView.product = adiPure;
+            [self.view addSubview:dragableView];
+            [self touchesBegan:nil withEvent:nil];
+        }
     }
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint location = [touch locationInView:touch.view];
-    dragableView.center = location;
+    NSLog(@"touches began");
+    dragableView.center = initialDragableViewLocation;
+    //[self touchesMoved:touches withEvent:event];
 }
-
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-	[self touchesBegan:touches withEvent:event];
-}
+    NSLog(@"touches moved");
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint location = [touch locationInView:touch.view.superview.superview];
+    initialDragableViewLocation = location;
 
+    if([touch.view.superview class] != [dragableView class])
+    {
+        [dragableView removeFromSuperview];
+        dragableView = nil;
+    }
+    
+    NSLog(@"Touch view is: %@", touch.view.superview);
+    
+    dragableView.center = initialDragableViewLocation;
+}
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint location = [touch locationInView:touch.view.superview.superview];
+    [self favoriteDropOff:location withProduct:dragableView.product];
     [dragableView removeFromSuperview];
+    dragableView = nil;
+}
+
+-(void)favoriteDropOff:(CGPoint)location withProduct:(Product*)product
+{
+    float originX = segmentedControl.frame.origin.x;
+    
+    if((location.y > 928) && (location.y < 971))
+    {
+        if((location.x > (originX+87)) && (location.x < (originX+87+87)))
+        {
+            NSLog(@"Product Put in Fav0");
+            [editManager addProductToFavoritesWithID:product.iD toFavoritesList:0 atPosition:[NSNumber numberWithInt:4]];
+            [favoritesView0 reloadFavoritesView];
+        }else if((location.x > (originX+87+87)) && (location.x < (originX+87+87+87)))
+        {
+            NSLog(@"fav1");
+        }else if((location.x > (originX+87+87+87)) && (location.x < (originX+87+87+87+87)))
+        {
+            NSLog(@"fav2");
+        }else if((location.x > (originX+87+87+87+87)) && (location.x < (originX+87+87+87+87+87)))
+        {
+            NSLog(@"fav3");
+        }else if((location.x > (originX+87+87+87+87+87)) && (location.x < (originX+87+87+87+87+87+87)))
+        {
+            NSLog(@"fav4");
+        }
+    }
 }
 
 
@@ -267,7 +331,7 @@
     
     modifyViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     modifyViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    [self presentModalViewController:modifyViewController animated:YES];
+    [self presentViewController:modifyViewController animated:YES completion:NULL];
     modifyViewController.view.superview.frame = CGRectMake(0, 0, 500, 250);
     modifyViewController.view.superview.center = self.view.center;
     
@@ -297,7 +361,7 @@
 
     modifyViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     modifyViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    [self presentModalViewController:modifyViewController animated:YES];
+    [self presentViewController:modifyViewController animated:YES completion:NULL];
     modifyViewController.view.superview.frame = CGRectMake(0, 0, 500, 250);
     modifyViewController.view.superview.center = self.view.center;
     
@@ -306,10 +370,9 @@
     modifyViewController.delegate = self;
 }
 
--(void)theSaveButtonHasBeenHit
+-(void)theSaveButtonHasBeenHit:(ModifyViewController*)controller
 {
-    NSLog(@"So After saving the product list is: %@", [editManager getProductList]);
-    NSLog(@"With the variation list looking like: %@", [editManager getVariationListFromProduct:[[editManager getProductList] objectAtIndex:0]] );
+    [controller dismissViewControllerAnimated:YES completion:NULL];
     [productTableView reloadData];
 }
 @end

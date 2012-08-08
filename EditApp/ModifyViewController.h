@@ -18,7 +18,7 @@
 @class CameraOptionsViewController;
 
 @protocol ModifyViewControllerDelegate <NSObject>
--(void)theSaveButtonHasBeenHit;
+-(void)theSaveButtonHasBeenHit:(ModifyViewController*)controller;
 @end
 
 @interface ModifyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,VariationViewControllerDelegate, CameraOptionsDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>

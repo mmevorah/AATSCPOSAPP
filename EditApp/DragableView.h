@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class Product;
 @interface DragableView : UIView
 {
     UIView *mainView;
 }
 @property(strong, nonatomic)UIImageView *imageView;
 @property(strong, nonatomic)UILabel *label;
+@property(strong, nonatomic)Product *product;
 @end

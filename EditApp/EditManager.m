@@ -59,6 +59,28 @@
 
 -(void)deleteProduct:(Product *)product
 {
+    if([self productIsAFavorite:product])
+    {
+        for(int i = 0; i < 25; i++)
+        {
+            if([product.iD integerValue] == [[favoriteManager.favList0.list objectAtIndex:i] integerValue])
+            {
+                [self removeProductFromFavoritesList:0 position:[NSNumber numberWithInt:i]];
+            }else if([product.iD integerValue] == [[favoriteManager.favList1.list objectAtIndex:i] integerValue])
+            {
+                [self removeProductFromFavoritesList:1 position:[NSNumber numberWithInt:i]];
+            }else if([product.iD integerValue] == [[favoriteManager.favList2.list objectAtIndex:i] integerValue])
+            {
+                [self removeProductFromFavoritesList:2 position:[NSNumber numberWithInt:i]];
+            }else if([product.iD integerValue] == [[favoriteManager.favList3.list objectAtIndex:i] integerValue])
+            {
+                [self removeProductFromFavoritesList:3 position:[NSNumber numberWithInt:i]];
+            }else if([product.iD integerValue] == [[favoriteManager.favList4.list objectAtIndex:i] integerValue])
+            {
+                [self removeProductFromFavoritesList:4 position:[NSNumber numberWithInt:i]];
+            }
+        }
+    }
     [context deleteObject:product];
 }
 
@@ -281,7 +303,31 @@
     }
     UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No more room in this list" delegate:nil cancelButtonTitle:@"Ok"otherButtonTitles:nil, nil];
     [error show];
-    return NULL;
+    return -1;
+}
+
+-(bool)productIsAFavorite:(Product*)product;
+{
+    for(int i = 0; i < 25; i++)
+    {
+        if([product.iD integerValue] == [[favoriteManager.favList0.list objectAtIndex:i] integerValue])
+        {
+            return TRUE;
+        }else if([product.iD integerValue] == [[favoriteManager.favList1.list objectAtIndex:i] integerValue])
+        {
+            return TRUE;
+        }else if([product.iD integerValue] == [[favoriteManager.favList2.list objectAtIndex:i] integerValue])
+        {
+            return TRUE;
+        }else if([product.iD integerValue] == [[favoriteManager.favList3.list objectAtIndex:i] integerValue])
+        {
+            return TRUE;
+        }else if([product.iD integerValue] == [[favoriteManager.favList4.list objectAtIndex:i] integerValue])
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
 }
 
 @end

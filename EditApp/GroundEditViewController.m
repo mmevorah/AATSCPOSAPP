@@ -351,6 +351,11 @@
     {
         [editManager deleteProduct:[[editManager getProductList] objectAtIndex:[indexPath row]]];
         [self.productTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        [favoritesView0 reloadFavoritesView];
+        [favoritesView1 reloadFavoritesView];
+        [favoritesView2 reloadFavoritesView];
+        [favoritesView3 reloadFavoritesView];
+        [favoritesView4 reloadFavoritesView];
         [editManager saveContext];
     }
 }

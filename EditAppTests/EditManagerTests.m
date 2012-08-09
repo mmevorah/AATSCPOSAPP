@@ -251,6 +251,12 @@
     STAssertTrue([editManager getNextAvailablePositionFromFavoritesList:1] == 2, @"Edit Manager Should be abe to get the next available favorite in a list");
 }
 
+-(void)testProductIsAFavorite
+{
+    [editManager addProductToFavoritesWithID:product.iD toFavoritesList:0 atPosition:[NSNumber numberWithInt:18]];
+    STAssertTrue([editManager productIsAFavorite:product], @"Should be able to determine if a product is a favorite");
+}
+
 /*
 -(void)testCanCleanUpVariationList
 {

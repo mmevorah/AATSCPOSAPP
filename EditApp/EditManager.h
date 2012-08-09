@@ -67,5 +67,6 @@
 -(void)removeProductFromFavoritesList:(int)favList position:(NSNumber*)pos;
 -(NSNumber *)numberOfActiveFavorites;
 -(int)getNextAvailablePositionFromFavoritesList:(int)favoritesListNumber;
+-(bool)productIsAFavorite:(Product*)product;
 
 @end

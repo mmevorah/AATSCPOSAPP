@@ -19,30 +19,41 @@
     {
         NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
         NSString *plistPath = [docDir stringByAppendingPathComponent:@"favoriteProducts.plist"];
+        
         if([[NSFileManager defaultManager] fileExistsAtPath:plistPath])
         {
             NSLog(@"[FOUND PLIST For Favorites Manager]");
             source = [NSMutableArray arrayWithContentsOfFile:plistPath];
-            favList0 = [source objectAtIndex:0];
-            favList1 = [source objectAtIndex:1];
-            favList2 = [source objectAtIndex:2];
-            favList3 = [source objectAtIndex:3];
-            favList4 = [source objectAtIndex:4];
-        }else 
-        {
-            NSLog(@"[COULD NO FIND PLIST For Favorites Manager] CREATING A NEW ONE");
-            source = [[NSMutableArray alloc] init];
+                        
             favList0 = [[FavoriteList alloc] init];
             favList1 = [[FavoriteList alloc] init];
             favList2 = [[FavoriteList alloc] init];
             favList3 = [[FavoriteList alloc] init];
             favList4 = [[FavoriteList alloc] init];
             
-            [source addObject:favList0];
-            [source addObject:favList1];
-            [source addObject:favList2];
-            [source addObject:favList3];
-            [source addObject:favList4];
+            favList0.list = [source objectAtIndex:0];
+            favList1.list = [source objectAtIndex:1];
+            favList2.list = [source objectAtIndex:2];
+            favList3.list = [source objectAtIndex:3];
+            favList4.list = [source objectAtIndex:4];
+        }else 
+        {
+            NSLog(@"[COULD NO FIND PLIST For Favorites Manager] CREATING A NEW ONE");
+            
+            favList0 = [[FavoriteList alloc] init];
+            favList1 = [[FavoriteList alloc] init];
+            favList2 = [[FavoriteList alloc] init];
+            favList3 = [[FavoriteList alloc] init];
+            favList4 = [[FavoriteList alloc] init];
+            
+            source = [[NSMutableArray alloc] init];
+            [source addObject:favList0.list];
+            [source addObject:favList1.list];
+            [source addObject:favList2.list];
+            [source addObject:favList3.list];
+            [source addObject:favList4.list];
+            
+            [self saveFavorites];
         }
     }
     return self;
@@ -92,7 +103,14 @@
 {
     NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
     NSString *plistPath = [docDir stringByAppendingPathComponent:@"favoriteProducts.plist"];
-    [source writeToFile:plistPath atomically:YES];
+    
+    [source replaceObjectAtIndex:0 withObject:favList0.list];
+    [source replaceObjectAtIndex:1 withObject:favList1.list];
+    [source replaceObjectAtIndex:2 withObject:favList2.list];
+    [source replaceObjectAtIndex:3 withObject:favList3.list];
+    [source replaceObjectAtIndex:4 withObject:favList4.list];
+    
+    [source writeToFile:plistPath atomically:NO];
 }
 
 

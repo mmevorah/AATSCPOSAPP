@@ -14,7 +14,6 @@
 #import "CameraOptionsViewController.h"
 #import "PhotoViewController.h"
 
-
 @interface ModifyViewController ()
 
 @end
@@ -163,14 +162,24 @@
 -(void)saveNameandPrice
 {
     UITableViewCell *nameCell = [textFieldTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    NSString *name = [[nameCell.accessoryView.subviews objectAtIndex:0] text];
-    [editManager changeProduct:product nameTo:name];
+    @try{
+        NSLog(@"Tried to name");
+        NSString *name = [[nameCell.accessoryView.subviews objectAtIndex:0] text];
+        [editManager changeProduct:product nameTo:name];
+    }
+    @catch (NSException *yo) {
+        NSLog(@"Cought name");
+        NSString *name = [[nameCell.accessoryView.subviews objectAtIndex:1] text];
+        [editManager changeProduct:product nameTo:name];
+    }
     UITableViewCell *priceCell = [textFieldTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     @try {
+        NSLog(@"Tried to price");
         NSNumber *price = [NSNumber numberWithDouble:[[[priceCell.accessoryView.subviews objectAtIndex:0] text] doubleValue]];
         [editManager changeProduct:product masterPriceTo:price];
     }
     @catch (NSException *exception) {
+        NSLog(@"Cought price");
         NSNumber *price = [NSNumber numberWithDouble:[[[priceCell.accessoryView.subviews objectAtIndex:1] text] doubleValue]];
         [editManager changeProduct:product masterPriceTo:price];
     }

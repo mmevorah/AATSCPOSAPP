@@ -253,4 +253,35 @@
     return FALSE;
 }
 
+-(int)getNextAvailablePositionFromFavoritesList:(int)favoritesListNumber
+{
+    FavoriteList *favoriteList;
+    if(favoritesListNumber == 0)
+    {
+        favoriteList = favoriteManager.favList0;
+    }else if(favoritesListNumber == 1)
+    {
+        favoriteList = favoriteManager.favList1;
+    }else if(favoritesListNumber == 2)
+    {
+        favoriteList = favoriteManager.favList2;
+    }else if(favoritesListNumber == 3)
+    {
+        favoriteList = favoriteManager.favList3;
+    }else if(favoritesListNumber == 4)
+    {
+        favoriteList = favoriteManager.favList4;
+    }
+    for(int i = 0; i < 25; i++)
+    {
+        if([[favoriteList.list objectAtIndex:i] integerValue] == -1)
+        {
+            return i;
+        }
+    }
+    UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No more room in this list" delegate:nil cancelButtonTitle:@"Ok"otherButtonTitles:nil, nil];
+    [error show];
+    return NULL;
+}
+
 @end

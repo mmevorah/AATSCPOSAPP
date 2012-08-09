@@ -264,12 +264,10 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"touches began");
     dragableView.center = initialDragableViewLocation;
     //[self touchesMoved:touches withEvent:event];
 }
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touches moved");
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint location = [touch locationInView:touch.view.superview.superview];
     initialDragableViewLocation = location;
@@ -279,9 +277,7 @@
         [dragableView removeFromSuperview];
         dragableView = nil;
     }
-    
-    NSLog(@"Touch view is: %@", touch.view.superview);
-    
+        
     dragableView.center = initialDragableViewLocation;
 }
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -302,20 +298,28 @@
         if((location.x > (originX+87)) && (location.x < (originX+87+87)))
         {
             NSLog(@"Product Put in Fav0");
-            [editManager addProductToFavoritesWithID:product.iD toFavoritesList:0 atPosition:[NSNumber numberWithInt:4]];
+            [editManager addProductToFavoritesWithID:product.iD toFavoritesList:0 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:0]]];
             [favoritesView0 reloadFavoritesView];
         }else if((location.x > (originX+87+87)) && (location.x < (originX+87+87+87)))
         {
             NSLog(@"fav1");
+            [editManager addProductToFavoritesWithID:product.iD toFavoritesList:1 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:1]]];
+            [favoritesView1 reloadFavoritesView];
         }else if((location.x > (originX+87+87+87)) && (location.x < (originX+87+87+87+87)))
         {
             NSLog(@"fav2");
+            [editManager addProductToFavoritesWithID:product.iD toFavoritesList:2 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:2]]];
+            [favoritesView2 reloadFavoritesView];
         }else if((location.x > (originX+87+87+87+87)) && (location.x < (originX+87+87+87+87+87)))
         {
             NSLog(@"fav3");
+            [editManager addProductToFavoritesWithID:product.iD toFavoritesList:3 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:3]]];
+            [favoritesView3 reloadFavoritesView];
         }else if((location.x > (originX+87+87+87+87+87)) && (location.x < (originX+87+87+87+87+87+87)))
         {
             NSLog(@"fav4");
+            [editManager addProductToFavoritesWithID:product.iD toFavoritesList:4 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:4]]];
+            [favoritesView4 reloadFavoritesView];
         }
     }
 }

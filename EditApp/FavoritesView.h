@@ -15,7 +15,7 @@
 @interface FavoritesView : UIView
 {
     NSMutableArray *favoriteButtonArray;
-    FavoriteList *favoriteManagerList;
+    NSMutableArray *favoriteManagerList;
 }
 
 @property (strong, nonatomic) EditManager *editManager;

@@ -31,9 +31,11 @@
 {
     // Drawing code
     favoriteButtonArray = [[NSMutableArray alloc] init];
+    
     [self configureFavoritesList];
     [self positionButtons];
     [self reloadFavoritesView];
+
     self.layer.cornerRadius = 5;
     self.layer.masksToBounds = YES;
 }
@@ -65,19 +67,20 @@
 {
     if(favoritesListNumber == 0)
     {
-        favoriteManagerList = editManager.favoriteManager.favList0;
+        NSLog(@"Favorites Manager %@", editManager.favoriteManager.favList0);
+        favoriteManagerList = editManager.favoriteManager.favList0.list;
     }else if(favoritesListNumber == 1)
     {
-        favoriteManagerList = editManager.favoriteManager.favList1;
+        favoriteManagerList = editManager.favoriteManager.favList1.list;
     }else if(favoritesListNumber == 2)
     {
-        favoriteManagerList = editManager.favoriteManager.favList2;
+        favoriteManagerList = editManager.favoriteManager.favList2.list;
     }else if(favoritesListNumber == 3)
     {
-        favoriteManagerList = editManager.favoriteManager.favList3;
+        favoriteManagerList = editManager.favoriteManager.favList3.list;
     }else if(favoritesListNumber == 4)
     {
-        favoriteManagerList = editManager.favoriteManager.favList4;
+        favoriteManagerList = editManager.favoriteManager.favList4.list;
     }
 }
 
@@ -86,7 +89,7 @@
     for(int i  = 0; i < 25; i++)
     {
         IndiFavorite *favoriteButton = [favoriteButtonArray objectAtIndex:i];
-        NSNumber *iD = [favoriteManagerList.list objectAtIndex:i];
+        NSNumber *iD = [favoriteManagerList objectAtIndex:i];
         favoriteButton.productID = iD;
         if([iD integerValue] != -1)
         {

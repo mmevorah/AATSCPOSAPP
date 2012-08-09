@@ -242,7 +242,13 @@
     [editManager changeProduct:p1 nameTo:@"Apple"];
     NSLog(@"product: %@", p1.iD);
     STAssertEqualObjects([editManager productFromID:[NSNumber numberWithInt:9]], p1, @"Should be able to get a product from its id");
-    
+}
+
+-(void)testGetNextAvailableFavorite
+{
+    [editManager addProductToFavoritesWithID:product.iD toFavoritesList:1 atPosition:[NSNumber numberWithInteger:0]];
+    [editManager addProductToFavoritesWithID:product.iD toFavoritesList:1 atPosition:[NSNumber numberWithInteger:1]];
+    STAssertTrue([editManager getNextAvailablePositionFromFavoritesList:1] == 2, @"Edit Manager Should be abe to get the next available favorite in a list");
 }
 
 /*

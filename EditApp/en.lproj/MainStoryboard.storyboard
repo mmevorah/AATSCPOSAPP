@@ -126,6 +126,7 @@
                         <outlet property="favoritesView4" destination="7dF-qb-dTc" id="ZjS-Na-knn"/>
                         <outlet property="libraryView" destination="DIz-oq-KuX" id="i1r-Rb-N3x"/>
                         <outlet property="productTableView" destination="crj-hG-eFa" id="AOm-P8-3tC"/>
+                        <outlet property="searchBar" destination="IJN-fu-WRe" id="wbJ-RD-lKi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBo-S7-Vv5" userLabel="First Responder" sceneMemberID="firstResponder"/>

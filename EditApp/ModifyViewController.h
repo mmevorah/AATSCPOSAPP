@@ -19,6 +19,7 @@
 
 @protocol ModifyViewControllerDelegate <NSObject>
 -(void)theSaveButtonHasBeenHit:(ModifyViewController*)controller;
+-(void)theCancelButtonHasBeenHit:(ModifyViewController*)controller;
 @end
 
 @interface ModifyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,VariationViewControllerDelegate, CameraOptionsDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>

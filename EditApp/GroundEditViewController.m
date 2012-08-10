@@ -21,6 +21,7 @@
 @end
 
 @implementation GroundEditViewController
+@synthesize searchBar;
 @synthesize favoritesView0;
 @synthesize favoritesView1;
 @synthesize favoritesView2;
@@ -383,5 +384,10 @@
 {
     [controller dismissViewControllerAnimated:YES completion:NULL];
     [productTableView reloadData];
+}
+
+-(void)theCancelButtonHasBeenHit:(ModifyViewController *)controller
+{
+    [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 @end

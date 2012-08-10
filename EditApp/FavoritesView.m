@@ -12,11 +12,13 @@
 #import "FavoritesManager.h"
 #import "FavoriteList.h"
 #import "Product.h"
+#import "DeleteFavoriteViewController.h"
 
 @implementation FavoritesView
 
 @synthesize favoritesListNumber;
 @synthesize editManager;
+@synthesize popoverController;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -48,6 +50,9 @@
     for(int i = 0; i < 25; i++)
     {
         IndiFavorite *button = [[IndiFavorite alloc] init];
+        button.list = favoritesListNumber;
+        button.position = i;
+        [button addTarget:self action:@selector(presentDelete:) forControlEvents:UIControlEventTouchUpInside];
         [favoriteButtonArray addObject:button];
         
         if(((i%5) == 0) && (i != 0))
@@ -101,6 +106,26 @@
     }
 }
 
+-(void)presentDelete:(IndiFavorite*)button
+{
+    if([button.productID integerValue] != -1)
+    {
+        DeleteFavoriteViewController *deleteFavoritePopoverView = [[DeleteFavoriteViewController alloc] initWithNibName:@"DeleteFavoriteViewController" bundle:nil];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:deleteFavoritePopoverView];
+        [navController setNavigationBarHidden:YES];
+        deleteFavoritePopoverView.list = favoritesListNumber;
+        deleteFavoritePopoverView.position = button.position;
+        deleteFavoritePopoverView.delegate = self;
+        self.popoverController = [[UIPopoverController alloc] initWithContentViewController:navController];
+        [self.popoverController presentPopoverFromRect:CGRectMake(0, 0, button.center.x, button.center.y) inView:button permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    }
+}
 
+-(void)deleteFavoriteWasHit:(DeleteFavoriteViewController *)sender
+{
+    [popoverController dismissPopoverAnimated:YES];
+    [editManager removeProductFromFavoritesList:sender.list position:[NSNumber numberWithInteger: sender.position]];
+    [self reloadFavoritesView];
+}
 
 @end

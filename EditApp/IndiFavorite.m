@@ -11,6 +11,8 @@
 @implementation IndiFavorite
 
 @synthesize productID;
+@synthesize list;
+@synthesize position;
 
 - (id)initWithPosition:(NSInteger*)positionNumber;
 {
@@ -18,8 +20,10 @@
     {
         self = [UIButton buttonWithType:UIButtonTypeCustom];
     }
+        
     return self;
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

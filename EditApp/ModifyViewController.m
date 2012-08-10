@@ -194,12 +194,11 @@
     [self saveNameandPrice];
     [delegate theSaveButtonHasBeenHit:self];
     [editManager saveContext];
-    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)cancelButton:(UIBarButtonItem *)sender {
     [editManager cancelContext];
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [delegate theCancelButtonHasBeenHit:self];
 }
 
 -(void)backButtonWasHit:(VariationViewController *)controller

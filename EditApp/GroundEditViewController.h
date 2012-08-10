@@ -28,6 +28,7 @@
 @property (strong, nonatomic) IBOutlet UIView *libraryView;
 @property (strong, nonatomic) IBOutlet UITableView *productTableView;
 - (IBAction)addButton:(UIBarButtonItem *)sender;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 //Favorites View
 @property (strong, nonatomic) IBOutlet FavoritesView *favoritesView0;

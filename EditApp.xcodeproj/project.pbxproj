@@ -37,6 +37,8 @@
 		ED54778F15D016020061AADD /* FavoritesView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54778D15D016020061AADD /* FavoritesView.m */; };
 		ED54779215D01BBD0061AADD /* IndiFavorite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54779115D01BBD0061AADD /* IndiFavorite.m */; };
 		ED54779315D01BBD0061AADD /* IndiFavorite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54779115D01BBD0061AADD /* IndiFavorite.m */; };
+		ED589A8E15D5628300537132 /* DeleteFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED589A8C15D5628300537132 /* DeleteFavoriteViewController.m */; };
+		ED589A8F15D5628300537132 /* DeleteFavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED589A8D15D5628300537132 /* DeleteFavoriteViewController.xib */; };
 		ED6B2EEC15D17BE500B86670 /* DragableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6B2EEB15D17BE500B86670 /* DragableView.m */; };
 		ED700A3815B6060000973B64 /* IDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED700A3715B6060000973B64 /* IDManager.m */; };
 		ED700A3915B6060000973B64 /* IDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED700A3715B6060000973B64 /* IDManager.m */; };
@@ -124,6 +126,9 @@
 		ED54778D15D016020061AADD /* FavoritesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesView.m; sourceTree = "<group>"; };
 		ED54779015D01BBD0061AADD /* IndiFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndiFavorite.h; sourceTree = "<group>"; };
 		ED54779115D01BBD0061AADD /* IndiFavorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndiFavorite.m; sourceTree = "<group>"; };
+		ED589A8B15D5628300537132 /* DeleteFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteFavoriteViewController.h; sourceTree = "<group>"; };
+		ED589A8C15D5628300537132 /* DeleteFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteFavoriteViewController.m; sourceTree = "<group>"; };
+		ED589A8D15D5628300537132 /* DeleteFavoriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeleteFavoriteViewController.xib; sourceTree = "<group>"; };
 		ED6B2EEA15D17BE500B86670 /* DragableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragableView.h; sourceTree = "<group>"; };
 		ED6B2EEB15D17BE500B86670 /* DragableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragableView.m; sourceTree = "<group>"; };
 		ED700A3615B6060000973B64 /* IDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDManager.h; sourceTree = "<group>"; };
@@ -272,6 +277,9 @@
 				ED54778D15D016020061AADD /* FavoritesView.m */,
 				ED54779015D01BBD0061AADD /* IndiFavorite.h */,
 				ED54779115D01BBD0061AADD /* IndiFavorite.m */,
+				ED589A8B15D5628300537132 /* DeleteFavoriteViewController.h */,
+				ED589A8C15D5628300537132 /* DeleteFavoriteViewController.m */,
+				ED589A8D15D5628300537132 /* DeleteFavoriteViewController.xib */,
 				EDC442E515C81C9000DE8770 /* ModifyViewController.h */,
 				EDC442E615C81C9000DE8770 /* ModifyViewController.m */,
 				EDC442E715C81C9000DE8770 /* ModifyViewController.xib */,
@@ -471,6 +479,7 @@
 				EDC442F515C845EA00DE8770 /* VariationViewController.xib in Resources */,
 				EDD3557815CB14F300D3FF8B /* CameraOptionsViewController.xib in Resources */,
 				ED7601D915CC19AD00B87E38 /* PhotoViewController.xib in Resources */,
+				ED589A8F15D5628300537132 /* DeleteFavoriteViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +539,7 @@
 				ED54778E15D016020061AADD /* FavoritesView.m in Sources */,
 				ED54779215D01BBD0061AADD /* IndiFavorite.m in Sources */,
 				ED6B2EEC15D17BE500B86670 /* DragableView.m in Sources */,
+				ED589A8E15D5628300537132 /* DeleteFavoriteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

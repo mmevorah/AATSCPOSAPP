@@ -14,7 +14,7 @@
 @class FavoritesView;
 @class DragableView;
 
-@interface GroundEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ModifyViewControllerDelegate>
+@interface GroundEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, ModifyViewControllerDelegate>
 {
     DragableView *dragableView;
     CGPoint initialDragableViewLocation;

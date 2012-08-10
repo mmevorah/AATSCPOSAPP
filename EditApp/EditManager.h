@@ -54,7 +54,7 @@
 -(void)cancelContext;
 
 //Accessing
--(NSArray*)getProductList;
+-(NSArray*)getProductList:(NSString*)searchTerm;
 -(NSArray*)getVariationListFromProduct:(Product*)product;
 -(Product*)productFromID:(NSNumber*)productID;
 

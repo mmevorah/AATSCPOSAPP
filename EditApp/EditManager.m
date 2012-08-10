@@ -34,7 +34,7 @@
         variationFactory.context = setContext;
         
         context = setContext;
-        idManager = setIDManaged;        
+        idManager = setIDManaged;
     }
     return self;    
 }
@@ -181,16 +181,22 @@
     [idManager cancelIDS];
 }
 
--(NSArray*)getProductList
+-(NSArray*)getProductList:(NSString*)searchTerm
 {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *productEntity = [NSEntityDescription entityForName:@"Product" inManagedObjectContext:context];
     [request setEntity:productEntity];
+
+    if(searchTerm != nil)
+    {
+        NSPredicate *productPredicate = [NSPredicate predicateWithFormat:@"name contains[cd] %@", searchTerm];
+        [request setPredicate:productPredicate];
+    }
+    
     NSError *error;
     NSArray *adiPure = [context executeFetchRequest:request error:&error];
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    
     return [adiPure sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
 }
 

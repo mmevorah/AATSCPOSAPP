@@ -182,7 +182,7 @@
 -(void)testCanReturnArrayOfProducts
 {
     [editManager createProductShell];
-    STAssertTrue([[editManager getProductList] count] == 2, @"edit manager should be able to return a list of products in the current context");
+    STAssertTrue([[editManager getProductList:nil] count] == 2, @"edit manager should be able to return a list of products in the current context");
 }
 
 -(void)testReturnedArrayIsSortedByName
@@ -191,10 +191,10 @@
     [editManager changeProduct:p1 nameTo:@"Apple"];
     Product *p2 = [editManager createProductShell];
     [editManager changeProduct:p2 nameTo:@"Zebra"];
-    NSLog(@"list looks like: %@", [editManager getProductList]);
-    STAssertTrue([[[[editManager getProductList] objectAtIndex:0] name] isEqualToString:@"Apple"], @"Apple should be first");
-    STAssertTrue([[[[editManager getProductList] objectAtIndex:1] name] isEqualToString:@"Shirt"], @"Shirt should be second");
-    STAssertTrue([[[[editManager getProductList] objectAtIndex:2] name] isEqualToString:@"Zebra"], @"Zebra should be third");
+    NSLog(@"list looks like: %@", [editManager getProductList:nil]);
+    STAssertTrue([[[[editManager getProductList:nil] objectAtIndex:0] name] isEqualToString:@"Apple"], @"Apple should be first");
+    STAssertTrue([[[[editManager getProductList:nil] objectAtIndex:1] name] isEqualToString:@"Shirt"], @"Shirt should be second");
+    STAssertTrue([[[[editManager getProductList:nil] objectAtIndex:2] name] isEqualToString:@"Zebra"], @"Zebra should be third");
 }
 
 -(void)testCanRetrieveActiveFavorites

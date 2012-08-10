@@ -187,8 +187,10 @@
     NSEntityDescription *productEntity = [NSEntityDescription entityForName:@"Product" inManagedObjectContext:context];
     [request setEntity:productEntity];
 
-    if(searchTerm != nil)
+    NSLog(@"search term is: %@", searchTerm);
+    if((searchTerm != nil) && ![searchTerm isEqualToString:@""])
     {
+        NSLog(@"this");
         NSPredicate *productPredicate = [NSPredicate predicateWithFormat:@"name contains[cd] %@", searchTerm];
         [request setPredicate:productPredicate];
     }

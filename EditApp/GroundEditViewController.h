@@ -18,6 +18,8 @@
 {
     DragableView *dragableView;
     CGPoint initialDragableViewLocation;
+    NSArray *productList;
+    NSString *productSearchText;
 }
 @property (strong, nonatomic)EditManager *editManager;
 

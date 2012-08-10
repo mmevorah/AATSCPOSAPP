@@ -21,6 +21,7 @@
 @end
 
 @implementation GroundEditViewController
+
 @synthesize searchBar;
 @synthesize favoritesView0;
 @synthesize favoritesView1;
@@ -45,6 +46,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    productList = [editManager getProductList:nil];
+    productSearchText = nil;
     
 	// Do any additional setup after loading the view.
     libraryView.layer.cornerRadius = 5;
@@ -197,7 +201,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[editManager getProductList:nil]count];
+    return [[editManager getProductList:productSearchText]count];
 }
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -213,24 +217,24 @@
     
     //name
     cell.textLabel.font = font;
-    cell.textLabel.text = [[[editManager getProductList:nil] objectAtIndex:[indexPath row]] name];
+    cell.textLabel.text = [[productList objectAtIndex:[indexPath row]] name];
     
     //price
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     cell.detailTextLabel.textColor = [UIColor blackColor];
     cell.detailTextLabel.font = font;
-    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[[[editManager getProductList:nil]objectAtIndex:[indexPath row]]masterPrice]];
+    cell.detailTextLabel.text = [numberFormatter stringFromNumber:[[productList objectAtIndex:[indexPath row]]masterPrice]];
     
     //image
-    if([[[editManager getProductList:nil]objectAtIndex:[indexPath row]]image] == nil)
+    if([[productList objectAtIndex:[indexPath row]]image] == nil)
     {
         UIImage *image = [UIImage imageNamed:@"emptyImage.png"];
         cell.imageView.image = image;
         cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     }else
     {
-        cell.imageView.image = [[[editManager getProductList:nil] objectAtIndex:[indexPath row]]image];
+        cell.imageView.image = [[productList objectAtIndex:[indexPath row]]image];
         cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     
@@ -253,7 +257,7 @@
         {
             dragableView = [[DragableView alloc] initWithFrame:CGRectMake(productTableView.frame.origin.x+ pressPoint.x,productTableView.frame.origin.y+ pressPoint.y + 100, 102, 122)];
             initialDragableViewLocation = CGPointMake(productTableView.frame.origin.x+ pressPoint.x + 51, productTableView.frame.origin.y+ pressPoint.y + 100 + 61);
-            Product *adiPure = [[editManager getProductList:nil] objectAtIndex:[indexPath row]];
+            Product *adiPure = [productList objectAtIndex:[indexPath row]];
             dragableView.imageView.image = adiPure.image;
             dragableView.label.text = adiPure.name;
             dragableView.product = adiPure;
@@ -331,8 +335,8 @@
     ModifyViewController *modifyViewController = [[ModifyViewController alloc] initWithNibName:@"ModifyViewController" bundle:nil];
     
     modifyViewController.editManager = self.editManager;
-    NSLog(@"The product sent is: %@", [[editManager getProductList:nil] objectAtIndex:[indexPath row]]);
-    modifyViewController.product = [[editManager getProductList:nil] objectAtIndex:[indexPath row]];
+    NSLog(@"The product sent is: %@", [productList objectAtIndex:[indexPath row]]);
+    modifyViewController.product = [productList objectAtIndex:[indexPath row]];
     
     modifyViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     modifyViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
@@ -350,7 +354,9 @@
 {
     if(editingStyle == UITableViewCellEditingStyleDelete)
     {
-        [editManager deleteProduct:[[editManager getProductList:nil] objectAtIndex:[indexPath row]]];
+        
+        [editManager deleteProduct:[productList objectAtIndex:[indexPath row]]];
+        productList = [editManager getProductList:nil];
         [self.productTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
         [favoritesView0 reloadFavoritesView];
         [favoritesView1 reloadFavoritesView];
@@ -363,12 +369,17 @@
 
 #pragma mark searchFunctionality
 
-
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    productSearchText = searchText;
+    productList = [editManager getProductList:searchText];
+    [productTableView reloadData];
+}
 
 #pragma mark preparingForCreateProductView
 
 - (IBAction)addButton:(UIBarButtonItem *)sender
-{
+{    
     ModifyViewController *modifyViewController = [[ModifyViewController alloc] initWithNibName:@"ModifyViewController" bundle:nil];
     modifyViewController.editManager = self.editManager;
 
@@ -386,6 +397,7 @@
 -(void)theSaveButtonHasBeenHit:(ModifyViewController*)controller
 {
     [controller dismissViewControllerAnimated:YES completion:NULL];
+    productList = [editManager getProductList:productSearchText];
     [productTableView reloadData];
 }
 

@@ -49,6 +49,9 @@
                                         <rect key="frame" x="4" y="47" width="660" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="ejr-cG-LCe" id="pXC-6a-EFn"/>
+                                        </connections>
                                     </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.69758450255102034" green="0.69758450255102034" blue="0.69758450255102034" alpha="1" colorSpace="calibratedRGB"/>
@@ -134,6 +137,25 @@
             <point key="canvasLocation" x="-87" y="-403"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="FavoritesView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesView.h"/>
+        </class>
+        <class className="GroundEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroundEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addButton:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="favoritesView0" candidateClass="FavoritesView"/>
+                <relationship kind="outlet" name="favoritesView1" candidateClass="FavoritesView"/>
+                <relationship kind="outlet" name="favoritesView2" candidateClass="FavoritesView"/>
+                <relationship kind="outlet" name="favoritesView3" candidateClass="FavoritesView"/>
+                <relationship kind="outlet" name="favoritesView4" candidateClass="FavoritesView"/>
+                <relationship kind="outlet" name="libraryView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="productTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

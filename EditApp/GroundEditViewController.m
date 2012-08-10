@@ -32,6 +32,7 @@
 @synthesize editManager;
 @synthesize segmentedControl;
 @synthesize libraryView;
+@synthesize titleBar;
 @synthesize productTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -49,6 +50,10 @@
     
     productList = [editManager getProductList:nil];
     productSearchText = nil;
+    searchBar.tintColor = [UIColor grayColor];
+    self.libraryView.backgroundColor = [UIColor grayColor];
+    self.titleBar.tintColor = [UIColor grayColor];
+    self.titleBar.backgroundColor = [UIColor grayColor];
     
 	// Do any additional setup after loading the view.
     libraryView.layer.cornerRadius = 5;
@@ -57,22 +62,27 @@
     
     favoritesView0.editManager = self.editManager;
     favoritesView0.favoritesListNumber = 0;
+    favoritesView0.backgroundColor = self.view.backgroundColor;
     favoritesView0.hidden = TRUE;
     
     favoritesView1.editManager = self.editManager;
     favoritesView1.favoritesListNumber = 1;
+    favoritesView1.backgroundColor = self.view.backgroundColor;
     favoritesView1.hidden = TRUE;
     
     favoritesView2.editManager = self.editManager;
     favoritesView2.favoritesListNumber = 2;
+    favoritesView2.backgroundColor = self.view.backgroundColor;
     favoritesView2.hidden = TRUE;
     
     favoritesView3.editManager = self.editManager;
     favoritesView3.favoritesListNumber = 3;
+    favoritesView3.backgroundColor = self.view.backgroundColor;
     favoritesView3.hidden = TRUE;
     
     favoritesView4.editManager = self.editManager;
     favoritesView4.favoritesListNumber = 4;
+    favoritesView4.backgroundColor = self.view.backgroundColor;
     favoritesView4.hidden = TRUE;
     
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:[self packageSegmentedControllerArray]];

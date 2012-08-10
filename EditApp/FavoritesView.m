@@ -98,6 +98,7 @@
         favoriteButton.productID = iD;
         if([iD integerValue] != -1)
         {
+            [favoriteButton setTitle:[[editManager productFromID:iD]name] forState:UIControlStateNormal];
             [favoriteButton setImage:[[editManager productFromID:iD] image] forState:UIControlStateNormal];
         }else
         {
@@ -117,7 +118,7 @@
         deleteFavoritePopoverView.position = button.position;
         deleteFavoritePopoverView.delegate = self;
         self.popoverController = [[UIPopoverController alloc] initWithContentViewController:navController];
-        [self.popoverController presentPopoverFromRect:CGRectMake(0, 0, button.center.x, button.center.y) inView:button permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        [self.popoverController presentPopoverFromRect:CGRectMake(0, 0,120, 80) inView:button permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     }
 }
 

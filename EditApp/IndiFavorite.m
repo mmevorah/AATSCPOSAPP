@@ -13,12 +13,14 @@
 @synthesize productID;
 @synthesize list;
 @synthesize position;
+@synthesize label;
 
 - (id)initWithPosition:(NSInteger*)positionNumber;
 {
     if(self = [super init])
     {
-        self = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        self = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     }
         
     return self;

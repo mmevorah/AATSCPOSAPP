@@ -28,6 +28,7 @@
 
 //Library View
 @property (strong, nonatomic) IBOutlet UIView *libraryView;
+@property (strong, nonatomic) IBOutlet UINavigationBar *titleBar;
 @property (strong, nonatomic) IBOutlet UITableView *productTableView;
 - (IBAction)addButton:(UIBarButtonItem *)sender;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;

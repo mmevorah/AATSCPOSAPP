@@ -135,28 +135,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBo-S7-Vv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-87" y="-403"/>
+            <point key="canvasLocation" x="-111" y="-435"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="FavoritesView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesView.h"/>
-        </class>
-        <class className="GroundEditViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroundEditViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addButton:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="favoritesView0" candidateClass="FavoritesView"/>
-                <relationship kind="outlet" name="favoritesView1" candidateClass="FavoritesView"/>
-                <relationship kind="outlet" name="favoritesView2" candidateClass="FavoritesView"/>
-                <relationship kind="outlet" name="favoritesView3" candidateClass="FavoritesView"/>
-                <relationship kind="outlet" name="favoritesView4" candidateClass="FavoritesView"/>
-                <relationship kind="outlet" name="libraryView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="productTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -22,7 +22,7 @@
 -(void)theCancelButtonHasBeenHit:(ModifyViewController*)controller;
 @end
 
-@interface ModifyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,VariationViewControllerDelegate, CameraOptionsDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface ModifyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,VariationViewControllerDelegate, CameraOptionsDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate>
 {
     NSString *nameInField;
     NSNumber *priceInField;

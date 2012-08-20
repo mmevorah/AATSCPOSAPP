@@ -33,6 +33,7 @@
 		ED3A64DA15B47D1A00E6EA04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B315B47D1A00E6EA04 /* Foundation.framework */; };
 		ED3A64DB15B47D1A00E6EA04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B715B47D1A00E6EA04 /* CoreData.framework */; };
 		ED3A64E315B47D1A00E6EA04 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3A64E115B47D1A00E6EA04 /* InfoPlist.strings */; };
+		ED51F27815E2B1070045CD5E /* GroundRegularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED51F27715E2B1060045CD5E /* GroundRegularViewController.m */; };
 		ED54778E15D016020061AADD /* FavoritesView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54778D15D016020061AADD /* FavoritesView.m */; };
 		ED54778F15D016020061AADD /* FavoritesView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54778D15D016020061AADD /* FavoritesView.m */; };
 		ED54779215D01BBD0061AADD /* IndiFavorite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54779115D01BBD0061AADD /* IndiFavorite.m */; };
@@ -47,10 +48,6 @@
 		ED75F6B415BDC3C200693890 /* FavoriteList.m in Sources */ = {isa = PBXBuildFile; fileRef = ED75F6B315BDC3C200693890 /* FavoriteList.m */; };
 		ED75F6B515BDC3C200693890 /* FavoriteList.m in Sources */ = {isa = PBXBuildFile; fileRef = ED75F6B315BDC3C200693890 /* FavoriteList.m */; };
 		ED75F6BC15BDC4E100693890 /* FavoriteListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED75F6BB15BDC4E100693890 /* FavoriteListTests.m */; };
-		ED7601D715CC19AD00B87E38 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7601D515CC19AD00B87E38 /* PhotoViewController.m */; };
-		ED7601D815CC19AD00B87E38 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7601D515CC19AD00B87E38 /* PhotoViewController.m */; };
-		ED7601D915CC19AD00B87E38 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED7601D615CC19AD00B87E38 /* PhotoViewController.xib */; };
-		ED7601DA15CC19AD00B87E38 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED7601D615CC19AD00B87E38 /* PhotoViewController.xib */; };
 		ED7601DD15CC235300B87E38 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7601DC15CC235300B87E38 /* AssetsLibrary.framework */; };
 		ED7601E215CC451200B87E38 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD3556515CB096400D3FF8B /* MobileCoreServices.framework */; };
 		ED97F8F915C6DE8A00C8A70A /* GroundEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */; };
@@ -122,6 +119,8 @@
 		ED3A64D715B47D1A00E6EA04 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		ED3A64E015B47D1A00E6EA04 /* EditAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EditAppTests-Info.plist"; sourceTree = "<group>"; };
 		ED3A64E215B47D1A00E6EA04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED51F27615E2B1060045CD5E /* GroundRegularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroundRegularViewController.h; sourceTree = "<group>"; };
+		ED51F27715E2B1060045CD5E /* GroundRegularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroundRegularViewController.m; sourceTree = "<group>"; };
 		ED54778C15D016020061AADD /* FavoritesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesView.h; sourceTree = "<group>"; };
 		ED54778D15D016020061AADD /* FavoritesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesView.m; sourceTree = "<group>"; };
 		ED54779015D01BBD0061AADD /* IndiFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndiFavorite.h; sourceTree = "<group>"; };
@@ -141,9 +140,6 @@
 		ED75F6B315BDC3C200693890 /* FavoriteList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteList.m; sourceTree = "<group>"; };
 		ED75F6BA15BDC4E100693890 /* FavoriteListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteListTests.h; sourceTree = "<group>"; };
 		ED75F6BB15BDC4E100693890 /* FavoriteListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteListTests.m; sourceTree = "<group>"; };
-		ED7601D415CC19AD00B87E38 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
-		ED7601D515CC19AD00B87E38 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
-		ED7601D615CC19AD00B87E38 /* PhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
 		ED7601DC15CC235300B87E38 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		ED97F8F715C6DE8A00C8A70A /* GroundEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroundEditViewController.h; sourceTree = "<group>"; };
 		ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroundEditViewController.m; sourceTree = "<group>"; };
@@ -269,29 +265,13 @@
 				ED3A64C215B47D1A00E6EA04 /* AppDelegate.h */,
 				ED3A64C315B47D1A00E6EA04 /* AppDelegate.m */,
 				ED3A64C515B47D1A00E6EA04 /* MainStoryboard.storyboard */,
-				ED97F8F715C6DE8A00C8A70A /* GroundEditViewController.h */,
-				ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */,
-				ED6B2EEA15D17BE500B86670 /* DragableView.h */,
-				ED6B2EEB15D17BE500B86670 /* DragableView.m */,
+				ED51F27615E2B1060045CD5E /* GroundRegularViewController.h */,
+				ED51F27715E2B1060045CD5E /* GroundRegularViewController.m */,
+				ED51F27415E2B0260045CD5E /* EditViewControllers */,
 				ED54778C15D016020061AADD /* FavoritesView.h */,
 				ED54778D15D016020061AADD /* FavoritesView.m */,
 				ED54779015D01BBD0061AADD /* IndiFavorite.h */,
 				ED54779115D01BBD0061AADD /* IndiFavorite.m */,
-				ED589A8B15D5628300537132 /* DeleteFavoriteViewController.h */,
-				ED589A8C15D5628300537132 /* DeleteFavoriteViewController.m */,
-				ED589A8D15D5628300537132 /* DeleteFavoriteViewController.xib */,
-				EDC442E515C81C9000DE8770 /* ModifyViewController.h */,
-				EDC442E615C81C9000DE8770 /* ModifyViewController.m */,
-				EDC442E715C81C9000DE8770 /* ModifyViewController.xib */,
-				EDC442F015C845EA00DE8770 /* VariationViewController.h */,
-				EDC442F115C845EA00DE8770 /* VariationViewController.m */,
-				EDC442F215C845EA00DE8770 /* VariationViewController.xib */,
-				EDD3557315CB14F300D3FF8B /* CameraOptionsViewController.h */,
-				EDD3557415CB14F300D3FF8B /* CameraOptionsViewController.m */,
-				EDD3557515CB14F300D3FF8B /* CameraOptionsViewController.xib */,
-				ED7601D415CC19AD00B87E38 /* PhotoViewController.h */,
-				ED7601D515CC19AD00B87E38 /* PhotoViewController.m */,
-				ED7601D615CC19AD00B87E38 /* PhotoViewController.xib */,
 				ED3A64EF15B47DF800E6EA04 /* Model */,
 				ED3A64BA15B47D1A00E6EA04 /* Supporting Files */,
 				EDAE633B15B5E25B008D4164 /* EditManager.h */,
@@ -352,6 +332,29 @@
 				ED3A64C815B47D1A00E6EA04 /* EditApp.xcdatamodeld */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		ED51F27415E2B0260045CD5E /* EditViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EDD3557315CB14F300D3FF8B /* CameraOptionsViewController.h */,
+				EDD3557415CB14F300D3FF8B /* CameraOptionsViewController.m */,
+				EDD3557515CB14F300D3FF8B /* CameraOptionsViewController.xib */,
+				EDC442F015C845EA00DE8770 /* VariationViewController.h */,
+				EDC442F115C845EA00DE8770 /* VariationViewController.m */,
+				EDC442F215C845EA00DE8770 /* VariationViewController.xib */,
+				ED589A8B15D5628300537132 /* DeleteFavoriteViewController.h */,
+				ED589A8C15D5628300537132 /* DeleteFavoriteViewController.m */,
+				ED589A8D15D5628300537132 /* DeleteFavoriteViewController.xib */,
+				EDC442E515C81C9000DE8770 /* ModifyViewController.h */,
+				EDC442E615C81C9000DE8770 /* ModifyViewController.m */,
+				EDC442E715C81C9000DE8770 /* ModifyViewController.xib */,
+				ED6B2EEA15D17BE500B86670 /* DragableView.h */,
+				ED6B2EEB15D17BE500B86670 /* DragableView.m */,
+				ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */,
+				ED97F8F715C6DE8A00C8A70A /* GroundEditViewController.h */,
+			);
+			name = EditViewControllers;
 			sourceTree = "<group>";
 		};
 		ED97F8FF15C6E72B00C8A70A /* ViewControllers */ = {
@@ -478,7 +481,6 @@
 				EDC442EA15C81C9000DE8770 /* ModifyViewController.xib in Resources */,
 				EDC442F515C845EA00DE8770 /* VariationViewController.xib in Resources */,
 				EDD3557815CB14F300D3FF8B /* CameraOptionsViewController.xib in Resources */,
-				ED7601D915CC19AD00B87E38 /* PhotoViewController.xib in Resources */,
 				ED589A8F15D5628300537132 /* DeleteFavoriteViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,7 +494,6 @@
 				EDC442EB15C81C9000DE8770 /* ModifyViewController.xib in Resources */,
 				EDC442F615C845EA00DE8770 /* VariationViewController.xib in Resources */,
 				EDD3557915CB14F300D3FF8B /* CameraOptionsViewController.xib in Resources */,
-				ED7601DA15CC19AD00B87E38 /* PhotoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,11 +536,11 @@
 				EDC442E815C81C9000DE8770 /* ModifyViewController.m in Sources */,
 				EDC442F315C845EA00DE8770 /* VariationViewController.m in Sources */,
 				EDD3557615CB14F300D3FF8B /* CameraOptionsViewController.m in Sources */,
-				ED7601D715CC19AD00B87E38 /* PhotoViewController.m in Sources */,
 				ED54778E15D016020061AADD /* FavoritesView.m in Sources */,
 				ED54779215D01BBD0061AADD /* IndiFavorite.m in Sources */,
 				ED6B2EEC15D17BE500B86670 /* DragableView.m in Sources */,
 				ED589A8E15D5628300537132 /* DeleteFavoriteViewController.m in Sources */,
+				ED51F27815E2B1070045CD5E /* GroundRegularViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,7 +572,6 @@
 				EDC442E915C81C9000DE8770 /* ModifyViewController.m in Sources */,
 				EDC442F415C845EA00DE8770 /* VariationViewController.m in Sources */,
 				EDD3557715CB14F300D3FF8B /* CameraOptionsViewController.m in Sources */,
-				ED7601D815CC19AD00B87E38 /* PhotoViewController.m in Sources */,
 				ED54778F15D016020061AADD /* FavoritesView.m in Sources */,
 				ED54779315D01BBD0061AADD /* IndiFavorite.m in Sources */,
 			);

@@ -12,7 +12,6 @@
 #import "Variation.h"
 #import "Product.h"
 #import "CameraOptionsViewController.h"
-#import "PhotoViewController.h"
 
 @interface ModifyViewController ()
 
@@ -207,6 +206,7 @@
 }
 
 - (IBAction)cameraButton:(UIButton *)sender {
+    [self saveNameandPrice];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:cameraOptionsViewController];
     [navController setNavigationBarHidden:YES];
     self.popOverController = [[UIPopoverController alloc] initWithContentViewController:navController];
@@ -216,28 +216,29 @@
 
 -(void)photoFromAlbumSelected
 {
-    PhotoViewController *photoViewController = [[PhotoViewController alloc] initWithNibName:@"PhotoViewController" bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:photoViewController];
-    navController.navigationBarHidden = YES;
-    navController.modalPresentationStyle = UIModalPresentationCurrentContext;
-    [self presentViewController:navController animated:YES completion:NULL];
     [popOverController dismissPopoverAnimated:YES];
-    navController.view.superview.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    navController.view.superview.center = self.view.center;
-    photoViewController.navigationController = navController;
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.mediaTypes = [NSArray arrayWithObjects:(NSString *) kUTTypeImage, nil];
+    imagePicker.allowsEditing = NO;
+    
+    self.popOverController = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
+    self.popOverController.delegate = self;
+    [self.popOverController presentPopoverFromRect:CGRectMake(0, 100, 100, 100) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+   
 }
 
 -(void)photoFromCameraSelected
 {
     [popOverController dismissPopoverAnimated:YES];
-    
-        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-        imagePicker.delegate = self;
-        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        imagePicker.mediaTypes = [NSArray arrayWithObjects:(NSString *) kUTTypeImage, nil];
-        imagePicker.allowsEditing = NO;
-        imagePicker.navigationBarHidden = TRUE;
-        [self presentViewController:imagePicker animated:YES completion:NULL];
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    imagePicker.mediaTypes = [NSArray arrayWithObjects:(NSString *) kUTTypeImage, nil];
+    imagePicker.allowsEditing = NO;
+    imagePicker.navigationBarHidden = TRUE;
+    [self presentViewController:imagePicker animated:YES completion:NULL];
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

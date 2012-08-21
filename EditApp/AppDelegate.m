@@ -31,8 +31,8 @@
     
     self.idManager = [[IDManager alloc] init];
     self.editManager = [[EditManager alloc] initWithManagedObjectContext:self.managedObjectContext andIDManager:self.idManager];
-    
     self.favoritesManger = [[FavoritesManager alloc] init];
+    
     self.editManager.favoriteManager = self.favoritesManger;
     
     self.groundViewController.editManager = self.editManager;

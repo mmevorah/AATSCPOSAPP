@@ -30,6 +30,7 @@
 @synthesize favoritesView4;
 
 @synthesize editManager;
+
 @synthesize segmentedControl;
 @synthesize libraryView;
 @synthesize titleBar;
@@ -299,9 +300,12 @@
 {
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint location = [touch locationInView:touch.view.superview.superview];
-    [self favoriteDropOff:location withProduct:dragableView.product];
-    [dragableView removeFromSuperview];
-    dragableView = nil;
+    if(dragableView != nil)
+    {
+        [self favoriteDropOff:location withProduct:dragableView.product];
+        [dragableView removeFromSuperview];
+        dragableView = nil;
+    }
 }
 
 -(void)favoriteDropOff:(CGPoint)location withProduct:(Product*)product

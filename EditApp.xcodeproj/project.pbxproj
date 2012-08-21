@@ -33,7 +33,6 @@
 		ED3A64DA15B47D1A00E6EA04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B315B47D1A00E6EA04 /* Foundation.framework */; };
 		ED3A64DB15B47D1A00E6EA04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B715B47D1A00E6EA04 /* CoreData.framework */; };
 		ED3A64E315B47D1A00E6EA04 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3A64E115B47D1A00E6EA04 /* InfoPlist.strings */; };
-		ED51F27815E2B1070045CD5E /* GroundRegularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED51F27715E2B1060045CD5E /* GroundRegularViewController.m */; };
 		ED54778E15D016020061AADD /* FavoritesView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54778D15D016020061AADD /* FavoritesView.m */; };
 		ED54778F15D016020061AADD /* FavoritesView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54778D15D016020061AADD /* FavoritesView.m */; };
 		ED54779215D01BBD0061AADD /* IndiFavorite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54779115D01BBD0061AADD /* IndiFavorite.m */; };
@@ -119,8 +118,6 @@
 		ED3A64D715B47D1A00E6EA04 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		ED3A64E015B47D1A00E6EA04 /* EditAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EditAppTests-Info.plist"; sourceTree = "<group>"; };
 		ED3A64E215B47D1A00E6EA04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ED51F27615E2B1060045CD5E /* GroundRegularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroundRegularViewController.h; sourceTree = "<group>"; };
-		ED51F27715E2B1060045CD5E /* GroundRegularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroundRegularViewController.m; sourceTree = "<group>"; };
 		ED54778C15D016020061AADD /* FavoritesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesView.h; sourceTree = "<group>"; };
 		ED54778D15D016020061AADD /* FavoritesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesView.m; sourceTree = "<group>"; };
 		ED54779015D01BBD0061AADD /* IndiFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndiFavorite.h; sourceTree = "<group>"; };
@@ -265,8 +262,6 @@
 				ED3A64C215B47D1A00E6EA04 /* AppDelegate.h */,
 				ED3A64C315B47D1A00E6EA04 /* AppDelegate.m */,
 				ED3A64C515B47D1A00E6EA04 /* MainStoryboard.storyboard */,
-				ED51F27615E2B1060045CD5E /* GroundRegularViewController.h */,
-				ED51F27715E2B1060045CD5E /* GroundRegularViewController.m */,
 				ED51F27415E2B0260045CD5E /* EditViewControllers */,
 				ED54778C15D016020061AADD /* FavoritesView.h */,
 				ED54778D15D016020061AADD /* FavoritesView.m */,
@@ -351,8 +346,8 @@
 				EDC442E715C81C9000DE8770 /* ModifyViewController.xib */,
 				ED6B2EEA15D17BE500B86670 /* DragableView.h */,
 				ED6B2EEB15D17BE500B86670 /* DragableView.m */,
-				ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */,
 				ED97F8F715C6DE8A00C8A70A /* GroundEditViewController.h */,
+				ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */,
 			);
 			name = EditViewControllers;
 			sourceTree = "<group>";
@@ -540,7 +535,6 @@
 				ED54779215D01BBD0061AADD /* IndiFavorite.m in Sources */,
 				ED6B2EEC15D17BE500B86670 /* DragableView.m in Sources */,
 				ED589A8E15D5628300537132 /* DeleteFavoriteViewController.m in Sources */,
-				ED51F27815E2B1070045CD5E /* GroundRegularViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ED037C4715B5C822009F1867 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = ED037C4615B5C822009F1867 /* Product.m */; };
-		ED037C4815B5C822009F1867 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = ED037C4615B5C822009F1867 /* Product.m */; };
-		ED037C4C15B5C822009F1867 /* Variation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED037C4B15B5C822009F1867 /* Variation.m */; };
-		ED037C4D15B5C822009F1867 /* Variation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED037C4B15B5C822009F1867 /* Variation.m */; };
 		ED039D6915BDB5AF0015D8D7 /* FavoritesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED039D6815BDB5AF0015D8D7 /* FavoritesManagerTests.m */; };
 		ED039D6F15BDB7F80015D8D7 /* FavoritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED039D6E15BDB7F80015D8D7 /* FavoritesManager.m */; };
 		ED039D7015BDB7F80015D8D7 /* FavoritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED039D6E15BDB7F80015D8D7 /* FavoritesManager.m */; };
@@ -19,6 +15,12 @@
 		ED0A004315BF038F00731E13 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3A64C315B47D1A00E6EA04 /* AppDelegate.m */; };
 		ED0B69E915C728D3003B2806 /* emptyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0B69E815C728D3003B2806 /* emptyImage.png */; };
 		ED0B69EA15C728D3003B2806 /* emptyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0B69E815C728D3003B2806 /* emptyImage.png */; };
+		ED38047215E528E500B1A029 /* PurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED38047115E528E500B1A029 /* PurchaseManager.m */; };
+		ED38047315E528E500B1A029 /* PurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED38047115E528E500B1A029 /* PurchaseManager.m */; };
+		ED38047715E5395000B1A029 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ED38047615E5395000B1A029 /* OrderItem.m */; };
+		ED38047815E5395000B1A029 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ED38047615E5395000B1A029 /* OrderItem.m */; };
+		ED38047B15E53DE900B1A029 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = ED38047A15E53DE800B1A029 /* Order.m */; };
+		ED38047C15E53DE900B1A029 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = ED38047A15E53DE800B1A029 /* Order.m */; };
 		ED3A64B215B47D1A00E6EA04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B115B47D1A00E6EA04 /* UIKit.framework */; };
 		ED3A64B415B47D1A00E6EA04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B315B47D1A00E6EA04 /* Foundation.framework */; };
 		ED3A64B615B47D1A00E6EA04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B515B47D1A00E6EA04 /* CoreGraphics.framework */; };
@@ -52,6 +54,11 @@
 		ED97F8F915C6DE8A00C8A70A /* GroundEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */; };
 		ED97F8FA15C6DE8A00C8A70A /* GroundEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */; };
 		ED97F8FE15C6E09D00C8A70A /* GroundViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED97F8FD15C6E09D00C8A70A /* GroundViewControllerTests.m */; };
+		ED9C2DD215E424CC008A2C7C /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9C2DD115E424CC008A2C7C /* Product.m */; };
+		ED9C2DD315E424CC008A2C7C /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9C2DD115E424CC008A2C7C /* Product.m */; };
+		ED9C2DDE15E424CD008A2C7C /* Variation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9C2DDD15E424CD008A2C7C /* Variation.m */; };
+		ED9C2DDF15E424CD008A2C7C /* Variation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9C2DDD15E424CD008A2C7C /* Variation.m */; };
+		ED9C2DE415E428A8008A2C7C /* PurchaseManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9C2DE315E428A8008A2C7C /* PurchaseManagerTests.m */; };
 		EDAE633815B5E214008D4164 /* VariationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE633715B5E214008D4164 /* VariationFactory.m */; };
 		EDAE633915B5E214008D4164 /* VariationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE633715B5E214008D4164 /* VariationFactory.m */; };
 		EDAE633D15B5E25B008D4164 /* EditManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE633C15B5E25B008D4164 /* EditManager.m */; };
@@ -90,10 +97,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		ED037C4515B5C822009F1867 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
-		ED037C4615B5C822009F1867 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
-		ED037C4A15B5C822009F1867 /* Variation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Variation.h; sourceTree = "<group>"; };
-		ED037C4B15B5C822009F1867 /* Variation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Variation.m; sourceTree = "<group>"; };
 		ED039D6715BDB5AE0015D8D7 /* FavoritesManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesManagerTests.h; sourceTree = "<group>"; };
 		ED039D6815BDB5AF0015D8D7 /* FavoritesManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesManagerTests.m; sourceTree = "<group>"; };
 		ED039D6D15BDB7F80015D8D7 /* FavoritesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesManager.h; sourceTree = "<group>"; };
@@ -101,6 +104,12 @@
 		ED039D7515BDBACD0015D8D7 /* MockFavoritesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockFavoritesManager.h; sourceTree = "<group>"; };
 		ED039D7615BDBACD0015D8D7 /* MockFavoritesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockFavoritesManager.m; sourceTree = "<group>"; };
 		ED0B69E815C728D3003B2806 /* emptyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = emptyImage.png; path = EditApp/emptyImage.png; sourceTree = SOURCE_ROOT; };
+		ED38047015E528E500B1A029 /* PurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseManager.h; sourceTree = "<group>"; };
+		ED38047115E528E500B1A029 /* PurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseManager.m; sourceTree = "<group>"; };
+		ED38047515E5395000B1A029 /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
+		ED38047615E5395000B1A029 /* OrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItem.m; sourceTree = "<group>"; };
+		ED38047915E53DE800B1A029 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		ED38047A15E53DE800B1A029 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		ED3A64AD15B47D1A00E6EA04 /* EditApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EditApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3A64B115B47D1A00E6EA04 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ED3A64B315B47D1A00E6EA04 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -142,6 +151,12 @@
 		ED97F8F815C6DE8A00C8A70A /* GroundEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroundEditViewController.m; sourceTree = "<group>"; };
 		ED97F8FC15C6E09D00C8A70A /* GroundViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroundViewControllerTests.h; sourceTree = "<group>"; };
 		ED97F8FD15C6E09D00C8A70A /* GroundViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroundViewControllerTests.m; sourceTree = "<group>"; };
+		ED9C2DD015E424CC008A2C7C /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		ED9C2DD115E424CC008A2C7C /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		ED9C2DDC15E424CD008A2C7C /* Variation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Variation.h; sourceTree = "<group>"; };
+		ED9C2DDD15E424CD008A2C7C /* Variation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Variation.m; sourceTree = "<group>"; };
+		ED9C2DE215E428A8008A2C7C /* PurchaseManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseManagerTests.h; sourceTree = "<group>"; };
+		ED9C2DE315E428A8008A2C7C /* PurchaseManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseManagerTests.m; sourceTree = "<group>"; };
 		EDAE633615B5E214008D4164 /* VariationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationFactory.h; sourceTree = "<group>"; };
 		EDAE633715B5E214008D4164 /* VariationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationFactory.m; sourceTree = "<group>"; };
 		EDAE633B15B5E25B008D4164 /* EditManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditManager.h; sourceTree = "<group>"; };
@@ -267,8 +282,8 @@
 				ED54778D15D016020061AADD /* FavoritesView.m */,
 				ED54779015D01BBD0061AADD /* IndiFavorite.h */,
 				ED54779115D01BBD0061AADD /* IndiFavorite.m */,
-				ED3A64EF15B47DF800E6EA04 /* Model */,
-				ED3A64BA15B47D1A00E6EA04 /* Supporting Files */,
+				ED38047015E528E500B1A029 /* PurchaseManager.h */,
+				ED38047115E528E500B1A029 /* PurchaseManager.m */,
 				EDAE633B15B5E25B008D4164 /* EditManager.h */,
 				EDAE633C15B5E25B008D4164 /* EditManager.m */,
 				ED700A3615B6060000973B64 /* IDManager.h */,
@@ -279,6 +294,8 @@
 				EDF8D11F15B4AD8200765DA9 /* ProductFactory.m */,
 				EDAE633615B5E214008D4164 /* VariationFactory.h */,
 				EDAE633715B5E214008D4164 /* VariationFactory.m */,
+				ED3A64EF15B47DF800E6EA04 /* Model */,
+				ED3A64BA15B47D1A00E6EA04 /* Supporting Files */,
 			);
 			path = EditApp;
 			sourceTree = "<group>";
@@ -318,12 +335,16 @@
 		ED3A64EF15B47DF800E6EA04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ED037C4515B5C822009F1867 /* Product.h */,
-				ED037C4615B5C822009F1867 /* Product.m */,
-				ED037C4B15B5C822009F1867 /* Variation.m */,
-				ED037C4A15B5C822009F1867 /* Variation.h */,
 				ED75F6B215BDC3C200693890 /* FavoriteList.h */,
 				ED75F6B315BDC3C200693890 /* FavoriteList.m */,
+				ED9C2DD015E424CC008A2C7C /* Product.h */,
+				ED9C2DD115E424CC008A2C7C /* Product.m */,
+				ED9C2DDC15E424CD008A2C7C /* Variation.h */,
+				ED9C2DDD15E424CD008A2C7C /* Variation.m */,
+				ED38047915E53DE800B1A029 /* Order.h */,
+				ED38047A15E53DE800B1A029 /* Order.m */,
+				ED38047515E5395000B1A029 /* OrderItem.h */,
+				ED38047615E5395000B1A029 /* OrderItem.m */,
 				ED3A64C815B47D1A00E6EA04 /* EditApp.xcdatamodeld */,
 			);
 			name = Model;
@@ -370,16 +391,7 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
-		EDF8D10715B4900800765DA9 /* Model Tests */ = {
-			isa = PBXGroup;
-			children = (
-				EDF8D10B15B4918E00765DA9 /* CoreDataTests.h */,
-				EDF8D10C15B4918E00765DA9 /* CoreDataTests.m */,
-			);
-			name = "Model Tests";
-			sourceTree = "<group>";
-		};
-		EDF8D11215B4A66500765DA9 /* Application Tests  */ = {
+		ED9C2DE015E426A3008A2C7C /* Edit Tests */ = {
 			isa = PBXGroup;
 			children = (
 				ED10835215B9B4FF00B9E612 /* Mocks */,
@@ -395,6 +407,33 @@
 				ED039D6815BDB5AF0015D8D7 /* FavoritesManagerTests.m */,
 				ED75F6BA15BDC4E100693890 /* FavoriteListTests.h */,
 				ED75F6BB15BDC4E100693890 /* FavoriteListTests.m */,
+			);
+			name = "Edit Tests";
+			sourceTree = "<group>";
+		};
+		ED9C2DE115E426C5008A2C7C /* Purchase Tests */ = {
+			isa = PBXGroup;
+			children = (
+				ED9C2DE215E428A8008A2C7C /* PurchaseManagerTests.h */,
+				ED9C2DE315E428A8008A2C7C /* PurchaseManagerTests.m */,
+			);
+			name = "Purchase Tests";
+			sourceTree = "<group>";
+		};
+		EDF8D10715B4900800765DA9 /* Model Tests */ = {
+			isa = PBXGroup;
+			children = (
+				EDF8D10B15B4918E00765DA9 /* CoreDataTests.h */,
+				EDF8D10C15B4918E00765DA9 /* CoreDataTests.m */,
+			);
+			name = "Model Tests";
+			sourceTree = "<group>";
+		};
+		EDF8D11215B4A66500765DA9 /* Application Tests  */ = {
+			isa = PBXGroup;
+			children = (
+				ED9C2DE115E426C5008A2C7C /* Purchase Tests */,
+				ED9C2DE015E426A3008A2C7C /* Edit Tests */,
 			);
 			name = "Application Tests ";
 			sourceTree = "<group>";
@@ -519,8 +558,6 @@
 				ED3A64C415B47D1A00E6EA04 /* AppDelegate.m in Sources */,
 				ED3A64CA15B47D1A00E6EA04 /* EditApp.xcdatamodeld in Sources */,
 				EDF8D12015B4AD8200765DA9 /* ProductFactory.m in Sources */,
-				ED037C4715B5C822009F1867 /* Product.m in Sources */,
-				ED037C4C15B5C822009F1867 /* Variation.m in Sources */,
 				EDAE633815B5E214008D4164 /* VariationFactory.m in Sources */,
 				EDAE633D15B5E25B008D4164 /* EditManager.m in Sources */,
 				ED700A3815B6060000973B64 /* IDManager.m in Sources */,
@@ -535,6 +572,11 @@
 				ED54779215D01BBD0061AADD /* IndiFavorite.m in Sources */,
 				ED6B2EEC15D17BE500B86670 /* DragableView.m in Sources */,
 				ED589A8E15D5628300537132 /* DeleteFavoriteViewController.m in Sources */,
+				ED9C2DD215E424CC008A2C7C /* Product.m in Sources */,
+				ED9C2DDE15E424CD008A2C7C /* Variation.m in Sources */,
+				ED38047215E528E500B1A029 /* PurchaseManager.m in Sources */,
+				ED38047715E5395000B1A029 /* OrderItem.m in Sources */,
+				ED38047B15E53DE900B1A029 /* Order.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,8 +588,6 @@
 				EDF8D10D15B4918E00765DA9 /* CoreDataTests.m in Sources */,
 				EDF8D11915B4A73D00765DA9 /* ProductFactoryTests.m in Sources */,
 				EDF8D12115B4AD8200765DA9 /* ProductFactory.m in Sources */,
-				ED037C4815B5C822009F1867 /* Product.m in Sources */,
-				ED037C4D15B5C822009F1867 /* Variation.m in Sources */,
 				EDAE633915B5E214008D4164 /* VariationFactory.m in Sources */,
 				EDAE633E15B5E25B008D4164 /* EditManager.m in Sources */,
 				EDAE634115B5E35A008D4164 /* EditManagerTests.m in Sources */,
@@ -568,6 +608,12 @@
 				EDD3557715CB14F300D3FF8B /* CameraOptionsViewController.m in Sources */,
 				ED54778F15D016020061AADD /* FavoritesView.m in Sources */,
 				ED54779315D01BBD0061AADD /* IndiFavorite.m in Sources */,
+				ED9C2DD315E424CC008A2C7C /* Product.m in Sources */,
+				ED9C2DDF15E424CD008A2C7C /* Variation.m in Sources */,
+				ED9C2DE415E428A8008A2C7C /* PurchaseManagerTests.m in Sources */,
+				ED38047315E528E500B1A029 /* PurchaseManager.m in Sources */,
+				ED38047815E5395000B1A029 /* OrderItem.m in Sources */,
+				ED38047C15E53DE900B1A029 /* Order.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

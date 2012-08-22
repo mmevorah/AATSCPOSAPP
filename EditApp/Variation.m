@@ -2,7 +2,7 @@
 //  Variation.m
 //  EditApp
 //
-//  Created by Mark Mevorah on 7/17/12.
+//  Created by Mark Mevorah on 8/21/12.
 //  Copyright (c) 2012 University of Michigan. All rights reserved.
 //
 
@@ -13,9 +13,9 @@
 @implementation Variation
 
 @dynamic iD;
+@dynamic master;
 @dynamic name;
 @dynamic price;
-@dynamic master;
 @dynamic product;
 
 @end

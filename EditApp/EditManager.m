@@ -23,6 +23,8 @@
 @synthesize idManager;
 @synthesize context;
 @synthesize favoriteManager;
+@synthesize editMode;
+@synthesize purchaseMode;
 
 -(id)initWithManagedObjectContext:(NSManagedObjectContext *)setContext andIDManager:(IDManager *)setIDManaged
 {
@@ -32,6 +34,9 @@
         variationFactory = [[VariationFactory alloc] init];
         productFactory.context = setContext;
         variationFactory.context = setContext;
+        
+        editMode = FALSE;
+        purchaseMode = TRUE;
         
         context = setContext;
         idManager = setIDManaged;

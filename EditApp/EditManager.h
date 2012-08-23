@@ -28,6 +28,8 @@
 @property(strong, nonatomic) FavoritesManager *favoriteManager;
 @property(strong, nonatomic) NSManagedObjectContext *context;
 
+@property BOOL editMode;
+@property BOOL purchaseMode;
 
 //set up
 -(id)initWithManagedObjectContext:(NSManagedObjectContext*)setContext andIDManager:(IDManager *)setIDManager;

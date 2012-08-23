@@ -22,6 +22,8 @@
 
 @implementation GroundEditViewController
 
+@synthesize addButtonAppearance;
+@synthesize editingCompleteButtonAppearance;
 @synthesize searchBar;
 @synthesize favoritesView0;
 @synthesize favoritesView1;
@@ -200,6 +202,8 @@
     [self setFavoritesView2:nil];
     [self setFavoritesView3:nil];
     [self setFavoritesView4:nil];
+    [self setAddButtonAppearance:nil];
+    [self setEditingCompleteButtonAppearance:nil];
     [super viewDidUnload];
 }
 
@@ -258,87 +262,102 @@
 
 -(void)handleSelection:(UIGestureRecognizer*)sender
 {
-    if(sender.state == UIGestureRecognizerStateBegan)
+    if(editManager.editMode)
     {
-        NSLog(@"Long cell selection");
-        CGPoint pressPoint = [sender locationInView:productTableView];
-        NSIndexPath *indexPath = [productTableView indexPathForRowAtPoint:pressPoint];
-        
-        if(dragableView == nil)
+        if(sender.state == UIGestureRecognizerStateBegan)
         {
-            dragableView = [[DragableView alloc] initWithFrame:CGRectMake(productTableView.frame.origin.x+ pressPoint.x,productTableView.frame.origin.y+ pressPoint.y + 100, 102, 122)];
-            initialDragableViewLocation = CGPointMake(productTableView.frame.origin.x+ pressPoint.x + 51, productTableView.frame.origin.y+ pressPoint.y + 100 + 61);
-            Product *adiPure = [productList objectAtIndex:[indexPath row]];
-            dragableView.imageView.image = adiPure.image;
-            dragableView.label.text = adiPure.name;
-            dragableView.product = adiPure;
-            [self.view addSubview:dragableView];
-            [self touchesBegan:nil withEvent:nil];
+            NSLog(@"Long cell selection");
+            CGPoint pressPoint = [sender locationInView:productTableView];
+            NSIndexPath *indexPath = [productTableView indexPathForRowAtPoint:pressPoint];
+        
+            if(dragableView == nil)
+            {
+                dragableView = [[DragableView alloc] initWithFrame:CGRectMake(productTableView.frame.origin.x+ pressPoint.x,productTableView.frame.origin.y+ pressPoint.y + 100, 102, 122)];
+                initialDragableViewLocation = CGPointMake(productTableView.frame.origin.x+ pressPoint.x + 51, productTableView.frame.origin.y+ pressPoint.y + 100 + 61);
+                Product *adiPure = [productList objectAtIndex:[indexPath row]];
+                dragableView.imageView.image = adiPure.image;
+                dragableView.label.text = adiPure.name;
+                dragableView.product = adiPure;
+                [self.view addSubview:dragableView];
+                [self touchesBegan:nil withEvent:nil];
+            }
         }
     }
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    dragableView.center = initialDragableViewLocation;
-    //[self touchesMoved:touches withEvent:event];
+    if(editManager.editMode)
+    {
+        dragableView.center = initialDragableViewLocation;
+        //[self touchesMoved:touches withEvent:event];
+    }
 }
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint location = [touch locationInView:touch.view.superview.superview];
-    initialDragableViewLocation = location;
-
-    if([touch.view.superview class] != [dragableView class])
+    if(editManager.editMode)
     {
-        [dragableView removeFromSuperview];
-        dragableView = nil;
+        UITouch *touch = [[event allTouches] anyObject];
+        CGPoint location = [touch locationInView:touch.view.superview.superview];
+        initialDragableViewLocation = location;
+
+        if([touch.view.superview class] != [dragableView class])
+        {
+            [dragableView removeFromSuperview];
+            dragableView = nil;
+        }
+            
+        dragableView.center = initialDragableViewLocation;
     }
-        
-    dragableView.center = initialDragableViewLocation;
 }
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint location = [touch locationInView:touch.view.superview.superview];
-    if(dragableView != nil)
+    if(editManager.editMode)
     {
-        [self favoriteDropOff:location withProduct:dragableView.product];
-        [dragableView removeFromSuperview];
-        dragableView = nil;
+        UITouch *touch = [[event allTouches] anyObject];
+        CGPoint location = [touch locationInView:touch.view.superview.superview];
+        if(dragableView != nil)
+        {
+            [self favoriteDropOff:location withProduct: dragableView.product];
+            [dragableView removeFromSuperview];
+            dragableView = nil;
+        }
     }
 }
 
 -(void)favoriteDropOff:(CGPoint)location withProduct:(Product*)product
 {
-    float originX = segmentedControl.frame.origin.x;
-    
-    if((location.y > 928) && (location.y < 971))
+    if(editManager.editMode)
     {
-        if((location.x > (originX+87)) && (location.x < (originX+87+87)))
+        float originX = segmentedControl.frame.origin.x;
+    
+        if((location.y > 928) && (location.y < 971))
         {
-            NSLog(@"Product Put in Fav0");
-            [editManager addProductToFavoritesWithID:product.iD toFavoritesList:0 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:0]]];
-            [favoritesView0 reloadFavoritesView];
-        }else if((location.x > (originX+87+87)) && (location.x < (originX+87+87+87)))
-        {
-            NSLog(@"fav1");
-            [editManager addProductToFavoritesWithID:product.iD toFavoritesList:1 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:1]]];
-            [favoritesView1 reloadFavoritesView];
-        }else if((location.x > (originX+87+87+87)) && (location.x < (originX+87+87+87+87)))
-        {
-            NSLog(@"fav2");
-            [editManager addProductToFavoritesWithID:product.iD toFavoritesList:2 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:2]]];
-            [favoritesView2 reloadFavoritesView];
-        }else if((location.x > (originX+87+87+87+87)) && (location.x < (originX+87+87+87+87+87)))
-        {
-            NSLog(@"fav3");
-            [editManager addProductToFavoritesWithID:product.iD toFavoritesList:3 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:3]]];
-            [favoritesView3 reloadFavoritesView];
-        }else if((location.x > (originX+87+87+87+87+87)) && (location.x < (originX+87+87+87+87+87+87)))
-        {
-            NSLog(@"fav4");
-            [editManager addProductToFavoritesWithID:product.iD toFavoritesList:4 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:4]]];
-            [favoritesView4 reloadFavoritesView];
+            if((location.x > (originX+87)) && (location.x < (originX+87+87)))
+            {
+                NSLog(@"Product Put in Fav0");
+                [editManager addProductToFavoritesWithID:product.iD toFavoritesList:0 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:0]]];
+                [favoritesView0 reloadFavoritesView];
+            }else if((location.x > (originX+87+87)) && (location.x < (originX+87+87+87)))
+            {
+                NSLog(@"fav1");
+                [editManager addProductToFavoritesWithID:product.iD toFavoritesList:1 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:1]]];
+                [favoritesView1 reloadFavoritesView];
+            }else if((location.x > (originX+87+87+87)) && (location.x < (originX+87+87+87+87)))
+            {
+                NSLog(@"fav2");
+                [editManager addProductToFavoritesWithID:product.iD toFavoritesList:2 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:2]]];
+                [favoritesView2 reloadFavoritesView];
+            }else if((location.x > (originX+87+87+87+87)) && (location.x < (originX+87+87+87+87+87)))
+            {
+                NSLog(@"fav3");
+                [editManager addProductToFavoritesWithID:product.iD toFavoritesList:3 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:3]]];
+                [favoritesView3 reloadFavoritesView];
+            }else if((location.x > (originX+87+87+87+87+87)) && (location.x < (originX+87+87+87+87+87+87)))
+            {
+                NSLog(@"fav4");
+                [editManager addProductToFavoritesWithID:product.iD toFavoritesList:4 atPosition:[NSNumber numberWithInteger:[editManager getNextAvailablePositionFromFavoritesList:4]]];
+                [favoritesView4 reloadFavoritesView];
+            }
         }
     }
 }
@@ -346,38 +365,44 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ModifyViewController *modifyViewController = [[ModifyViewController alloc] initWithNibName:@"ModifyViewController" bundle:nil];
+    if(editManager.editMode)
+    {
+        ModifyViewController *modifyViewController = [[ModifyViewController alloc] initWithNibName:@"ModifyViewController" bundle:nil];
     
-    modifyViewController.editManager = self.editManager;
-    NSLog(@"The product sent is: %@", [productList objectAtIndex:[indexPath row]]);
-    modifyViewController.product = [productList objectAtIndex:[indexPath row]];
+        modifyViewController.editManager = self.editManager;
+        NSLog(@"The product sent is: %@", [productList objectAtIndex:[indexPath row]]);
+        modifyViewController.product = [productList objectAtIndex:[indexPath row]];
     
-    modifyViewController.modalPresentationStyle = UIModalPresentationFormSheet;
-    modifyViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    [self presentViewController:modifyViewController animated:YES completion:NULL];
-    modifyViewController.view.superview.frame = CGRectMake(0, 0, 500, 250);
-    modifyViewController.view.superview.center = self.view.center;
+        modifyViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+        modifyViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        [self presentViewController:modifyViewController animated:YES completion:NULL];
+        modifyViewController.view.superview.frame = CGRectMake(0, 0, 500, 250);
+        modifyViewController.view.superview.center = self.view.center;
     
-    modifyViewController.titleBarTitle.text = @"Edit Item";
-    modifyViewController.saveButton.enabled = YES;
-    modifyViewController.disclosureButton.hidden = NO;
-    modifyViewController.delegate = self;
+        modifyViewController.titleBarTitle.text = @"Edit Item";
+        modifyViewController.saveButton.enabled = YES;
+        modifyViewController.disclosureButton.hidden = NO;
+        modifyViewController.delegate = self;
+    }
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(editingStyle == UITableViewCellEditingStyleDelete)
+    if(editManager.editMode)
     {
+        if(editingStyle == UITableViewCellEditingStyleDelete)
+        {
         
-        [editManager deleteProduct:[productList objectAtIndex:[indexPath row]]];
-        productList = [editManager getProductList:nil];
-        [self.productTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-        [favoritesView0 reloadFavoritesView];
-        [favoritesView1 reloadFavoritesView];
-        [favoritesView2 reloadFavoritesView];
-        [favoritesView3 reloadFavoritesView];
-        [favoritesView4 reloadFavoritesView];
-        [editManager saveContext];
+            [editManager deleteProduct:[productList objectAtIndex:[indexPath row]]];
+            productList = [editManager getProductList:nil];
+            [self.productTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            [favoritesView0 reloadFavoritesView];
+            [favoritesView1 reloadFavoritesView];
+            [favoritesView2 reloadFavoritesView];
+            [favoritesView3 reloadFavoritesView];
+            [favoritesView4 reloadFavoritesView];
+            [editManager saveContext];
+        }
     }
 }
 
@@ -393,19 +418,38 @@
 #pragma mark preparingForCreateProductView
 
 - (IBAction)addButton:(UIBarButtonItem *)sender
-{    
-    ModifyViewController *modifyViewController = [[ModifyViewController alloc] initWithNibName:@"ModifyViewController" bundle:nil];
-    modifyViewController.editManager = self.editManager;
-
-    modifyViewController.modalPresentationStyle = UIModalPresentationFormSheet;
-    modifyViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    [self presentViewController:modifyViewController animated:YES completion:NULL];
-    modifyViewController.view.superview.frame = CGRectMake(0, 0, 500, 250);
-    modifyViewController.view.superview.center = self.view.center;
+{
     
-    modifyViewController.titleBarTitle.text = @"Create Item";
-    modifyViewController.saveButton.enabled = NO;
-    modifyViewController.delegate = self;
+    if(editManager.editMode)
+    {
+        ModifyViewController *modifyViewController = [[ModifyViewController alloc] initWithNibName:@"ModifyViewController" bundle:nil];
+        modifyViewController.editManager = self.editManager;
+        
+        modifyViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+        modifyViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        [self presentViewController:modifyViewController animated:YES completion:NULL];
+        modifyViewController.view.superview.frame = CGRectMake(0, 0, 500, 250);
+        modifyViewController.view.superview.center = self.view.center;
+        
+        modifyViewController.titleBarTitle.text = @"Create Item";
+        modifyViewController.saveButton.enabled = NO;
+        modifyViewController.delegate = self;
+    }else if(editManager.purchaseMode)
+    {
+        addButtonAppearance.title = @"+";
+        self.view.backgroundColor = [UIColor blueColor];
+        editingCompleteButtonAppearance.hidden = FALSE;
+        editManager.editMode = TRUE;
+        editManager.purchaseMode = FALSE;
+    }
+}
+
+- (IBAction)editingComplete:(UIButton *)sender {
+    addButtonAppearance.title = @"Edit";
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    editingCompleteButtonAppearance.hidden = TRUE;
+    editManager.editMode = FALSE;
+    editManager.purchaseMode = TRUE;
 }
 
 -(void)theSaveButtonHasBeenHit:(ModifyViewController*)controller
@@ -419,6 +463,7 @@
 {
     [controller dismissViewControllerAnimated:YES completion:NULL];
 }
+
 
 
 @end

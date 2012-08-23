@@ -109,16 +109,19 @@
 
 -(void)presentDelete:(IndiFavorite*)button
 {
-    if([button.productID integerValue] != -1)
+    if(editManager.editMode)
     {
-        DeleteFavoriteViewController *deleteFavoritePopoverView = [[DeleteFavoriteViewController alloc] initWithNibName:@"DeleteFavoriteViewController" bundle:nil];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:deleteFavoritePopoverView];
-        [navController setNavigationBarHidden:YES];
-        deleteFavoritePopoverView.list = favoritesListNumber;
-        deleteFavoritePopoverView.position = button.position;
-        deleteFavoritePopoverView.delegate = self;
-        self.popoverController = [[UIPopoverController alloc] initWithContentViewController:navController];
-        [self.popoverController presentPopoverFromRect:CGRectMake(0, 0,120, 80) inView:button permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        if([button.productID integerValue] != -1)
+        {
+            DeleteFavoriteViewController *deleteFavoritePopoverView = [[DeleteFavoriteViewController alloc] initWithNibName:@"DeleteFavoriteViewController" bundle:nil];
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:deleteFavoritePopoverView];
+            [navController setNavigationBarHidden:YES];
+            deleteFavoritePopoverView.list = favoritesListNumber;
+            deleteFavoritePopoverView.position = button.position;
+            deleteFavoritePopoverView.delegate = self;
+            self.popoverController = [[UIPopoverController alloc] initWithContentViewController:navController];
+            [self.popoverController presentPopoverFromRect:CGRectMake(0, 0,120, 80) inView:button permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        }
     }
 }
 

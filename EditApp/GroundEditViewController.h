@@ -21,6 +21,8 @@
     NSArray *productList;
     NSString *productSearchText;
 }
+
+
 @property (strong, nonatomic)EditManager *editManager;
 
 //Segment Control
@@ -31,6 +33,9 @@
 @property (strong, nonatomic) IBOutlet UINavigationBar *titleBar;
 @property (strong, nonatomic) IBOutlet UITableView *productTableView;
 - (IBAction)addButton:(UIBarButtonItem *)sender;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addButtonAppearance;
+- (IBAction)editingComplete:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIButton *editingCompleteButtonAppearance;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 //Favorites View

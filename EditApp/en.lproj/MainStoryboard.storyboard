@@ -144,6 +144,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cartButton:" destination="ejr-cG-LCe" eventType="touchUpInside" id="o18-UU-urE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -151,6 +154,7 @@
                     <navigationItem key="navigationItem" id="7Bc-lk-nHo"/>
                     <connections>
                         <outlet property="addButtonAppearance" destination="Gab-ch-owx" id="iZ9-yd-gaC"/>
+                        <outlet property="cartButton" destination="RaC-6f-wW9" id="hLw-DH-8T4"/>
                         <outlet property="editingCompleteButtonAppearance" destination="rTE-tT-AMP" id="8QM-cR-Lhb"/>
                         <outlet property="favoritesView0" destination="8vI-7t-BBr" id="GTa-QA-1z5"/>
                         <outlet property="favoritesView1" destination="sxK-B1-yly" id="9vA-je-QCd"/>

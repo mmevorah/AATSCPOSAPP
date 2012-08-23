@@ -30,6 +30,7 @@
 @synthesize favoritesView2;
 @synthesize favoritesView3;
 @synthesize favoritesView4;
+@synthesize cartButton;
 
 @synthesize editManager;
 
@@ -204,6 +205,7 @@
     [self setFavoritesView4:nil];
     [self setAddButtonAppearance:nil];
     [self setEditingCompleteButtonAppearance:nil];
+    [self setCartButton:nil];
     [super viewDidUnload];
 }
 
@@ -439,6 +441,7 @@
         addButtonAppearance.title = @"+";
         self.view.backgroundColor = [UIColor blueColor];
         editingCompleteButtonAppearance.hidden = FALSE;
+        cartButton.hidden = TRUE;
         editManager.editMode = TRUE;
         editManager.purchaseMode = FALSE;
     }
@@ -448,6 +451,7 @@
     addButtonAppearance.title = @"Edit";
     self.view.backgroundColor = [UIColor lightGrayColor];
     editingCompleteButtonAppearance.hidden = TRUE;
+    cartButton.hidden = FALSE;
     editManager.editMode = FALSE;
     editManager.purchaseMode = TRUE;
 }
@@ -466,4 +470,6 @@
 
 
 
+- (IBAction)cartButton:(UIButton *)sender {
+}
 @end

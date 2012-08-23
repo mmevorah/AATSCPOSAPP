@@ -45,5 +45,7 @@
 @property (strong, nonatomic) IBOutlet FavoritesView *favoritesView3;
 @property (strong, nonatomic) IBOutlet FavoritesView *favoritesView4;
 
+@property (strong, nonatomic) IBOutlet UIButton *cartButton;
+- (IBAction)cartButton:(UIButton *)sender;
 
 @end

@@ -37,7 +37,8 @@
 		ED3A64E315B47D1A00E6EA04 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3A64E115B47D1A00E6EA04 /* InfoPlist.strings */; };
 		ED41063E15E6B343004EE59D /* cart-01.png in Resources */ = {isa = PBXBuildFile; fileRef = ED41063D15E6B343004EE59D /* cart-01.png */; };
 		ED41064215E6B434004EE59D /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41064015E6B434004EE59D /* CartViewController.m */; };
-		ED41064315E6B434004EE59D /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED41064115E6B434004EE59D /* CartViewController.xib */; };
+		ED41064715E6C5D8004EE59D /* VariationSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41064515E6C5D7004EE59D /* VariationSelectionViewController.m */; };
+		ED41064815E6C5D8004EE59D /* VariationSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED41064615E6C5D7004EE59D /* VariationSelectionViewController.xib */; };
 		ED54778E15D016020061AADD /* FavoritesView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54778D15D016020061AADD /* FavoritesView.m */; };
 		ED54778F15D016020061AADD /* FavoritesView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54778D15D016020061AADD /* FavoritesView.m */; };
 		ED54779215D01BBD0061AADD /* IndiFavorite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54779115D01BBD0061AADD /* IndiFavorite.m */; };
@@ -133,7 +134,9 @@
 		ED41063D15E6B343004EE59D /* cart-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart-01.png"; sourceTree = "<group>"; };
 		ED41063F15E6B433004EE59D /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
 		ED41064015E6B434004EE59D /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
-		ED41064115E6B434004EE59D /* CartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
+		ED41064415E6C5D7004EE59D /* VariationSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationSelectionViewController.h; sourceTree = "<group>"; };
+		ED41064515E6C5D7004EE59D /* VariationSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationSelectionViewController.m; sourceTree = "<group>"; };
+		ED41064615E6C5D7004EE59D /* VariationSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariationSelectionViewController.xib; sourceTree = "<group>"; };
 		ED54778C15D016020061AADD /* FavoritesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesView.h; sourceTree = "<group>"; };
 		ED54778D15D016020061AADD /* FavoritesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesView.m; sourceTree = "<group>"; };
 		ED54779015D01BBD0061AADD /* IndiFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndiFavorite.h; sourceTree = "<group>"; };
@@ -284,9 +287,11 @@
 				ED3A64C215B47D1A00E6EA04 /* AppDelegate.h */,
 				ED3A64C315B47D1A00E6EA04 /* AppDelegate.m */,
 				ED3A64C515B47D1A00E6EA04 /* MainStoryboard.storyboard */,
+				ED41064415E6C5D7004EE59D /* VariationSelectionViewController.h */,
+				ED41064515E6C5D7004EE59D /* VariationSelectionViewController.m */,
+				ED41064615E6C5D7004EE59D /* VariationSelectionViewController.xib */,
 				ED41063F15E6B433004EE59D /* CartViewController.h */,
 				ED41064015E6B434004EE59D /* CartViewController.m */,
-				ED41064115E6B434004EE59D /* CartViewController.xib */,
 				EDD3557315CB14F300D3FF8B /* CameraOptionsViewController.h */,
 				EDD3557415CB14F300D3FF8B /* CameraOptionsViewController.m */,
 				EDD3557515CB14F300D3FF8B /* CameraOptionsViewController.xib */,
@@ -520,7 +525,7 @@
 				EDD3557815CB14F300D3FF8B /* CameraOptionsViewController.xib in Resources */,
 				ED589A8F15D5628300537132 /* DeleteFavoriteViewController.xib in Resources */,
 				ED41063E15E6B343004EE59D /* cart-01.png in Resources */,
-				ED41064315E6B434004EE59D /* CartViewController.xib in Resources */,
+				ED41064815E6C5D8004EE59D /* VariationSelectionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +588,7 @@
 				ED38047715E5395000B1A029 /* OrderItem.m in Sources */,
 				ED38047B15E53DE900B1A029 /* Order.m in Sources */,
 				ED41064215E6B434004EE59D /* CartViewController.m in Sources */,
+				ED41064715E6C5D8004EE59D /* VariationSelectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

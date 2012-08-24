@@ -11,6 +11,7 @@
 
 @class GroundEditViewController;
 @class EditManager;
+@class PurchaseManager;
 @class IDManager;
 @class FavoritesManager;
 
@@ -26,6 +27,7 @@
 @property (strong, nonatomic) IDManager *idManager;
 @property (strong, nonatomic) FavoritesManager *favoritesManger;
 @property (strong, nonatomic) EditManager *editManager;
+@property (strong, nonatomic) PurchaseManager *purchaseManager;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

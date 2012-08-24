@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "EditManager.h"
 #import "ModifyViewController.h"
+#import "VariationSelectionViewController.h"
 @class EditManager;
 @class ModifyViewController;
 @class FavoritesView;
 @class DragableView;
+@class PurchaseManager;
+@class VariationSelectionViewController;
 
-@interface GroundEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, ModifyViewControllerDelegate>
+@interface GroundEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, ModifyViewControllerDelegate, VariationSelectionViewControllerDelegate>
 {
     DragableView *dragableView;
     CGPoint initialDragableViewLocation;
@@ -23,7 +26,8 @@
 }
 
 
-@property (strong, nonatomic)EditManager *editManager;
+@property (strong, nonatomic) EditManager *editManager;
+@property (strong, nonatomic) PurchaseManager *purchaseManager;
 
 //Segment Control
 @property (strong, nonatomic)UISegmentedControl *segmentedControl;
@@ -37,6 +41,9 @@
 - (IBAction)editingComplete:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIButton *editingCompleteButtonAppearance;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property (strong, nonatomic) UIPopoverController *popOverController;
+@property (strong, nonatomic) VariationSelectionViewController *variationSelectionViewController;
 
 //Favorites View
 @property (strong, nonatomic) IBOutlet FavoritesView *favoritesView0;

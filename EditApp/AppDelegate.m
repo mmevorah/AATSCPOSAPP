@@ -11,6 +11,7 @@
 #import "EditManager.h"
 #import "IDManager.h"
 #import "FavoritesManager.h"
+#import "PurchaseManager.h"
 
 
 @implementation AppDelegate
@@ -20,6 +21,7 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize groundViewController = _groundViewController;
 @synthesize editManager = _editManager;
+@synthesize purchaseManager = _purchaseManager;
 @synthesize idManager = _idManager;
 @synthesize favoritesManger = _favoritesManger;
 
@@ -34,8 +36,10 @@
     self.favoritesManger = [[FavoritesManager alloc] init];
     
     self.editManager.favoriteManager = self.favoritesManger;
+    self.purchaseManager = [[PurchaseManager alloc] initWithEditManager:self.editManager];
     
     self.groundViewController.editManager = self.editManager;
+    self.groundViewController.purchaseManager = self.purchaseManager;
     
     return YES;
 }

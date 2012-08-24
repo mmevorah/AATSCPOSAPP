@@ -8,6 +8,7 @@
 
 #import "GroundEditViewController.h"
 #import "EditManager.h"
+#import "PurchaseManager.h"
 #import "FavoritesManager.h"
 #import "FavoriteList.h"
 #import "FavoritesView.h"
@@ -16,6 +17,8 @@
 #import "ModifyViewController.h"
 #import "IDManager.h"
 #import "DragableView.h"
+#import "VariationSelectionViewController.h"
+
 @interface GroundEditViewController ()
 
 @end
@@ -31,8 +34,10 @@
 @synthesize favoritesView3;
 @synthesize favoritesView4;
 @synthesize cartButton;
+@synthesize popOverController;
 
 @synthesize editManager;
+@synthesize purchaseManager;
 
 @synthesize segmentedControl;
 @synthesize libraryView;
@@ -385,7 +390,29 @@
         modifyViewController.saveButton.enabled = YES;
         modifyViewController.disclosureButton.hidden = NO;
         modifyViewController.delegate = self;
+    }else if(editManager.purchaseMode)
+    {
+        
+        ////Need a mechanism for the variations
+        //popover view controller
+        
+        Product *product = [productList objectAtIndex:[indexPath row]];
+        if(product.variation.count > 1)
+        {
+            self.variationSelectionViewController = [[VariationSelectionViewController alloc] initWithNibName:@"VariationSelectionViewController" bundle:nil];
+            self.variationSelectionViewController.product = product;
+            self.variationSelectionViewController.editManager = editManager;
+            self.variationSelectionViewController.delegate = self;
+            self.popOverController = [[UIPopoverController alloc] initWithContentViewController:self.variationSelectionViewController];
+            [self.popOverController presentPopoverFromRect:CGRectMake(0, 0, 300, 55) inView:[[tableView cellForRowAtIndexPath:indexPath] contentView]  permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+        }
     }
+}
+
+-(void)addProductToCartWithID:(NSNumber *)productID andVariationID:(NSNumber *)variationID
+{
+    [purchaseManager addProductWithID:productID andVariation:variationID];
+    [popOverController dismissPopoverAnimated:YES];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

@@ -22,6 +22,7 @@
     if(self = [super init])
     {
         editManager = carriedEditManager;
+        [self createNewOrder];
     }
     return self;
 }

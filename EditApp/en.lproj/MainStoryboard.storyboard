@@ -1,38 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2818" systemVersion="12A269" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="say-JS-luo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2818" systemVersion="12A269" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="ejr-cG-LCe">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1900"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="Q0A-Pe-NiH">
-            <objects>
-                <navigationController id="Wuq-Ey-GBC" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="NEs-5l-6MG">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="chz-AQ-7Uu" kind="relationship" relationship="rootViewController" id="MmB-G2-A5b"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="auz-9i-LH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="418" y="-1308"/>
-        </scene>
-        <!--Split View Controller-->
-        <scene sceneID="vF7-v1-Vfk">
-            <objects>
-                <splitViewController id="say-JS-luo" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <connections>
-                        <segue destination="Wuq-Ey-GBC" kind="relationship" relationship="masterViewController" id="wUV-I0-2X3"/>
-                        <segue destination="ejr-cG-LCe" kind="relationship" relationship="detailViewController" id="nza-D3-NYt"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jse-QU-E2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-644" y="-646"/>
-        </scene>
         <!--Ground Edit View Controller-->
         <scene sceneID="haM-pn-kc9">
             <objects>
@@ -213,62 +184,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBo-S7-Vv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="349" y="-149"/>
-        </scene>
-        <!--Cart View Controller-->
-        <scene sceneID="fRA-AN-jUb">
-            <objects>
-                <viewController id="chz-AQ-7Uu" customClass="CartViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bzm-nH-I3z">
-                        <rect key="frame" x="0.0" y="64" width="320" height="788"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="H7O-YO-rnI">
-                                <rect key="frame" x="0.0" y="144" width="320" height="644"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="bAU-BZ-5RX"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="slX-Ju-ibO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="890" y="-1432"/>
+            <point key="canvasLocation" x="180" y="-283"/>
         </scene>
     </scenes>
     <resources>
         <image name="cart-01.png" width="292" height="292"/>
     </resources>
-    <classes>
-        <class className="CartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CartViewController.h"/>
-        </class>
-        <class className="FavoritesView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesView.h"/>
-        </class>
-        <class className="GroundEditViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroundEditViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addButton:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="cartButton:" candidateClass="UIButton"/>
-                <relationship kind="action" name="editingComplete:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="addButtonAppearance" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="cartButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editingCompleteButtonAppearance" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="favoritesView0" candidateClass="FavoritesView"/>
-                <relationship kind="outlet" name="favoritesView1" candidateClass="FavoritesView"/>
-                <relationship kind="outlet" name="favoritesView2" candidateClass="FavoritesView"/>
-                <relationship kind="outlet" name="favoritesView3" candidateClass="FavoritesView"/>
-                <relationship kind="outlet" name="favoritesView4" candidateClass="FavoritesView"/>
-                <relationship kind="outlet" name="libraryView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="productTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="titleBar" candidateClass="UINavigationBar"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

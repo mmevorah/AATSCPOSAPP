@@ -13,11 +13,13 @@
 #import "FavoriteList.h"
 #import "FavoritesView.h"
 #import "Product.h"
+#import "Variation.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ModifyViewController.h"
 #import "IDManager.h"
 #import "DragableView.h"
 #import "VariationSelectionViewController.h"
+#import "CartViewController.h"
 
 @interface GroundEditViewController ()
 
@@ -34,6 +36,7 @@
 @synthesize favoritesView3;
 @synthesize favoritesView4;
 @synthesize cartButton;
+@synthesize cartViewController;
 @synthesize popOverController;
 
 @synthesize editManager;
@@ -63,6 +66,10 @@
     self.libraryView.backgroundColor = [UIColor grayColor];
     self.titleBar.tintColor = [UIColor grayColor];
     self.titleBar.backgroundColor = [UIColor grayColor];
+    
+    self.cartViewController = [[CartViewController alloc] init];
+    self.cartViewController.purchaseManager = self.purchaseManager;
+    self.cartViewController.editManager = self.editManager;
     
 	// Do any additional setup after loading the view.
     libraryView.layer.cornerRadius = 5;
@@ -405,6 +412,10 @@
             self.variationSelectionViewController.delegate = self;
             self.popOverController = [[UIPopoverController alloc] initWithContentViewController:self.variationSelectionViewController];
             [self.popOverController presentPopoverFromRect:CGRectMake(0, 0, 300, 55) inView:[[tableView cellForRowAtIndexPath:indexPath] contentView]  permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+        }else
+        {
+            Variation *var = [editManager getMasterVariationFromProduct:product];
+            [self addProductToCartWithID:product.iD andVariationID:var.iD];
         }
     }
 }
@@ -495,8 +506,8 @@
     [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
-
-
 - (IBAction)cartButton:(UIButton *)sender {
+    self.popOverController = [[UIPopoverController alloc] initWithContentViewController:self.cartViewController];
+    [self.popOverController presentPopoverFromRect:CGRectMake(0, 0, 320, 832) inView:cartButton permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 }
 @end

@@ -15,6 +15,8 @@
 		ED0A004315BF038F00731E13 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3A64C315B47D1A00E6EA04 /* AppDelegate.m */; };
 		ED0B69E915C728D3003B2806 /* emptyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0B69E815C728D3003B2806 /* emptyImage.png */; };
 		ED0B69EA15C728D3003B2806 /* emptyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0B69E815C728D3003B2806 /* emptyImage.png */; };
+		ED1BD6ED15ED01C2002AF451 /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1BD6EB15ED01C2002AF451 /* CartViewController.m */; };
+		ED1BD6EE15ED01C2002AF451 /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1BD6EC15ED01C2002AF451 /* CartViewController.xib */; };
 		ED38047215E528E500B1A029 /* PurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED38047115E528E500B1A029 /* PurchaseManager.m */; };
 		ED38047315E528E500B1A029 /* PurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED38047115E528E500B1A029 /* PurchaseManager.m */; };
 		ED38047715E5395000B1A029 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ED38047615E5395000B1A029 /* OrderItem.m */; };
@@ -36,7 +38,6 @@
 		ED3A64DB15B47D1A00E6EA04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3A64B715B47D1A00E6EA04 /* CoreData.framework */; };
 		ED3A64E315B47D1A00E6EA04 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3A64E115B47D1A00E6EA04 /* InfoPlist.strings */; };
 		ED41063E15E6B343004EE59D /* cart-01.png in Resources */ = {isa = PBXBuildFile; fileRef = ED41063D15E6B343004EE59D /* cart-01.png */; };
-		ED41064215E6B434004EE59D /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41064015E6B434004EE59D /* CartViewController.m */; };
 		ED41064715E6C5D8004EE59D /* VariationSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41064515E6C5D7004EE59D /* VariationSelectionViewController.m */; };
 		ED41064815E6C5D8004EE59D /* VariationSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED41064615E6C5D7004EE59D /* VariationSelectionViewController.xib */; };
 		ED54778E15D016020061AADD /* FavoritesView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54778D15D016020061AADD /* FavoritesView.m */; };
@@ -108,6 +109,9 @@
 		ED039D7515BDBACD0015D8D7 /* MockFavoritesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockFavoritesManager.h; sourceTree = "<group>"; };
 		ED039D7615BDBACD0015D8D7 /* MockFavoritesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockFavoritesManager.m; sourceTree = "<group>"; };
 		ED0B69E815C728D3003B2806 /* emptyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = emptyImage.png; path = EditApp/emptyImage.png; sourceTree = SOURCE_ROOT; };
+		ED1BD6EA15ED01C1002AF451 /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
+		ED1BD6EB15ED01C2002AF451 /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
+		ED1BD6EC15ED01C2002AF451 /* CartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
 		ED38047015E528E500B1A029 /* PurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseManager.h; sourceTree = "<group>"; };
 		ED38047115E528E500B1A029 /* PurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseManager.m; sourceTree = "<group>"; };
 		ED38047515E5395000B1A029 /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
@@ -132,8 +136,6 @@
 		ED3A64E015B47D1A00E6EA04 /* EditAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EditAppTests-Info.plist"; sourceTree = "<group>"; };
 		ED3A64E215B47D1A00E6EA04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ED41063D15E6B343004EE59D /* cart-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart-01.png"; sourceTree = "<group>"; };
-		ED41063F15E6B433004EE59D /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
-		ED41064015E6B434004EE59D /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
 		ED41064415E6C5D7004EE59D /* VariationSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationSelectionViewController.h; sourceTree = "<group>"; };
 		ED41064515E6C5D7004EE59D /* VariationSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationSelectionViewController.m; sourceTree = "<group>"; };
 		ED41064615E6C5D7004EE59D /* VariationSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariationSelectionViewController.xib; sourceTree = "<group>"; };
@@ -290,8 +292,9 @@
 				ED41064415E6C5D7004EE59D /* VariationSelectionViewController.h */,
 				ED41064515E6C5D7004EE59D /* VariationSelectionViewController.m */,
 				ED41064615E6C5D7004EE59D /* VariationSelectionViewController.xib */,
-				ED41063F15E6B433004EE59D /* CartViewController.h */,
-				ED41064015E6B434004EE59D /* CartViewController.m */,
+				ED1BD6EA15ED01C1002AF451 /* CartViewController.h */,
+				ED1BD6EB15ED01C2002AF451 /* CartViewController.m */,
+				ED1BD6EC15ED01C2002AF451 /* CartViewController.xib */,
 				EDD3557315CB14F300D3FF8B /* CameraOptionsViewController.h */,
 				EDD3557415CB14F300D3FF8B /* CameraOptionsViewController.m */,
 				EDD3557515CB14F300D3FF8B /* CameraOptionsViewController.xib */,
@@ -526,6 +529,7 @@
 				ED589A8F15D5628300537132 /* DeleteFavoriteViewController.xib in Resources */,
 				ED41063E15E6B343004EE59D /* cart-01.png in Resources */,
 				ED41064815E6C5D8004EE59D /* VariationSelectionViewController.xib in Resources */,
+				ED1BD6EE15ED01C2002AF451 /* CartViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,8 +591,8 @@
 				ED38047215E528E500B1A029 /* PurchaseManager.m in Sources */,
 				ED38047715E5395000B1A029 /* OrderItem.m in Sources */,
 				ED38047B15E53DE900B1A029 /* Order.m in Sources */,
-				ED41064215E6B434004EE59D /* CartViewController.m in Sources */,
 				ED41064715E6C5D8004EE59D /* VariationSelectionViewController.m in Sources */,
+				ED1BD6ED15ED01C2002AF451 /* CartViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

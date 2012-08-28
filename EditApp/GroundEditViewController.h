@@ -15,6 +15,7 @@
 @class FavoritesView;
 @class DragableView;
 @class PurchaseManager;
+@class CartViewController;
 @class VariationSelectionViewController;
 
 @interface GroundEditViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, ModifyViewControllerDelegate, VariationSelectionViewControllerDelegate>
@@ -31,6 +32,9 @@
 
 //Segment Control
 @property (strong, nonatomic)UISegmentedControl *segmentedControl;
+
+//Cart View
+@property (strong, nonatomic) CartViewController *cartViewController;
 
 //Library View
 @property (strong, nonatomic) IBOutlet UIView *libraryView;
